@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h2 id="modifikátory-přístupu">Modifikátory přístupu</h2>
+<p>Určuje přistup k danému prvku.</p>
+<table>
+<thead>
+<tr>
+<th>Caller's location</th>
+<th>public</th>
+<th>protected internal</th>
+<th>protected</th>
+<th>internal</th>
+<th>private protected</th>
+<th>private</th>
+<th>file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Within the file</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>Within the class</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Derived class (same assembly)</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Non-derived class (same assembly)</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Derived class (different assembly)</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Non-derived class (different assembly)</td>
+<td>✔️</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>Více podrobností <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers#summary-table">zde</a>.</p>
+<h2 id="uvolnění-zdrojů">Uvolnění zdrojů</h2>
+<ul>
+<li><p><strong>Řízené zdroje</strong></p>
+<p>= Objekty, které jsou spravovány garbage collectorem.</p>
+<p>Zahrnuje všechny objekty vytvořené pomocí klíčového slova <code>new</code>.</p>
+<p>Garbage collector automaticky sleduje tyto objekty a uvolňuje jejich paměť, když již nejsou potřebné.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Programátoři nemusí explicitně uvolňovat paměť pro tyto objekty.</p>
+</div>
+</li>
+<li><p><strong>Neřízené zdroje</strong></p>
+<p>= Objekty, které nejsou spravovány garbage collectorem.</p>
+<p>Zahrnuje soubory, databázové připojení, síťové zdroje, atd...</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Programátoři musí explicitně uvolnit tyto zdroje, aby zabránili úniku paměti.</p>
+<p>Uvolnění zdrojů je důležité pro správné fungování aplikace.</p>
+</div>
+</li>
+</ul>
+<h3 id="destruktor">Destruktor</h3>
+<ul>
+<li><p>Automaticky volán, když je objekt zničen garbage collectorem.</p>
+</li>
+<li><p>Definuje se pomocí syntaxe <strong><code>~ClassName()</code></strong>.</p>
+</li>
+<li><p>Uvolňuje neřízené zdroje, které třída drží.</p>
+</li>
+<li><p>Destruktory nejsou deterministické.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Znamená, že nevíme přesně, kdy budou volány.</p>
+</div>
+</li>
+<li><p><strong>Jsou volány, když garbage collector rozhodne</strong>, že je objekt vhodný ke zničení.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Může to být kdykoliv po tom, co objekt přestane být používán.</p>
+</div>
+</li>
+</ul>
+<h3 id="dispose">Dispose</h3>
+<ul>
+<li><p>Součástí rozhraní <code>IDisposable</code> a je určen pro explicitní uvolnění zdrojů.</p>
+</li>
+<li><p>Metoda <strong><code>Dispose</code> je volána programátorem</strong>, když je známo, že objekt již nebude potřebný.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To umožňuje okamžité uvolnění zdrojů a zajišťuje, že nebudou drženy déle, než je nutné.</p>
+</div>
+</li>
+<li><p>Metoda <code>Dispose</code> je určena pro uvolnění jak řízených, tak neřízených zdrojů.</p>
+</li>
+</ul>
+<h2 id="volání-funkcí-z-externích-dll">Volání funkcí z externích DLL</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Platform Invocation Services (PInvoke)</strong> se používá pro volání knihoven z nativního kódu.</p>
+</div>
+<ul>
+<li><p>Nativní kód = Kód kompilován do strojového kódu pro konkrétní platformu.</p>
+</li>
+<li><p>Strojový kód = Kód přímo spustitelný na hardware dané platformy.</p>
+</li>
+</ul>
+<p>Postup:</p>
+<ol>
+<li>
+<p><strong>Importování funkce z DLL</strong></p>
+<p>Atribut <strong><code>DllImport</code></strong> z <code>System.Runtime.InteropServices</code> k importování funkce z DLL.</p>
+<p>Například:</p>
+<pre><code class="lang-c#">using System.Runtime.InteropServices;
+
+public class MyProgram
+{
+    [DllImport(&quot;User32.dll&quot;)]
+    public static extern int MessageBox(IntPtr h, string m, string c, int type);
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>MessageBox</code> je funkce definovaná v knihovně: <code>User32.dll</code>.</p>
+<p>Tato funkce je nyní dostupná v rámci tohoto .NET kódu.</p>
+</div>
+<h3 id="příklad-knihovny-v-c">Příklad knihovny v c++</h3>
+<p>Knihovna v c++ by mohla vypadat takto:</p>
+<pre><code class="lang-c++">#include &lt;windows.h&gt;
+
+extern &quot;C&quot; __declspec(dllexport) int MessageBox(HWND h, LPCSTR m, LPCSTR c, int type)
+{
+    return MessageBoxA(h, m, c, type);
+}
+</code></pre>
+<h3 id="metody-a-argumenty-v-c">Metody a argumenty v c++</h3>
+<ul>
+<li><p><strong><code>extern &quot;C&quot;</code></strong></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Zajistí, že funkce jsou kompatibilní s C jazykem. (To je důležité pro interoperabilitu mezi C++ a jinými jazyky, jako je C#.)</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Když kompilátor narazí na funkci, změní její název na něco, co jednoznačně identifikuje nejen název funkce, ale také typy jejích parametrů.</p>
+<p>To znamená, že název funkce, jak je viděn v DLL, nebude stejný jako název funkce v původním kódu.</p>
+<p>Když použijete <code>extern &quot;C&quot;</code>, říkáte kompilátoru, aby tuto funkci nezměnil a zachoval její název tak, jak je. To umožňuje jiným jazykům, jako je C#, najít a volat tuto funkci správným názvem.</p>
+</div>
+</li>
+<li><p><strong><code>__declspec(dllexport)</code></strong></p>
+<p>Říka kompilátoru C++, že tato funkce nebo proměnná bude exportována z DLL, takže ji může volat jiný kód, který tuto DLL používá.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Důležité k viditelnosti a dostupnosti pro <code>PInvoke</code></p>
+</div>
+</li>
+<li><p><strong><code>HWND</code></strong></p>
+<p>&quot;handle to a window&quot; (rukojeť okna)</p>
+</li>
+<li><p><strong><code>LPCTSTR</code></strong></p>
+<p>&quot;Long Pointer Constant String&quot;</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>8-bitů (Ansi)</th>
+<th>16-bitů (Wide)</th>
+<th>Různé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>character</td>
+<td>CHAR</td>
+<td>WCHAR</td>
+<td>TCHAR</td>
+</tr>
+<tr>
+<td>string</td>
+<td>LPSTR</td>
+<td>LPWSTR</td>
+<td>LPTSTR</td>
+</tr>
+<tr>
+<td>string (const)</td>
+<td>LPCSTR</td>
+<td>LPCWSTR</td>
+<td>LPCTSTR</td>
+</tr>
+</tbody>
+</table>
+<p>Odkaz <a href="https://stackoverflow.com/questions/321413/lpcstr-lpctstr-and-lptstr"> zde</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Volání importované funkce</strong></p>
+<pre><code class="lang-c#">public class MyProgram
+{
+    public static void Main()
+    {
+        MessageBox(IntPtr.Zero, &quot;Hello, World!&quot;, &quot;Test MessageBox&quot;, 0);
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>IntPtr.Zero</code></p>
+<p>Konstanta, která reprezentuje nulový ukazatel.</p>
+<p>Je to ekvivalent NULL v C++.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="__internal"><code>__Internal</code></h3>
+<p>Pokud se používá <strong><code>__Internal</code> jako název DLL v atributu <code>DllImport</code></strong>, znamená to, že funkce se hledá přímo v hlavním spustitelném souboru.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Hledá tedy v samotné aplikaci, pokud je to nativní kód, nebo v jedné z knihoven, na které aplikace odkazuje.</p>
+<ul>
+<li><p>Příklad použití v C#:</p>
+<pre><code class="lang-c++">public class MyProgram
+{
+    [DllImport(&quot;__Internal&quot;)]
+    public static extern int MyFunction();
+
+    public static void Main()
+    {
+        MyFunction();
+    }
+}
+</code></pre>
+</li>
+<li><p>Příklad definice v C++</p>
+<pre><code class="lang-c++">extern &quot;C&quot; __declspec(dllexport) int MyFunction()
+{
+    // Implementace vaší funkce
+    return 0;
+}
+</code></pre>
+<p>V tomto příkladu <code>MyFunction</code> je funkce definovaná v nativním kódu.</p>
+<p>Je tedy součástí aplikace nebo jedné z jejích závislostí.</p>
+</li>
+</ul>
+</div>
+<h3 id="tipy">Tipy</h3>
+<ul>
+<li><p><code>PInvoke</code></p>
+<p>= <strong>Platform Invocation Services</strong>, což je technika v <code>.NET</code>, která umožňuje volání funkcí, které jsou implementovány v neřízeném kódu.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To je obvykle používáno pro volání C API funkcí, které jsou definovány v DLL.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">      private static class PInvoke
+      {
+      #if UNITY_IOS || UNITY_TVOS
+           private const string DllName = &quot;__Internal&quot;;
+      #elif UNITY_STANDALONE_OSX
+           private const string DllName = &quot;MacOSAppleAuthManager&quot;;
+      #endif
+      
+          public delegate void NativeMessageHandlerCallbackDelegate(uint requestId, string payload);
+      
+          [AOT.MonoPInvokeCallback(typeof(NativeMessageHandlerCallbackDelegate))]
+          public static void NativeMessageHandlerCallback(uint requestId, string payload)
+          {   
+              try
+              {
+                  CallbackHandler.ScheduleCallback(requestId, payload);
+              }
+              catch (Exception exception)
+              {
+                  Console.WriteLine(&quot;Received exception while scheduling a callback for request ID &quot; + requestId);
+                  Console.WriteLine(&quot;Detailed payload:\n&quot; + payload);
+                  Console.WriteLine(&quot;Exception: &quot; + exception);
+              }
+          }
+      
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern bool AppleAuth_IsCurrentPlatformSupported();
+      
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_SetupNativeMessageHandlerCallback(NativeMessageHandlerCallbackDelegate callback);
+                  
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_GetCredentialState(uint requestId, string userId);
+      
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_LoginWithAppleId(uint requestId, int loginOptions, string nonceCStr, string stateCStr);
+                  
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_QuickLogin(uint requestId, string nonceCStr, string stateCStr);
+                  
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_RegisterCredentialsRevokedCallbackId(uint callbackId);
+      
+          [System.Runtime.InteropServices.DllImport(DllName)]
+          public static extern void AppleAuth_LogMessage(string messageCStr);
+      }
+</code></pre>
+</div>
+<p>Více info <a href="https://github.com/lupidan/apple-signin-unity/blob/master/AppleAuth/AppleAuthManager.cs">zde</a>.</p>
+</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/programming/net.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

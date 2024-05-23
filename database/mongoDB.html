@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h2 id="co-je-mongodb">Co je MongoDB</h2>
+<p>= Dokumentová databáze</p>
+<ul>
+<li><p>NoSQL (typ databáze)</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nevyužívá tabulkový formát, který je běžný u SQL databází.</p>
+</div>
+</li>
+<li><p>Data ukládá ve formátu zvaném <strong><code>BSON</code></strong>. (Binární verze formátu <code>JSON</code>)</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Formát <code>BSON</code> podporuje více datových typů.</p>
+<p>Efektivnější při encoding a decoding než <code>JSON</code>.</p>
+</div>
+</li>
+</ul>
+<h2 id="collections">Collections</h2>
+<ul>
+<li><p>Data jsou organizována do <strong><code>collections</code></strong></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Jsou ekvivalentem tabulek v SQL.</p>
+</div>
+</li>
+<li><p>Každá tato kolekce obsahuje <strong><code>documents</code></strong>, což jsou jednotlivé záznamy dat.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Na rozdíl od řádků v tabulce SQL nemusí mít dokumenty v MongoDB stejnou strukturu.</p>
+<p>To znamená, že různé dokumenty ve stejné kolekci mohou mít různé sady polí.</p>
+<p>Příklad:</p>
+<pre><code class="lang-Javascript">var document1 = { name: &quot;Peter&quot;, age: 30, residence: &quot;Prague&quot; };
+db.myPeople.insert(document1);
+
+var document2 = { name: &quot;Anna&quot;, age: 25, occupation: &quot;Engineer&quot; };
+db.myPeople.insert(document2);
+</code></pre>
+</div>
+</li>
+</ul>
+<h2 id="klíčové-pojmy">Klíčové pojmy</h2>
+<h3 id="dokumenty">Dokumenty</h3>
+<p>Záznamy v MongoDB.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Každý dokument je struktura dat podobná JSON.</p>
+</div>
+<h3 id="kolekce">Kolekce</h3>
+<p>Skupiny dokumentů.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Jsou to ekvivalenty tabulek v SQL.</p>
+</div>
+<h3 id="bson">BSON</h3>
+<p>Formát ve kterém jsou data uložena.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Je to binární verze JSON.</p>
+</div>
+<h2 id="kód">Kód</h2>
+<h3 id="vytvořit">Vytvořit</h3>
+<ul>
+<li><p>Databázi</p>
+<pre><code class="lang-Javascript">use mydb
+</code></pre>
+</li>
+<li><p>Kolekci</p>
+<pre><code class="lang-Javascript">mydb.createCollection('mycollection')
+</code></pre>
+</li>
+<li><p>Vložit dokument do kolekce</p>
+<pre><code class="lang-Javascript">mydb.mycollection.insert({name: 'test'})
+</code></pre>
+</li>
+<li><p>Vložit více dokumentů do kolekce</p>
+<pre><code class="lang-Javascript">mydb.mycollection.insertMany([{name: 'test1'}, {name: 'test2'}])
+</code></pre>
+</li>
+<li><p>Vytvořit index</p>
+<pre><code class="lang-Javascript">mydb.mycollection.createIndex({name: 1})
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Index je vytvořen na pole <code>name</code></p>
+<p>Vzestupný = 1</p>
+<p>Sestupný = -1</p>
+<p>Vzestupné a sestupné indexy určují pořadí, ve kterém jsou data v indexu uložena, což může ovlivnit výkon a rychlost dotazů, které vyžadují řazení</p>
+</div>
+</li>
+<li><p>Vytvoření více indexů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.createIndexes([{ key: { name: 1 } }, { key: { age: -1 } }])
+</code></pre>
+</li>
+</ul>
+<h3 id="hledat">Hledat</h3>
+<ul>
+<li><p>Výpis databází</p>
+<pre><code class="lang-Javascript">show dbs
+</code></pre>
+</li>
+<li><p>Výpis dokumentů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find()
+</code></pre>
+</li>
+<li><p>Výpis kolekcí</p>
+<pre><code class="lang-Javascript">show collections
+</code></pre>
+</li>
+<li><p>Hledání dokumentu</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find({name: 'test'})
+</code></pre>
+</li>
+<li><p>Hledání dokumentu s určitými poli</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find({name: 'test'}, {name: 1})
+</code></pre>
+</li>
+<li><p>Hledání dokumentu s regulárním výrazem</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find({name: {$regex: 'te.*'}})
+</code></pre>
+</li>
+</ul>
+<h3 id="aktualizovat">Aktualizovat</h3>
+<ul>
+<li><p>Aktualizace dokumentu</p>
+<pre><code class="lang-Javascript">mydb.mycollection.update({name: 'test'}, {$set: {name: 'newTest'}})
+</code></pre>
+</li>
+<li><p>Aktualizace více dokumentů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.updateMany({}, {$set: {name: 'newTest'}})
+</code></pre>
+</li>
+<li><p>Aktualizace dokumentu s upsert</p>
+<pre><code class="lang-Javascript">mydb.mycollection.update({name: 'test'}, {$set: {name: 'newTest'}}, {upsert: true})
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>&quot;upsert&quot; <strong>je kombinací &quot;update&quot; a &quot;insert&quot;</strong></p>
+<p>Aktualizuje existující dokument, nebo pokud dokument neexistuje, vloží nový dokument.</p>
+</div>
+</li>
+</ul>
+<h3 id="smazat">Smazat</h3>
+<ul>
+<li><p>Smazání databáze</p>
+<pre><code class="lang-Javascript">db.dropDatabase()
+</code></pre>
+</li>
+<li><p>Smazání kolekce</p>
+<pre><code class="lang-Javascript">mydb.mycollection.drop()
+</code></pre>
+</li>
+<li><p>Smazání dokumentu</p>
+<pre><code class="lang-Javascript">mydb.mycollection.remove({name: 'test'})
+</code></pre>
+</li>
+<li><p>Smazání všech dokumentů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.remove({})
+</code></pre>
+</li>
+</ul>
+<h3 id="počet">Počet</h3>
+<ul>
+<li><p>Počet dokumentů v kolekci</p>
+<pre><code class="lang-Javascript">mydb.mycollection.count()
+</code></pre>
+</li>
+<li><p>Počet dokumentů odpovídajících určitému dotazu</p>
+<pre><code class="lang-Javascript">mydb.mycollection.count({name: 'test'})
+</code></pre>
+</li>
+<li><p>Počet unikátních hodnot v určitém poli</p>
+<pre><code class="lang-Javascript">mydb.mycollection.distinct('name').length
+</code></pre>
+</li>
+<li><p>Počet dokumentů odpovídajících regulárnímu výrazu</p>
+<pre><code class="lang-Javascript">mydb.mycollection.count({name: {$regex: 'te.*'}})
+</code></pre>
+</li>
+</ul>
+<h3 id="setřídit">Setřídit</h3>
+<ul>
+<li><p>Seřazení dokumentů podle pole</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find().sort({name: 1})
+</code></pre>
+</li>
+<li><p>Seřazení dokumentů podle více polí</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find().sort({name: 1, age: -1})
+</code></pre>
+</li>
+<li><p>Seřazení a omezení počtu dokumentů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find().sort({name: 1}).limit(5)
+</code></pre>
+</li>
+<li><p>Seřazení a přeskočení dokumentů</p>
+<pre><code class="lang-Javascript">mydb.mycollection.find().sort({name: 1}).skip(5)
+</code></pre>
+</li>
+</ul>
+<h2 id="rady-a-tipy">Rady a Tipy</h2>
+<h3 id="povolení-autorizace">Povolení autorizace</h3>
+<ul>
+<li><p>MongoDB má vestavěný systém pro správu uživatelů a rolí.</p>
+<p>Pro povolení autorizace upravte konfigurační soubor MongoDB a nastavte <code>security.authorization</code> na <code>enabled</code>.</p>
+<pre><code class="lang-bash">security:
+  authorization: &quot;enabled&quot;
+</code></pre>
+</li>
+</ul>
+<h3 id="využití-indexů">Využití indexů</h3>
+<ul>
+<li><p>Indexy v MongoDB vytváříte pomocí metody <code>createIndex()</code>.</p>
+<p>Například pro vytvoření vzestupného indexu na pole <code>name</code> v kolekci <code>mycollection</code> použijete následující příkaz:</p>
+<pre><code class="lang-Javascript">db.mycollection.createIndex({name: 1})
+</code></pre>
+</li>
+</ul>
+<h3 id="optimalizace-dotazů">Optimalizace dotazů</h3>
+<ul>
+<li><p>MongoDB poskytuje operátor <code>explain()</code>, který vám umožní zjistit, jak databáze vykonává váš dotaz.</p>
+<p>Tímto způsobem můžete identifikovat, které části dotazu je třeba optimalizovat.</p>
+<pre><code class="lang-Javascript">db.mycollection.find({name: 'test'}).explain()
+</code></pre>
+</li>
+</ul>
+<h3 id="správné-modelování-dat">Správné modelování dat</h3>
+<ul>
+<li><p>MongoDB je dokumentová databáze, která umožňuje velmi flexibilní modelování dat.</p>
+<p>Při návrhu vašeho datového modelu zvažte, jak budou data dotazována a jaké budou pracovní zátěže.</p>
+</li>
+</ul>
+<h3 id="škálování">Škálování</h3>
+<ul>
+<li><p>MongoDB podporuje horizontální škálování pomocí replikačních sad a sharding.</p>
+<p>Pro větší aplikace zvažte použití těchto funkcí pro zlepšení výkonu a dostupnosti.</p>
+</li>
+</ul>
+<h3 id="paměť">Paměť</h3>
+<ul>
+<li><p>MongoDB využívá paměť pro ukládání pracovní sady, což zlepšuje výkon dotazů.</p>
+<p>Ujistěte se, že váš server má dostatek RAM pro vaše pracovní zátěže.</p>
+</li>
+</ul>
+<h3 id="šetření-prostředky">Šetření prostředky</h3>
+<ul>
+<li><p>Pokud máte dotazy, které se často opakují, zvažte ukládání výsledků těchto dotazů pro pozdější použití.</p>
+<p>To může šetřit výpočetní prostředky a zlepšit výkon vaší aplikace.</p>
+</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/database/mongoDB.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

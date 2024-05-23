@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h2 id="queue">Queue</h2>
+<p>= Fronta</p>
+<p>Funguje na principu FIFO (First In First Out) = První prvek, který je vložen do fronty, je první, který je vyjmut.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Představte si frontu jako řadu lidí čekajících na autobus.</p>
+<p>První člověk, který přišel (<code>enqueue</code>), je první, kdo nastoupí do autobusu (<code>dequeue</code>).</p>
+</div>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Queue&lt;int&gt; queue = new Queue&lt;int&gt;();
+queue.Enqueue(1); // Enqueue() vloží prvek do fronty
+queue.Enqueue(2);
+queue.Enqueue(3);
+
+Console.WriteLine(queue.Dequeue()); // Dequeue() vyjme první prvek z fronty: 1
+Console.WriteLine(queue.Dequeue()); // 2
+Console.WriteLine(queue.Dequeue()); // 3
+</code></pre>
+<h3 id="priorityqueue">PriorityQueue</h3>
+<p>Každý prvek ve frontě má přiřazenou prioritu.</p>
+<p>Prvek s nejvyšší prioritou je vždy vyjmut první.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">PriorityQueue&lt;int&gt; queue = new PriorityQueue&lt;int&gt;();
+queue.Enqueue(1, 2); // Enqueue() vloží prvek do fronty s prioritou 2
+queue.Enqueue(2, 1); // Prvek s prioritou 1 bude vyjmut první
+queue.Enqueue(3, 3);
+
+Console.WriteLine(queue.Dequeue()); // 2
+Console.WriteLine(queue.Dequeue()); // 1
+Console.WriteLine(queue.Dequeue()); // 3
+</code></pre>
+<h2 id="stack">Stack</h2>
+<p>= Zásobník</p>
+<p>Funguje na principu LIFO (Last In First Out) = Poslední prvek, který je vložen do zásobníku, je první, který je vyjmut.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Představte si zásobník jako hromadu talířů.</p>
+<p>Poslední talíř, který je položen na hromadu (<code>push</code>), je první, který je vyjmut (<code>pop</code>).</p>
+</div>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Stack&lt;int&gt; stack = new Stack&lt;int&gt;();
+stack.Push(1); // Push() vloží prvek na zásobník
+stack.Push(2);
+stack.Push(3);
+
+Console.WriteLine(stack.Pop()); // Pop() vyjme poslední prvek ze zásobníku: 3
+Console.WriteLine(stack.Pop()); // 2
+Console.WriteLine(stack.Pop()); // 1
+</code></pre>
+<h2 id="list">List</h2>
+<ul>
+<li><p><code>List</code></p>
+<p>Seznam prvků, který lze indexovat.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">List&lt;int&gt; list = new List&lt;int&gt;();
+list.Add(1); // Add() přidá prvek na konec seznamu
+list.Add(2);
+list.Add(3);
+
+Console.WriteLine(list[1]); // Vrátí prvek na indexu 1: 2
+list.RemoveAt(1); // RemoveAt() odebere prvek na indexu 1
+Console.WriteLine(list[1]); // 3
+</code></pre>
+</li>
+</ul>
+<h3 id="linkedlist">LinkedList</h3>
+<ul>
+<li><p><code>LinkedList</code></p>
+<p>Seznam prvků, který lze efektivně upravovat.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">LinkedList&lt;int&gt; linkedList = new LinkedList&lt;int&gt;();
+linkedList.AddLast(1); // AddLast() přidá prvek na konec seznamu
+linkedList.AddLast(2);
+linkedList.AddLast(3);
+
+Console.WriteLine(linkedList.First.Value); // Vrátí první prvek seznamu: 1
+linkedList.RemoveFirst(); // RemoveFirst() odebere první prvek ze seznamu
+Console.WriteLine(linkedList.First.Value); // 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Rozdíl proti <code>Dictionary</code> je, že <code>LinkedList</code> je efektivnější pro úpravy, ale méně efektivní pro vyhledávání.</p>
+</div>
+</li>
+</ul>
+<h3 id="sortedlinkedlist">SortedLinkedList</h3>
+<ul>
+<li><p><code>SortedLinkedList</code></p>
+<p>Seznam prvků, který je automaticky seřazený.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">SortedLinkedList&lt;int&gt; sortedLinkedList = new SortedLinkedList&lt;int&gt;();
+sortedLinkedList.Add(3); // Add() přidá prvek do seznamu
+sortedLinkedList.Add(1);
+sortedLinkedList.Add(2);
+
+Console.WriteLine(sortedLinkedList.First.Value); // Vrátí první prvek seznamu: 1
+sortedLinkedList.RemoveFirst(); // RemoveFirst() odebere první prvek ze seznamu
+Console.WriteLine(sortedLinkedList.First.Value); // 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Rozdíl proti <code>LinkedList</code> je, že <code>SortedLinkedList</code> je automaticky seřazený.</p>
+</div>
+</li>
+</ul>
+<h2 id="dictionary">Dictionary</h2>
+<ul>
+<li><p><code>Dictionary</code></p>
+<p>Kolekce klíč-hodnota, která je efektivní pro vyhledávání.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Map&lt;string, int&gt; map = new Map&lt;string, int&gt;();
+map.Put(&quot;key1&quot;, 1); // Put() přidá klíč a hodnotu do mapy
+map.Put(&quot;key2&quot;, 2);
+map.Put(&quot;key3&quot;, 3);
+
+Console.WriteLine(map.Get(&quot;key2&quot;)); // Get() vrátí hodnotu pod klíčem &quot;key2&quot;: 2
+map.Remove(&quot;key2&quot;); // Remove() odebere klíč a hodnotu z mapy
+Console.WriteLine(map.ContainsKey(&quot;key2&quot;)); // false
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Je efektivní pro vyhledávání, ale méně efektivní pro úpravy.</p>
+</div>
+</li>
+</ul>
+<h3 id="sorteddictionary">SortedDictionary</h3>
+<ul>
+<li><p><code>SortedDictionary</code></p>
+<p>Kolekce klíč-hodnota, která je automaticky seřazena podle klíčů.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">SortedDictionary&lt;string, int&gt; sortedDictionary = new SortedDictionary&lt;string, int&gt;();
+sortedDictionary.Add(&quot;key3&quot;, 3); // Add() přidá klíč a hodnotu do tabulky
+sortedDictionary.Add(&quot;key1&quot;, 1);
+sortedDictionary.Add(&quot;key2&quot;, 2);
+
+Console.WriteLine(sortedDictionary.First().Key); // Vrátí klíč prvního prvku: &quot;key1&quot;
+sortedDictionary.Remove(&quot;key1&quot;); // Remove() odebere klíč a hodnotu z tabulky
+Console.WriteLine(sortedDictionary.First().Key); // &quot;key2&quot;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Rozdíl proti <code>Dictionary</code> je, že <code>SortedDictionary</code> je automaticky seřazený podle klíčů.</p>
+</div>
+</li>
+</ul>
+<h2 id="hashset">HashSet</h2>
+<p>Množina unikátních prvků.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Není zaručeno, že prvky budou v množině ve stejném pořadí, jak byly přidány.</p>
+</div>
+<p>Příklad:</p>
+<pre><code class="lang-c#">HashSet&lt;int&gt; hashSet = new HashSet&lt;int&gt;();
+hashSet.Add(1); // Add() přidá prvek do množiny
+hashSet.Add(2);
+hashSet.Add(3);
+
+Console.WriteLine(hashSet.Contains(2)); // Contains() zjistí, zda množina obsahuje prvek: true
+hashSet.Remove(2); // Remove() odebere prvek z množiny
+Console.WriteLine(hashSet.Contains(2)); // false
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>HashSet</code> je optimalizovaný pro rychlé vyhledávání.</p>
+</div>
+<h2 id="hashtable">Hashtable</h2>
+<p>Kolekce klíč-hodnota.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Hashtable hashtable = new Hashtable();
+hashtable.Add(&quot;key1&quot;, 1); // Add() přidá klíč a hodnotu do tabulky
+hashtable.Add(&quot;key2&quot;, 2);
+hashtable.Add(&quot;key3&quot;, 3);
+
+Console.WriteLine(hashtable[&quot;key2&quot;]); // Vrátí hodnotu pod klíčem &quot;key2&quot;: 2
+hashtable.Remove(&quot;key2&quot;); // Remove() odebere klíč a hodnotu z tabulky
+Console.WriteLine(hashtable.Contains(&quot;key2&quot;)); // false
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><code>Hashtable</code> je starší třída a je obecně doporučováno používat <code>Dictionary</code></p>
+</div>
+<h2 id="tuple">Tuple</h2>
+<p>Kolekce prvků různých typů.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Tuple&lt;int, string&gt; tuple = new Tuple&lt;int, string&gt;(1, &quot;Hello&quot;);
+Console.WriteLine(tuple.Item1); // Vrátí první prvek: 1
+Console.WriteLine(tuple.Item2); // Vrátí druhý prvek: &quot;Hello&quot;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Tuple</code> je obecný typ, který lze použít pro vytvoření kolekce prvků různých typů.</p>
+</div>
+<h3 id="valuetuple">ValueTuple</h3>
+<p>Kolekce prvků různých typů, která je optimalizovaná pro rychlé vytváření.</p>
+<blockquote>
+<p>Kolekce znamená, že prvek může obsahovat více prvků.</p>
+</blockquote>
+<p>Příklad:</p>
+<pre><code class="lang-c#">(int, string) valueTuple = (1, &quot;Hello&quot;);
+Console.WriteLine(valueTuple.Item1); // Vrátí první prvek: 1
+Console.WriteLine(valueTuple.Item2); // Vrátí druhý prvek: &quot;Hello&quot;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ValueTuple</code> je optimalizovaný typ, který lze použít pro rychlé vytváření kolekce prvků různých typů.</p>
+</div>
+<blockquote>
+<p>Vlastní názvy prvků:</p>
+<pre><code class="lang-c#">var tuple = (Shield: 1, Sword: &quot;Hello&quot;);
+Console.WriteLine(tuple.Shield); // Vrátí první prvek: 1
+Console.WriteLine(tuple.Sword); // Vrátí druhý prvek: &quot;Hello&quot;
+</code></pre>
+</blockquote>
+<h2 id="observablecollection">ObservableCollection</h2>
+<p>Kolekce, která upozorní na změnu prvků.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ObservableCollection&lt;int&gt; observableCollection = new ObservableCollection&lt;int&gt;();
+    observableCollection.CollectionChanged += (sender, e) =&gt; {
+        Console.WriteLine(&quot;Collection changed&quot;);
+    };
+    observableCollection.Add(1); // Přidá prvek do kolekce
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ObservableCollection</code> je užitečná pro sledování změn v kolekci.</p>
+</div>
+<h2 id="weakreference">WeakReference</h2>
+<p>Slabá reference na objekt, která nezabraňuje garbage collectoru v uvolnění paměti.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    WeakReference&lt;int&gt; weakReference = new WeakReference&lt;int&gt;(1);
+    Console.WriteLine(weakReference.TryGetTarget(out int value)); // TryGetTarget() vrátí hodnotu: true
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>WeakReference</code> je užitečná pro sledování objektů, které mohou být uvolněny garbage collectorem.</p>
+</div>
+<h2 id="memory">Memory</h2>
+<p>Ukazatel na paměť, který umožňuje bezpečný přístup k paměti.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">Memory&lt;int&gt; memory = new Memory&lt;int&gt;(new int[] { 1, 2, 3 });
+Console.WriteLine(memory.Span[1]); // Span[] vrátí prvek na indexu 1: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Memory</code> je užitečná pro bezpečný přístup k paměti.</p>
+</div>
+<h2 id="span">Span</h2>
+<p>Ukazatel na paměť, který umožňuje bezpečný přístup k paměti.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">        Span&lt;int&gt; span = new Span&lt;int&gt;(new int[] { 1, 2, 3 });
+        Console.WriteLine(span[1]); // Vrátí prvek na indexu 1: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Span</code> je užitečná pro bezpečný přístup k paměti.</p>
+</div>
+<h2 id="immutable-kolekce">Immutable kolekce</h2>
+<h3 id="immutablearray">ImmutableArray</h3>
+<p>Pole, které nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">   ImmutableArray&lt;int&gt; immutableArray = ImmutableArray.Create(1, 2, 3);
+   Console.WriteLine(immutableArray[1]); // Vrátí prvek na indexu 1: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableArray</code> je pole, které nelze měnit.</p>
+</div>
+<h3 id="immutable-list">Immutable List</h3>
+<p>Seznam, který nelze měnit.</p>
+<p>Příklad:
+<code>c# ImmutableList&lt;int&gt; immutableList = ImmutableList.Create(1, 2, 3); Console.WriteLine(immutableList[1]); // Vrátí prvek na indexu 1: 2 </code></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableList</code> je seznam, který nelze měnit.</p>
+</div>
+<h3 id="immutable-dictionary">Immutable Dictionary</h3>
+<p>Kolekce klíč-hodnota, která nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ImmutableDictionary&lt;string, int&gt; immutableDictionary = ImmutableDictionary.Create&lt;string, int&gt;();
+    immutableDictionary = immutableDictionary.Add(&quot;key1&quot;, 1); // Add() přidá klíč a hodnotu do tabulky
+    immutableDictionary = immutableDictionary.Add(&quot;key2&quot;, 2);
+    immutableDictionary = immutableDictionary.Add(&quot;key3&quot;, 3);
+  
+    Console.WriteLine(immutableDictionary[&quot;key2&quot;]); // Vrátí hodnotu pod klíčem &quot;key2&quot;: 2
+    immutableDictionary = immutableDictionary.Remove(&quot;key2&quot;); // Remove() odebere klíč a hodnotu z tabulky
+    Console.WriteLine(immutableDictionary.ContainsKey(&quot;key2&quot;)); // false
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableDictionary</code> je kolekce klíč-hodnota, která nelze měnit.</p>
+</div>
+<h3 id="immutable-hashset">Immutable HashSet</h3>
+<p>Množina prvků, kterou nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ImmutableHashSet&lt;int&gt; immutableHashSet = ImmutableHashSet.Create(1, 2, 3);
+    Console.WriteLine(immutableHashSet.Contains(2)); // Contains() zjistí, zda množina obsahuje prvek: true
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableHashSet</code> je množina prvků, kterou nelze měnit.</p>
+</div>
+<h3 id="immutable-sortedset">Immutable SortedSet</h3>
+<p>Seřazená množina prvků, kterou nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ImmutableSortedSet&lt;int&gt; immutableSortedSet = ImmutableSortedSet.Create(3, 1, 2);
+    Console.WriteLine(immutableSortedSet.Min); // Min vrátí nejmenší prvek: 1
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableSortedSet</code> je seřazená množina prvků, kterou nelze měnit.</p>
+</div>
+<h3 id="immutable-stack">Immutable Stack</h3>
+<p>Zásobník prvků, který nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ImmutableStack&lt;int&gt; immutableStack = ImmutableStack.Create(1, 2, 3);
+    Console.WriteLine(immutableStack.Peek()); // Peek() vrátí poslední prvek: 3
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableStack</code> je zásobník prvků, který nelze měnit.</p>
+</div>
+<h3 id="immutable-queue">Immutable Queue</h3>
+<p>Fronta prvků, kterou nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ImmutableQueue&lt;int&gt; immutableQueue = ImmutableQueue.Create(1, 2, 3);
+    Console.WriteLine(immutableQueue.Peek()); // Peek() vrátí první prvek: 1
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ImmutableQueue</code> je fronta prvků, kterou nelze měnit.</p>
+</div>
+<h2 id="readonly-kolekce">Readonly kolekce</h2>
+<h3 id="readonlycollection">ReadOnlyCollection</h3>
+<p>Kolekce, kterou nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    List&lt;int&gt; list = new List&lt;int&gt; { 1, 2, 3 };
+    ReadOnlyCollection&lt;int&gt; readOnlyCollection = new ReadOnlyCollection&lt;int&gt;(list);
+    Console.WriteLine(readOnlyCollection[1]); // Vrátí prvek na indexu 1: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ReadOnlyCollection</code> je kolekce, kterou nelze měnit.</p>
+</div>
+<h3 id="readonlydictionary">ReadOnlyDictionary</h3>
+<p>Kolekce klíč-hodnota, kterou nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    Dictionary&lt;string, int&gt; dictionary = new Dictionary&lt;string, int&gt; {
+        { &quot;key1&quot;, 1 },
+        { &quot;key2&quot;, 2 },
+        { &quot;key3&quot;, 3 }
+    };
+    ReadOnlyDictionary&lt;string, int&gt; readOnlyDictionary = new ReadOnlyDictionary&lt;string, int&gt;(dictionary);
+    Console.WriteLine(readOnlyDictionary[&quot;key2&quot;]); // Vrátí hodnotu pod klíčem &quot;key2&quot;: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ReadOnlyDictionary</code> je kolekce klíč-hodnota, kterou nelze měnit.</p>
+</div>
+<h3 id="readonlylist">ReadOnlyList</h3>
+<p>Seznam prvků, který nelze měnit.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    List&lt;int&gt; list = new List&lt;int&gt; { 1, 2, 3 };
+    ReadOnlyList&lt;int&gt; readOnlyList = new ReadOnlyList&lt;int&gt;(list);
+    Console.WriteLine(readOnlyList[1]); // Vrátí prvek na indexu 1: 2
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ReadOnlyList</code> je seznam prvků, který nelze měnit.</p>
+</div>
+<h2 id="asynchronní-struktury-dat">Asynchronní struktury dat</h2>
+<h3 id="concurrentqueue">ConcurrentQueue</h3>
+<p>Fronta, která je bezpečná pro použití ve více vláknech.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ConcurrentQueue&lt;int&gt; concurrentQueue = new ConcurrentQueue&lt;int&gt;();
+    concurrentQueue.Enqueue(1); // Enqueue() vloží prvek do fronty
+    concurrentQueue.Enqueue(2);
+    concurrentQueue.Enqueue(3);
+  
+    Console.WriteLine(concurrentQueue.TryDequeue(out int value)); // TryDequeue() vyjme první prvek z fronty: true
+    Console.WriteLine(value); // 1
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ConcurrentQueue</code> je bezpečná pro použití ve více vláknech.</p>
+</div>
+<h3 id="concurrentstack">ConcurrentStack</h3>
+<p>Zásobník, který je bezpečný pro použití ve více vláknech.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ConcurrentStack&lt;int&gt; concurrentStack = new ConcurrentStack&lt;int&gt;();
+    concurrentStack.Push(1); // Push() vloží prvek na zásobník
+    concurrentStack.Push(2);
+    concurrentStack.Push(3);
+  
+    Console.WriteLine(concurrentStack.TryPop(out int value)); // TryPop() vyjme poslední prvek ze zásobníku: true
+    Console.WriteLine(value); // 3
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ConcurrentStack</code> je bezpečný pro použití ve více vláknech.</p>
+</div>
+<h3 id="concurrentdictionary">ConcurrentDictionary</h3>
+<p>Kolekce klíč-hodnota, která je bezpečná pro použití ve více vláknech.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ConcurrentDictionary&lt;string, int&gt; concurrentDictionary = new ConcurrentDictionary&lt;string, int&gt;();
+    concurrentDictionary.TryAdd(&quot;key1&quot;, 1); // TryAdd() přidá klíč a hodnotu do tabulky
+    concurrentDictionary.TryAdd(&quot;key2&quot;, 2);
+    concurrentDictionary.TryAdd(&quot;key3&quot;, 3);
+  
+    Console.WriteLine(concurrentDictionary[&quot;key2&quot;]); // Vrátí hodnotu pod klíčem &quot;key2&quot;: 2
+    concurrentDictionary.TryRemove(&quot;key2&quot;, out _); // TryRemove() odebere klíč a hodnotu z tabulky
+    Console.WriteLine(concurrentDictionary.ContainsKey(&quot;key2&quot;)); // false
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ConcurrentDictionary</code> je bezpečná pro použití ve více vláknech.</p>
+</div>
+<h3 id="concurrentbag">ConcurrentBag</h3>
+<p>Kolekce prvků, která je bezpečná pro použití ve více vláknech.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    ConcurrentBag&lt;int&gt; concurrentBag = new ConcurrentBag&lt;int&gt;();
+    concurrentBag.Add(1); // Add() přidá prvek do kolekce
+    concurrentBag.Add(2);
+    concurrentBag.Add(3);
+  
+    Console.WriteLine(concurrentBag.TryTake(out int value)); // TryTake() vyjme prvek z kolekce: true
+    Console.WriteLine(value); // 1
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>ConcurrentBag</code> je bezpečná pro použití ve více vláknech.</p>
+</div>
+<h3 id="blockingcollection">BlockingCollection</h3>
+<p>Kolekce prvků, která blokuje vlákno, pokud je prázdná nebo plná.</p>
+<p>Příklad:</p>
+<pre><code class="lang-c#">    BlockingCollection&lt;int&gt; blockingCollection = new BlockingCollection&lt;int&gt;();
+    Task.Run(() =&gt; {
+        blockingCollection.Add(1); // Add() přidá prvek do kolekce
+    });
+    Console.WriteLine(blockingCollection.Take()); // Take() vyjme prvek z kolekce
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>BlockingCollection</code> je užitečná pro synchronizaci mezi vlákny.</p>
+</div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/programming/net/net_dataTypes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

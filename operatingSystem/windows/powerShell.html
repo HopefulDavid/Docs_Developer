@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>PowerShell | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="PowerShell | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="powershell">PowerShell</h1>
+
+<h2 id="balíčky">Balíčky</h2>
+<p>Umístění</p>
+<ul>
+<li><p>Windows:</p>
+<p><code>C:\Users\{xxx}\Documents\PowerShell\Modules</code></p>
+</li>
+</ul>
+<h2 id="změna-designu">Změna designu</h2>
+<p>Původní:</p>
+<img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*lelcpOyX-WuXlYR5oy2g4Q.png" alt="oldPowerShell.png">
+<p>Nový:</p>
+<img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*SI0w1Cg7iVzG6mZMtBfWqQ.png" alt="newPowerShell.png">
+<h3 id="postup">Postup</h3>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Nainstalujte si verzi <code>PowerShell</code> 7.0 a vyšší.</p>
+<p>Zjištění verze:</p>
+<pre><code class="lang-bash">$PSVersionTable
+</code></pre>
+<p>Ke stažení <a href="https://github.com/PowerShell/PowerShell">zde</a>.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Musíte mít nainstalovaný <code>windows terminal</code>.</p>
+<p>Ke stažení <a href="https://github.com/microsoft/terminal">zde</a>.</p>
+</div>
+<ol>
+<li>
+    
+Spustit PowerShell v administrátorském modu.
+<br>
+<img src="/images/runAsAdministatorPowerShell.png" alt="runAsAdministatorPowerShell.png" width="800px">
+</li>
+<li>
+    
+Otevřít novou záložku. 
+<p>To nás vyzve do administrátorského režimu -&gt; <code>Yes</code>.</p>
+</li>
+<li>
+    
+Zjistíme si aktuální oprávnění na uživateli.
+<pre><code class="lang-bash">Get-ExecutionPolicy -Scope CurrentUser
+</code></pre>
+</li>
+<li>
+    
+Nastavit oprávnění na `Bypass`.
+<pre><code class="lang-bash">Set-ExecutionPolicy -Scope CurrentUser Bypass
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Oprávnění <code>Bypass</code> znamená, že PowerShell spustí jakýkoliv skript bez jakýchkoliv omezení.</p>
+</div>
+</li>
+<li>
+    
+Ověřit, že nastavení proběhlo v pořádku.
+<pre><code class="lang-bash">Get-ExecutionPolicy -Scope CurrentUser
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Pokud znovu provedeme příkaz <code>Get-ExecutionPolicy -Scope CurrentUser</code>, mělo by nám to vrátit <code>Bypass</code>.</p>
+</div>
+</li>
+<li>Nyní rozdělíme okno na části. 
+<p>Toho docílíme skrze klávesovou zkratku <code>Alt</code> + <code>Left Click</code>.</p>
+<img src="/images/optionsPowerShell.png" alt="optionsPowerShell.png" width="800px">
+</li>
+<li>V každém oknu spustíme jednotlivé PowerShell příkazy.
+<pre><code class="lang-bash">Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1'))
+</code></pre>
+<pre><code class="lang-bash">Install-Module posh-git
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Potvrdíme instalovat všechno skrze <code>a</code>.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Pokud chcete přepsat již nainstalované moduly, použijte parametr: <code>-AllowClobber</code></p>
+</div>
+</li>
+<li> 
+    
+Nyní máme nainstalované moduly `posh-git` a aplikaci `oh-my-posh`.
+</li>
+<li> 
+    
+Změníme vzhled příkazové řádky.
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Cesta nesmí obsahovat mezery, háčky, ani speciální znaky!</p>
+</div>
+<pre><code class="lang-bash">oh-my-posh init pwsh --config 'C:\Users\{xxx}\Themes\PowerShell\aliens.omp.json' | Invoke-Expression
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Změní se projeví pouze pro aktivní okno.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>V dalších krocích si nastavíme změnu vzhledu do konfiguračního souboru, aby po každém spuštění PowerShellu se vzhled změnil.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Cesta k souboru se <a href="https://github.com/JanDeDobbeleer/oh-my-posh/tree/main/themes">šablonami stylů (themes)</a>: <code>C:\Users\{xxx}\themes\aliens.omp.json</code></p>
+<p><code>aliens.omp.json</code> = název šablony v tomto příkladu.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Pokud nezafunguje změna stylu konzolové řádky pro <code>oh-my-posh</code></p>
+<p>Zkuste se podívat do <code>Environment Variables</code> a přidat cestu: <code>C:\Users\user\AppData\Local\Programs\oh-my-posh\bin</code>.</p>
+</div>
+</li>
+<li>
+    
+Modul si naimportujeme.
+<pre><code class="lang-bash">Import-Module posh-git
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Změní se projeví pouze pro aktivní okno.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>V dalších krocích si nastavíme změnu vzhledu do konfiguračního souboru, aby po každém spuštění PowerShellu se vzhled změnil.</p>
+</div>
+</li>
+<li>
+    
+Nyní zjistíme soubor s nastavením pro PowerShell.
+<pre><code class="lang-bash">$PROFILE
+</code></pre>
+<p>Vrátí se cesta k souboru s nastavením.</p>
+<p>Toto nastavení se poté již spouští při každém spuštění PowerShell a tedy do jakéhokoli okna.</p>
+</li>
+<li>
+<p>Nastavíme si soubor s nastavením pro PowerShell.</p>
+<ul>
+<li><p>Pokud <strong>soubor existuje</strong>, tak otevřeme v textovém editoru.</p>
+</li>
+<li><p>Pokud <strong>soubor neexistuje</strong>, tak jej vytvoříme.</p>
+<pre><code class="lang-bash">notepad $PROFILE
+</code></pre>
+<p>Potvrdíme, že chceme vytvořit nový soubor -&gt; <code>Yes</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+    
+Do souboru s nastavením vložíme následující kód.
+<pre><code class="lang-bash">Import-Module posh-git # Zobrazí aktuální větev a stav
+
+oh-my-posh init pwsh --config 'C:\Users\{xxx}\themes\aliens.omp.json' | Invoke-Expression # Změní vzhled příkazové řádky 
+</code></pre>
+</li>
+<li> 
+    
+Uložíme a zavřeme soubor.
+</li>
+<li> 
+    
+Nastavíme oprávnění na spouštění pouze vlastních skriptů.
+<pre><code class="lang-bash">Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Nastavit oprávnění na <code>RemoteSigned</code>, aby se neoprávněné osoby nemohly pokoušet spouštět virové skripty na Vašem zařízení.</p>
+</div>
+</li>
+<li> 
+<p>Vypneme spuštění v administrátorském režimu.</p>
+<img src="/images/runAsAdministatorPowerShell.png" alt="runAsAdministatorPowerShell.png" width="800px">
+</li>
+</ol>
+<p>Pokud nyní otevřeme PowerShell, nebo nové okno v již stávajícím, tak by vše mělo fungovat.</p>
+<h3 id="nastavit-theme">Nastavit theme</h3>
+<p>Navigovat do složky s vzhledy (themes).</p>
+<p>Například:</p>
+<p><code>C:\Users\{xxx}\themes\</code></p>
+<p>Nyní stačí spustit příkaz níže a zobrazí se nám všechny dostupné vzhledy.</p>
+<pre><code class="lang-bash">Get-PoshThemes
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Tyto vzhledy pak lze snadno změnit v konfiguračním souboru PowerShellu.</p>
+<pre><code class="lang-bash">$PROFILE # Zobrazí cestu k souboru s nastavením 
+</code></pre>
+<p>Například změníme vzhled na <code>catppuccino</code>.:</p>
+<pre><code class="lang-bash">Import-Module posh-git # Zobrazí aktuální větev a stav
+
+oh-my-posh init pwsh --config 'C:\Users\{xxx}\Documents\themes\catppuccin.omp.json' | Invoke-Expression # Změní vzhled příkazové řádky 
+</code></pre>
+<p>Šablony je možné stáhnout <a href="https://github.com/JanDeDobbeleer/oh-my-posh/tree/main/themes">zde</a>.</p>
+</div>
+<p><a href="https://levelup.gitconnected.com/windows-terminal-making-powershell-better-561f2cab27f3">Zdroj</a>.</p>
+<h2 id="oprávnění">Oprávnění</h2>
+<h3 id="zjistit-oprávnění">Zjistit oprávnění</h3>
+<pre><code class="lang-Bash">Get-ExecutionPolicy -Scope CurrentUser
+</code></pre>
+<blockquote>
+<p>Zjistí jaké je nastavení pro spouštění skriptů aktuálního uživatele.</p>
+<ul>
+<li><p><code>Restricted</code> = Omezené</p>
+<p>Skripty nejsou povoleny.</p>
+</li>
+<li><p><code>AllSigned</code></p>
+<p>Podepsané skripty mohou být spuštěny pouze pokud jsou podepsány důvěryhodným vydavatelem.</p>
+</li>
+<li><p><code>RemoteSigned</code></p>
+<p>Podepsané skripty mohou být spuštěny, ale skripty stažené z internetu musí být podepsány.</p>
+</li>
+<li><p><code>Unrestricted</code></p>
+<p>Všechny skripty mohou být spuštěny.</p>
+</li>
+<li><p><code>Undefined</code></p>
+<p>Není nastaveno žádné omezení.</p>
+<p>V takovém případě se pro Windows klienta použije <code>Restricted</code> a pro Windows server <code>RemoteSigned</code>.</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="nastavit-oprávnění">Nastavit oprávnění</h3>
+<p>Nastavení oprávnění pro spouštění skriptů v PowerShellu se provádí pomocí příkazu <code>Set-ExecutionPolicy</code>.</p>
+<p>Příklad:</p>
+<pre><code class="lang-Bash">Set-ExecutionPolicy -Scope CurrentUser Bypass
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Odeberete předchozí oprávnění a nastavíte nové.</p>
+</div>
+<ul>
+<li><p>AllSigned</p>
+<p>Vyžaduje, aby všechny skripty a konfigurační soubory byly podepsány důvěryhodným vydavatelem, včetně skriptů napsaných v místním počítači.</p>
+</li>
+<li><p>Bypass</p>
+<p>Žádné omezení, všechny skripty mohou být spuštěny.</p>
+</li>
+<li><p>Default</p>
+<p>Nastaví výchozí zásady provádění.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Klienti windows: <code>Restricted</code></p>
+<p>Servery windows: <code>RemoteSigned</code></p>
+</div>
+</li>
+<li><p>RemoteSigned</p>
+<p>Vyžaduje, aby všechny skripty a konfigurační soubory stažené z Internetu byly podepsány důvěryhodným vydavatelem.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Výchozí zásada spouštění pro počítače se serverem Windows.</p>
+</div>
+</li>
+<li><p>Restricted</p>
+<p>Nenačítá konfigurační soubory ani nespouští skripty.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Výchozí zásady spouštění pro klientské počítače se systémem Windows.</p>
+</div>
+</li>
+<li><p>Undefined</p>
+<p>Není nastaveno žádné omezení.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>V tomto případě je oprávnění jako pro <code>Restricted</code>.</p>
+</div>
+</li>
+<li><p>Unrestricted</p>
+<p>Načte všechny konfigurační soubory a spustí všechny skripty.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Pokud spustíte nepodepsaný skript, který byl stažen z internetu, budete před jeho spuštěním vyzváni k získání povolení.</p>
+<p>Počínaje verzí <code>PowerShell 6.0</code> se jedná o výchozí zásadu spouštění pro počítače s jiným systémem než Windows, kterou nelze změnit.</p>
+</div>
+</li>
+</ul>
+<p>Více info <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.4#-executionpolicy">zde</a>.</p>
+<h2 id="práce-se-soubory">Práce se soubory</h2>
+<h3 id="kopírování">Kopírování</h3>
+<ul>
+<li><p>Ze zdroje na cílové umístění</p>
+<pre><code class="lang-bash">xcopy /y /z &quot;\\192.xxx.xx.xx\files\module.xml&quot; &quot;C:\Users\Test\Downloads\*&quot;`
+</code></pre>
+</li>
+<li><p>Do podsložek</p>
+<pre><code class="lang-bash">for /D %%G in (&quot;C:\Users\Test\Downloads\*&quot;) 
+DO (xcopy /y /z  &quot;C:\Users\Test\Downloads\module.xml&quot; &quot;%%G\SubDirectory\*&quot;)
+</code></pre>
+<blockquote>
+<p><code>for /D</code></p>
+<p>Prochází podsložky</p>
+<p><code>%%G</code></p>
+<p>Proměnná pro každou podsložku</p>
+</blockquote>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Nakonec přidejte příkaz <code>pause</code> pro zobrazení výsledků.</p>
+</div>
+<h2 id="síť">Síť</h2>
+<h3 id="získat-název-hostitele-webové-adresy">Získat název hostitele (webové adresy)</h3>
+<pre><code class="lang-Bash">Resolve-DnsName -Name &lt;IP adresa&gt; -Type PTR
+</code></pre>
+<h3 id="získat-síťové-adaptéry-interfaces">Získat síťové adaptéry (interfaces)</h3>
+<ul>
+<li><p>Všechny</p>
+<pre><code class="lang-Bash">  Get-NetAdapter -physical
+</code></pre>
+</li>
+<li><p>Aktuálně aktivní</p>
+<pre><code class="lang-Bash">  Get-NetAdapter -physical | where status -eq 'up'
+</code></pre>
+</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/operatingSystem/windows/powerShell.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

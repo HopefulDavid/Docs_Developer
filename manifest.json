@@ -1,0 +1,439 @@
+{
+  "source_base_path": "/home/runner/work/Docs_Developer/Docs_Developer",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "database/mongoDB.md",
+      "output": {
+        ".html": {
+          "relative_path": "database/mongoDB.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "database/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "database/toc.json"
+        },
+        ".html": {
+          "relative_path": "database/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "gaming/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "gaming/toc.json"
+        },
+        ".html": {
+          "relative_path": "gaming/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "gaming/unity.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "graphics/affinity.md",
+      "output": {
+        ".html": {
+          "relative_path": "graphics/affinity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "graphics/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "graphics/toc.json"
+        },
+        ".html": {
+          "relative_path": "graphics/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ide/jetBrains.md",
+      "output": {
+        ".html": {
+          "relative_path": "ide/jetBrains.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "ide/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "ide/toc.json"
+        },
+        ".html": {
+          "relative_path": "ide/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dockerKeepDataOnLocal.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/dockerKeepDataOnLocal.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/optionsPowerShell.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/optionsPowerShell.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/outlook_calendarAfterOverlay.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/outlook_calendarAfterOverlay.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/outlook_calendarBeforeOverlay.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/outlook_calendarBeforeOverlay.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/runAsAdministatorPowerShell.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/runAsAdministatorPowerShell.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/sOYccHNNHx.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/sOYccHNNHx.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/wNNBV4Lsm4.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/wNNBV4Lsm4.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/windows_keyboard_explorerAddressBar.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/windows_keyboard_explorerAddressBar.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "network/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "network/toc.json"
+        },
+        ".html": {
+          "relative_path": "network/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "network/wireshark.md",
+      "output": {
+        ".html": {
+          "relative_path": "network/wireshark.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "operatingSystem/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "operatingSystem/toc.json"
+        },
+        ".html": {
+          "relative_path": "operatingSystem/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "operatingSystem/windows.md",
+      "output": {
+        ".html": {
+          "relative_path": "operatingSystem/windows.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "operatingSystem/windows/powerShell.md",
+      "output": {
+        ".html": {
+          "relative_path": "operatingSystem/windows/powerShell.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/javascript.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/javascript.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_attributes.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_attributes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_dataTypes.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_dataTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_files.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_files.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_interface.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_interface.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_methods.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_methods.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_nunit.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_nunit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/net/net_xml.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/net/net_xml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/techniques.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/techniques.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "programming/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "programming/toc.json"
+        },
+        ".html": {
+          "relative_path": "programming/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "teamwork/outlook.md",
+      "output": {
+        ".html": {
+          "relative_path": "teamwork/outlook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "teamwork/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "teamwork/toc.json"
+        },
+        ".html": {
+          "relative_path": "teamwork/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "virtualization/docker.md",
+      "output": {
+        ".html": {
+          "relative_path": "virtualization/docker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "virtualization/kubernetes.md",
+      "output": {
+        ".html": {
+          "relative_path": "virtualization/kubernetes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "virtualization/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "virtualization/toc.json"
+        },
+        ".html": {
+          "relative_path": "virtualization/toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
