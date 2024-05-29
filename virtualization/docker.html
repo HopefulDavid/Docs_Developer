@@ -84,16 +84,7 @@
 <p>Kontejnery zajišťují, že aplikace mohou být spuštěny v jakémkoli prostředí.</p>
 </div>
 <p>Docker se stará o celý životní cyklus kontejnerů.</p>
-<pre><code class="lang-mermaid">stateDiagram-v2
-   [*] --&gt; create
-   [*]: Kontejner
-   create: Vytvoření
-   create --&gt; start
-   start: Spuštění
-   start --&gt; stop
-   stop: Zastavení
-   stop --&gt; [*]
-</code></pre>
+<p><strong>Kontejner</strong> ➜ <strong>Vytvoření</strong> ➜ <strong>Spuštění</strong> ➜ <strong>Zastavení</strong></p>
 <div class="TIP">
 <h5>Tip</h5>
 <ul>
@@ -137,27 +128,27 @@
 <h3 id="stáhnout-docker-image">Stáhnout docker image</h3>
 <pre><code class="lang-Docker">docker pull [Image name]
 </code></pre>
-<blockquote>
+<div class="NOTE">
+<h5>Note</h5>
 <p>[Image name]</p>
 <p>Je název <code>docker image</code>.</p>
 <p>Například: <code>mcr.microsoft.com/dotnet/core/sdk:3.1</code></p>
-</blockquote>
+</div>
 <p>Umístění docker image po stažení:</p>
 <ul>
-<li>Linux:</li>
-</ul>
+<li><p>Linux:</p>
 <pre><code class="lang-Bash">/var/lib/docker/
 </code></pre>
-<ul>
-<li>Windows:</li>
-</ul>
+</li>
+<li><p>Windows:</p>
 <pre><code class="lang-Bash">C:\ProgramData\DockerDesktop
 </code></pre>
-<ul>
-<li>macOS:</li>
-</ul>
+</li>
+<li><p>macOS:</p>
 <pre><code class="lang-Bash">~/Library/Containers/com.docker.docker/Data/vms/0/
 </code></pre>
+</li>
+</ul>
 <h3 id="sestavení-docker-image">Sestavení docker image</h3>
 <ul>
 <li><p><code>docker build [-t] customFolder</code></p>
@@ -345,7 +336,7 @@ ENTRYPOINT [&quot;dotnet&quot;, &quot;out/myapp.dll&quot;]
 <p>Příkaz <code>dotnet restore --source ./nuget</code> pak načte tyto balíčky z lokálního úložiště místo stahování z internetu.</p>
 </div>
 <h2 id="zachování-dat-z-kontejneru-na-lokálním-disku">Zachování dat z kontejneru na lokálním disku</h2>
-<img src="/images/dockerKeepDataOnLocal.png" altr="dockerKeepDataOnLocal.png" width="800px">
+<img src="/../../images/dockerKeepDataOnLocal.png" altr="dockerKeepDataOnLocal.png" width="800px">
 <p><a href="https://www.master.cz/blog/docker-kubernetes-kontejnery-jak-funguji-proc-je-chtit/">Zdroj</a></p>
 
 </article>

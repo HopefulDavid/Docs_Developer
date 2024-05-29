@@ -10,14 +10,14 @@
       <meta name="title" content=" | V&#253;voj&#225;ř ">
     
     
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,23 +78,49 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="zobrazení">Zobrazení</h2>
-<h3 id="sloučeníoddělení-panelů-kalendáře">Sloučení/Oddělení panelů kalendáře</h3>
-<p>View ➡ Overlay</p>
-<ul>
-<li><p>Vypnuto</p>
-  <img src="/../../images/outlook_calendarBeforeOverlay.png" alt="outlook_calendarBefore.png">
-<blockquote>
-<p>Každý kalendář se zobrazí v samostatném okně</p>
-</blockquote>
+<h3 id="fixup"><code>fixup!</code></h3>
+<p>= Nepoužije zprávu z commitu do opravy</p>
+<pre><code class="lang-bash">git commit --fixup &lt;hashId&gt;
+</code></pre>
+<p>nebo</p>
+<pre><code class="lang-bash">git commit -m &quot;fixup! &lt;hashId&gt; notUsedMessage&quot;
+</code></pre>
+<h3 id="squash"><code>squash!</code></h3>
+<p>= Sloučí zprávu z commitu do opravy</p>
+<pre><code class="lang-bash">git commit -m &quot;squash! &lt;hashId&gt; optionalCustomMessage&quot;
+</code></pre>
+<h3 id="příklad">Příklad</h3>
+<ol>    
+<li>
+    
+Vytvořit nový commit:
+<pre><code class="lang-bash">git commit --fixup &lt;hashId&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>&lt;hashId&gt;</code> = id commitu na který chcete aplikovat opravu</p>
+</div>
 </li>
-<li><p>Zapnuto</p>
-  <img src="/../../images/outlook_calendarAfterOverlay.png" alt="outlook_calendarAfter.png">
-<blockquote>
-<p>Kalendáře se zobrazí v jednom okně</p>
-</blockquote>
+<li>
+<pre><code class="lang-bash">git rebase -i --autosquash head~&lt;n&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>--autosquash</code> = setřídí commity pro opravu s označením <code>fixup!</code> či <code>squash!</code></p>
+<p><code>&lt;n&gt;</code> = počet posledních commitů</p>
+</div>
 </li>
-</ul>
+<li>
+<p>Otevře se textový editor</p>
+<p>Pokud jsme zde provedli změny, tak musíme uložit soubor.</p>
+<p>Nakonec zavřít soubor</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Po zavření souboru se začne vykonávat rebase.</p>
+</div>
+</li>
+</ol>
+<p>Pokud proběhl rebase dokonce, veškeré opravy budou aplikovány.</p>
 
 </article>
           </div>
@@ -104,7 +130,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/teamwork/outlook.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/vcs/git/history/fixCommits.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -131,8 +157,8 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
   </body>
 </html>

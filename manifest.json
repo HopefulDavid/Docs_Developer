@@ -399,6 +399,59 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "vcs/git/history/deleteCommits.md",
+      "output": {
+        ".html": {
+          "relative_path": "vcs/git/history/deleteCommits.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "vcs/git/history/fixCommits.md",
+      "output": {
+        ".html": {
+          "relative_path": "vcs/git/history/fixCommits.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "vcs/git/history/moveCommits.md",
+      "output": {
+        ".html": {
+          "relative_path": "vcs/git/history/moveCommits.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "vcs/git/repository.md",
+      "output": {
+        ".html": {
+          "relative_path": "vcs/git/repository.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "vcs/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "vcs/toc.json"
+        },
+        ".html": {
+          "relative_path": "vcs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "virtualization/docker.md",
       "output": {
         ".html": {

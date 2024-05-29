@@ -10,14 +10,14 @@
       <meta name="title" content=" | V&#253;voj&#225;ř ">
     
     
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,23 +78,22 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="zobrazení">Zobrazení</h2>
-<h3 id="sloučeníoddělení-panelů-kalendáře">Sloučení/Oddělení panelů kalendáře</h3>
-<p>View ➡ Overlay</p>
-<ul>
-<li><p>Vypnuto</p>
-  <img src="/../../images/outlook_calendarBeforeOverlay.png" alt="outlook_calendarBefore.png">
-<blockquote>
-<p>Každý kalendář se zobrazí v samostatném okně</p>
-</blockquote>
-</li>
-<li><p>Zapnuto</p>
-  <img src="/../../images/outlook_calendarAfterOverlay.png" alt="outlook_calendarAfter.png">
-<blockquote>
-<p>Kalendáře se zobrazí v jednom okně</p>
-</blockquote>
-</li>
-</ul>
+<h3 id="nová-branch">Nová Branch</h3>
+<pre><code class="lang-bash">git checkout master       # Přepne se do zdrojové branch
+git branch newbranch      # Vytvoří branch a tím se uloží stejné commity z předchozí aktivní branch
+git checkout master       # Přepne se do zdrojové branch
+git reset --hard HEAD~3   # Odstraní 3 commity zpět.
+git checkout newbranch    # Přepne se do cílové branch
+</code></pre>
+<p>Více info <a href="https://stackoverflow.com/questions/1628563/move-the-most-recent-commits-to-a-new-branch-with-git">zde</a>.</p>
+<h3 id="existující-branch">Existující Branch</h3>
+<pre><code class="lang-bash">git checkout existingbranch # Přepne se do cílové existující branch
+git merge branchToMoveCommitFrom # Přesune commity ze zdrojové branch
+git checkout branchToMoveCommitFrom # Přepne se do zdrojové branch
+git reset --hard HEAD~3 # Odstraní 3 commity zpět
+git checkout existingbranch # Přepne se do cílové existující branch
+</code></pre>
+<p>Více info <a href="https://stackoverflow.com/questions/1628563/move-the-most-recent-commits-to-a-new-branch-with-git">zde</a>.</p>
 
 </article>
           </div>
@@ -104,7 +103,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/teamwork/outlook.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/vcs/git/history/moveCommits.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -131,8 +130,8 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
   </body>
 </html>

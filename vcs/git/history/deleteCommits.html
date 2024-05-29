@@ -10,14 +10,14 @@
       <meta name="title" content=" | V&#253;voj&#225;ř ">
     
     
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,23 +78,60 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="zobrazení">Zobrazení</h2>
-<h3 id="sloučeníoddělení-panelů-kalendáře">Sloučení/Oddělení panelů kalendáře</h3>
-<p>View ➡ Overlay</p>
-<ul>
-<li><p>Vypnuto</p>
-  <img src="/../../images/outlook_calendarBeforeOverlay.png" alt="outlook_calendarBefore.png">
-<blockquote>
-<p>Každý kalendář se zobrazí v samostatném okně</p>
-</blockquote>
+<h3 id="nahrazení-vzdálené-branch-z-lokální-branch">Nahrazení Vzdálené Branch z Lokální Branch</h3>
+<ol>
+<li>
+<p>Přepnout se na novou branch</p>
+<pre><code class="lang-bash">git checkout --orphan latest_branch
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>--orphan</code> znamená, že vytvoří branch bez historie commitů</p>
+</div>
 </li>
-<li><p>Zapnuto</p>
-  <img src="/../../images/outlook_calendarAfterOverlay.png" alt="outlook_calendarAfter.png">
-<blockquote>
-<p>Kalendáře se zobrazí v jednom okně</p>
-</blockquote>
+<li>
+<p>Přidat všechny soubory.</p>
+<pre><code class="lang-bash">git add -A
+</code></pre>
 </li>
-</ul>
+<li>
+<p>Provedení commitu.</p>
+<pre><code class="lang-bash">git commit -am &quot;commit message&quot;
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p><code>-am</code> je zkrácený zápis</p>
+<p>Je to stejné jako zápis: <code>--all</code> <code>--message &quot;commit message&quot;</code></p>
+</div>
+</li>
+<li>
+<p>Smazat hlavní branch.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Zjistěte název hlavní větve. (Většinou se jmenuje <code>master</code> nebo <code>main</code>)</p>
+</div>
+<pre><code class="lang-bash">git branch -D master
+</code></pre>
+</li>
+<li>
+<p>Přejmenovat aktivní branch na branch z předchozího kroku.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Zjistěte název hlavní větve. (Většinou se jmenuje <code>master</code> nebo <code>main</code>)</p>
+</div>
+<pre><code class="lang-bash">git branch -m master
+</code></pre>
+</li>
+<li>
+<p>Odeslat změny z pracovního adresáře do centrálního úložiště</p>
+<pre><code class="lang-bash">git push -f origin master
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p><code>-f</code> (force) = Historie commitů v centrálním úložišti je nahrazena historií z pracovního adresáře</p>
+</div>
+</li>
+</ol>
 
 </article>
           </div>
@@ -104,7 +141,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/teamwork/outlook.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/vcs/git/history/deleteCommits.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -131,8 +168,8 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
   </body>
 </html>
