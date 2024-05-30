@@ -7,7 +7,32 @@
   "gaming/unity.html": {
     "href": "gaming/unity.html",
     "title": "| Vývojář",
-    "keywords": "2D Výběr Tilemap x Sprite Renderer Tip Výkonnostně je lepší použít Tilemap, pokud máte velké množství objektů, které se opakují. Velikost obrázků Velikosti pro 2D hry: 16x16 px Malé objekty Například: mince, klíče, atd. 32x32 px Středně velké objekty Například: postavy, stromy, atd. 64x64 px Velké objekty Například: budovy, atd. Note Většinou se používají mocniny čísla 2, protože se lépe pracuje s pamětí. Nastavit velikosti Například obrázek o velikosti 64x64 pixelů. Warning Pixel Per Unit (PPU) - kolik pixelů je na jednotku v Unity. Je důležité nastavit dle velikosti grafiky, aby byla správně zobrazena. UI Toolkit UI Toolkit je nový systém pro vytváření uživatelského rozhraní v Unity. Novinky v Unity 2023"
+    "keywords": "Výběr hry 2D či 3D Rychlé prototypování Klíčová slova Vývojové vzory"
+  },
+  "gaming/unity/2d.html": {
+    "href": "gaming/unity/2d.html",
+    "title": "| Vývojář",
+    "keywords": "2D Výběr Tilemap x Sprite Renderer Tip Výkonnostně je lepší použít Tilemap, pokud máte velké množství objektů, které se opakují. Velikost obrázků Velikosti pro 2D hry: 16x16 px Malé objekty Například: mince, klíče, atd. 32x32 px Středně velké objekty Například: postavy, stromy, atd. 64x64 px Velké objekty Například: budovy, atd. Note Většinou se používají mocniny čísla 2, protože se lépe pracuje s pamětí. Nastavit velikosti Například obrázek o velikosti 64x64 pixelů. Warning Pixel Per Unit (PPU) - kolik pixelů je na jednotku v Unity. Je důležité nastavit dle velikosti grafiky, aby byla správně zobrazena."
+  },
+  "gaming/unity/camera.html": {
+    "href": "gaming/unity/camera.html",
+    "title": "| Vývojář",
+    "keywords": "Kamera Novinky"
+  },
+  "gaming/unity/navigation.html": {
+    "href": "gaming/unity/navigation.html",
+    "title": "| Vývojář",
+    "keywords": "Navigační Systém pro Pohyb Novinky"
+  },
+  "gaming/unity/scriptableObject.html": {
+    "href": "gaming/unity/scriptableObject.html",
+    "title": "| Vývojář",
+    "keywords": "Skriptovatelné Objekty Nemusí se vytvářet ve scéně, jsou namísto toho vytvořeny již v projektu. Important ScriptableObjects se po zavření a opětovném otevření hry obnoví na výchozí hodnoty. Singleton"
+  },
+  "gaming/unity/uiToolkit.html": {
+    "href": "gaming/unity/uiToolkit.html",
+    "title": "| Vývojář",
+    "keywords": "UI Toolkit UI Toolkit je systém pro vytváření uživatelského rozhraní v Unity. Novinky"
   },
   "graphics/affinity.html": {
     "href": "graphics/affinity.html",

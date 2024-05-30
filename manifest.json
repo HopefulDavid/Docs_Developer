@@ -58,6 +58,56 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "gaming/unity/2d.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity/2d.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "gaming/unity/camera.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity/camera.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "gaming/unity/navigation.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity/navigation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "gaming/unity/scriptableObject.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity/scriptableObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "gaming/unity/uiToolkit.md",
+      "output": {
+        ".html": {
+          "relative_path": "gaming/unity/uiToolkit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "graphics/affinity.md",
       "output": {
         ".html": {

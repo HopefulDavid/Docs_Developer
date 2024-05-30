@@ -10,14 +10,14 @@
       <meta name="title" content=" | V&#253;voj&#225;ř ">
     
     
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,14 +78,41 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="výběr-hry-2d-či-3d">Výběr hry 2D či 3D</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jp4xyrW7GYA?si=izxgdHwJw2UC-rpq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-<h2 id="rychlé-prototypování">Rychlé prototypování</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x10P0RNHm4M?si=mic5u9umNO_LTWdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-<h2 id="klíčová-slova">Klíčová slova</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yGQbk4OeCI4?si=XOAgsp79gsvCaU9I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-<h2 id="vývojové-vzory">Vývojové vzory</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BwA36em_DnA?si=fUcXu99az5utsf5C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="2d">2D</h2>
+<h3 id="výběr-tilemap-x-sprite-renderer">Výběr Tilemap x Sprite Renderer</h3>
+<p><img src="https://unity.com/sites/default/files/styles/810_scale_width/public/2022-07/Tilemap%20use%20cases.jpg?itok=22zDzDfJ" alt="Tilemap use cases.jpg"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Výkonnostně je lepší použít Tilemap, pokud máte velké množství objektů, které se opakují.</p>
+</div>
+<h3 id="velikost-obrázků">Velikost obrázků</h3>
+<p>Velikosti pro 2D hry:</p>
+<ul>
+<li><p>16x16 px</p>
+<p>Malé objekty</p>
+<p>Například: mince, klíče, atd.</p>
+</li>
+<li><p>32x32 px</p>
+<p>Středně velké objekty</p>
+<p>Například: postavy, stromy, atd.</p>
+</li>
+<li><p>64x64 px</p>
+<p>Velké objekty</p>
+<p>Například: budovy, atd.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Většinou se používají mocniny čísla 2, protože se lépe pracuje s pamětí.</p>
+</div>
+<h3 id="nastavit-velikosti">Nastavit velikosti</h3>
+<p>Například obrázek o velikosti 64x64 pixelů.</p>
+<p><img src="https://europe1.discourse-cdn.com/unity/original/3X/9/4/943f06eea6987f6178e42bd17a92140f55e697b5.png" alt="943f06eea6987f6178e42bd17a92140f55e697b5.png"></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Pixel Per Unit (PPU) - kolik pixelů je na jednotku v Unity.</p>
+<p>Je důležité nastavit dle velikosti grafiky, aby byla správně zobrazena.</p>
+</div>
 
 </article>
           </div>
@@ -95,7 +122,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity/2d.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
@@ -122,8 +149,8 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>
