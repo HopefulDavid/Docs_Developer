@@ -79,31 +79,43 @@
             <article class="content wrap" id="_content" data-uid="">
 
 <h2 id="2d">2D</h2>
-<h3 id="výběr-tilemap-x-sprite-renderer">Výběr Tilemap x Sprite Renderer</h3>
-<p><img src="https://unity.com/sites/default/files/styles/810_scale_width/public/2022-07/Tilemap%20use%20cases.jpg?itok=22zDzDfJ" alt="Tilemap use cases.jpg"></p>
+<h3 id="tilemap-x-sprite-renderer">Tilemap x Sprite Renderer</h3>
+<p><img src="/../../private/Tilemap.jpg" alt="Kdyžtak popis níže"></p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>Výkonnostně je lepší použít Tilemap, pokud máte velké množství objektů, které se opakují.</p>
 </div>
+<ul>
+<li><p>Tilemap Renderer, Chunk mode</p>
+<p>Neumožňuje seřazení Tiles na mřížce</p>
+</li>
+<li><p>Tilemap Renderer, Individual</p>
+<p>Seřazení Tiles na mřížce</p>
+</li>
+<li><p>Sprite Renderer</p>
+<p>Postavy nebo prvky, které se nemohou přizpůsobit mřížce</p>
+</li>
+</ul>
 <h3 id="velikost-obrázků">Velikost obrázků</h3>
 <p>Velikosti pro 2D hry:</p>
 <ul>
 <li><p>16x16 px</p>
 <p>Malé objekty</p>
-<p>Například: mince, klíče, atd.</p>
+<p>Například: mince, klíče, atd...</p>
 </li>
 <li><p>32x32 px</p>
 <p>Středně velké objekty</p>
-<p>Například: postavy, stromy, atd.</p>
+<p>Například: postavy, stromy, atd...</p>
 </li>
 <li><p>64x64 px</p>
 <p>Velké objekty</p>
-<p>Například: budovy, atd.</p>
+<p>Například: budovy, atd...</p>
 </li>
 </ul>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Většinou se používají mocniny čísla 2, protože se lépe pracuje s pamětí.</p>
+<p>Používají se mocniny čísla 2.</p>
+<p>Například: 16x16 px, 32x32 px, 64x64 px, 128x128 px, atd...</p>
 </div>
 <h3 id="nastavit-velikosti">Nastavit velikosti</h3>
 <p>Například obrázek o velikosti 64x64 pixelů.</p>
@@ -111,8 +123,16 @@
 <div class="WARNING">
 <h5>Warning</h5>
 <p>Pixel Per Unit (PPU) - kolik pixelů je na jednotku v Unity.</p>
+<p>Určuje velikost Sprite</p>
 <p>Je důležité nastavit dle velikosti grafiky, aby byla správně zobrazena.</p>
 </div>
+<p>Příklad:</p>
+<p>Vytvořit dlaždici o velikosti 1x1 jednotka.</p>
+<p>Pokud nastavíte PPU na 32, pak sprite o rozměrech 32x32 dokonale zabere celou dlaždici (1x1).</p>
+<p>Nyní chcete dlaždici 2x2, pak byste nastavili PPU 16, takže pro každou jednotku použije 16 pixelů ze spritu. (16 / 32 = 2 jednotky).</p>
+<p>Například pro dlaždici o velikosti 1x2, pokud byste nastavili PPU 32, tak by rozměr obrázku byl 32x16 px.
+(32/32 = 1, 32/16=2) px</p>
+<p>Pro více informací <a href="https://www.reddit.com/r/aseprite/comments/vq2mq9/what_size_should_sprites_be_for_a_2d_game/">zde</a>.</p>
 
 </article>
           </div>
