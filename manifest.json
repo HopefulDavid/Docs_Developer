@@ -24,11 +24,11 @@
       "type": "Toc",
       "source_relative_path": "database/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "database/toc.html"
-        },
         ".json": {
           "relative_path": "database/toc.json"
+        },
+        ".html": {
+          "relative_path": "database/toc.html"
         }
       },
       "version": ""
@@ -37,11 +37,11 @@
       "type": "Toc",
       "source_relative_path": "gaming/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "gaming/toc.html"
-        },
         ".json": {
           "relative_path": "gaming/toc.json"
+        },
+        ".html": {
+          "relative_path": "gaming/toc.html"
         }
       },
       "version": ""
@@ -120,11 +120,11 @@
       "type": "Toc",
       "source_relative_path": "graphics/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "graphics/toc.html"
-        },
         ".json": {
           "relative_path": "graphics/toc.json"
+        },
+        ".html": {
+          "relative_path": "graphics/toc.html"
         }
       },
       "version": ""
@@ -143,11 +143,11 @@
       "type": "Toc",
       "source_relative_path": "ide/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "ide/toc.html"
-        },
         ".json": {
           "relative_path": "ide/toc.json"
+        },
+        ".html": {
+          "relative_path": "ide/toc.html"
         }
       },
       "version": ""
@@ -256,11 +256,11 @@
       "type": "Toc",
       "source_relative_path": "network/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "network/toc.html"
-        },
         ".json": {
           "relative_path": "network/toc.json"
+        },
+        ".html": {
+          "relative_path": "network/toc.html"
         }
       },
       "version": ""
@@ -279,11 +279,11 @@
       "type": "Toc",
       "source_relative_path": "operatingSystem/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "operatingSystem/toc.html"
-        },
         ".json": {
           "relative_path": "operatingSystem/toc.json"
+        },
+        ".html": {
+          "relative_path": "operatingSystem/toc.html"
         }
       },
       "version": ""
@@ -412,11 +412,11 @@
       "type": "Toc",
       "source_relative_path": "programming/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "programming/toc.html"
-        },
         ".json": {
           "relative_path": "programming/toc.json"
+        },
+        ".html": {
+          "relative_path": "programming/toc.html"
         }
       },
       "version": ""
@@ -435,11 +435,11 @@
       "type": "Toc",
       "source_relative_path": "teamwork/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "teamwork/toc.html"
-        },
         ".json": {
           "relative_path": "teamwork/toc.json"
+        },
+        ".html": {
+          "relative_path": "teamwork/toc.html"
         }
       },
       "version": ""
@@ -448,11 +448,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""
@@ -501,11 +501,11 @@
       "type": "Toc",
       "source_relative_path": "vcs/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "vcs/toc.html"
-        },
         ".json": {
           "relative_path": "vcs/toc.json"
+        },
+        ".html": {
+          "relative_path": "vcs/toc.html"
         }
       },
       "version": ""
@@ -534,11 +534,11 @@
       "type": "Toc",
       "source_relative_path": "virtualization/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "virtualization/toc.html"
-        },
         ".json": {
           "relative_path": "virtualization/toc.json"
+        },
+        ".html": {
+          "relative_path": "virtualization/toc.html"
         }
       },
       "version": ""
