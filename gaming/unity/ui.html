@@ -78,10 +78,40 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="ui-toolkit">UI Toolkit</h2>
-<p>UI Toolkit je nový systém pro vytváření uživatelského rozhraní v Unity.</p>
-<h3 id="novinky">Novinky</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HQ0TmO8ZA4o?si=BMjBISi75KH9qj1I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+<h2 id="ui">UI</h2>
+<p>Původní systém pro vytváření uživatelského rozhraní v Unity.</p>
+<h3 id="tlačítko-button">Tlačítko (Button)</h3>
+<h4 id="rozsah-detekce-kliknutí-dle-průhlednosti-obrázku">Rozsah detekce kliknutí (dle průhlednosti obrázku)</h4>
+<p><code>alphaHitTestMinimumThreshold</code> je používána u komponenty <code>Image</code></p>
+<p>Určuje minimální prahovou hodnotu alfa (průhlednosti), při které bude kliknutí na tento obrázek zaregistrováno.</p>
+<p>Nabývá rozsah hodnoty (0 až 1)</p>
+<ul>
+<li><p>Hodnota <code>0</code> znamená, že kliknutí bude zaregistrováno i na úplně průhledných částech obrázku.</p>
+</li>
+<li><p>Hodnota <code>1</code> znamená, že kliknutí bude zaregistrováno pouze na zcela neprůhledných částech obrázku.</p>
+</li>
+</ul>
+<p>Například, pokud nastavíme <code>alphaHitTestMinimumThreshold</code> na <code>0.5</code>, kliknutí bude zaregistrováno pouze na částech obrázku, které mají alfa hodnotu alespoň 0.5 (tedy nejsou příliš průhledné).</p>
+<p>Příklad použití:</p>
+<pre><code class="lang-c#">using UnityEngine;
+using System.Collections;
+using UnityEngine.UI; // Required when Using UI elements.
+
+public class ExampleClass : MonoBehaviour
+{
+    public Image theButton;
+
+    // Use this for initialization
+    void Start()
+    {
+        theButton.alphaHitTestMinimumThreshold = 0.5f;
+    }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Lze použít například při tvorbě kruhového tlačítka.</p>
+</div>
 
 </article>
           </div>
@@ -91,7 +121,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity/uiToolkit.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity/ui.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
