@@ -164,6 +164,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/2D_rigging_skinWeight.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_rigging_skinWeight.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/dockerKeepDataOnLocal.png",
       "output": {
         "resource": {
