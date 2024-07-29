@@ -168,60 +168,29 @@
 <p>Například pro dlaždici o velikosti 1x2, pokud byste nastavili PPU 32, tak by rozměr obrázku byl 32x16 px.
 (32/32 = 1, 32/16=2) px</p>
 <p>Pro více informací <a href="https://www.reddit.com/r/aseprite/comments/vq2mq9/what_size_should_sprites_be_for_a_2d_game/">zde</a>.</p>
-<h3 id="animace-obrázku-typu-sprite">Animace obrázku typu Sprite</h3>
+<h3 id="animace-obrázku">Animace obrázku</h3>
 <h4 id="hloubka-depth-u-kostí">Hloubka (Depth) u kostí</h4>
-<p>Určuje pořadí vykreslování jednotlivých kostí ve <code>Sprite Skin</code> komponentě.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ovlivňuje <strong>pořadí vykreslení vybraného Sprite (Sprite Mesh)</strong>.</p>
+<p>Příklad:</p>
+<p>Pokud máte levou paži (arm L), která je ovlivněna třemi kostmi.</p>
+<p>Nastavíte například hloubku jedné z kostí <code>forearm_l</code> na <code>-5</code>, zatímco ostatní kosti budou mít hloubku <code>0</code>.</p>
+<p>Tak se tato <code>forearm_l</code> vykreslí pod ostatními částmi tohoto Sprite Mesh.</p>
+</div>
 <ol>
 <li><p>Otevřít <code>Sprite Editor</code></p>
 </li>
 <li><p>Přepnout do <code>Skinning Editor</code></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Aktivovat <code>Visibility</code> pokud není aktivní</p>
+<p>Aktivovat <code>Visibility</code>, pokud není aktivní</p>
 </div>
 </li>
 <li><p>Nastavit u kostí <code>depth</code></p>
  <img src="../../images/2D_rigging_depth.png" alt="2D_rigging_depth.png">
-<div class="NOTE">
-<h5>Note</h5>
-<p>Ovlivňuje, jak se kosti a připojené části sprite zobrazují při překrývání.</p>
-</div>
 </li>
 </ol>
-<p>Účel:</p>
-<ul>
-<li><p>Pořadí vrstev</p>
-<p>Nastavuje, jaké části sprite se zobrazí před nebo za jinými částmi.</p>
-</li>
-<li><p>Překrývání sprites</p>
-<p>Zajišťuje správné překrývání různých částí postavy, například rukou a těla.</p>
-</li>
-<li><p>Animace</p>
-<p>Pomáhá udržet správné vizuální pořadí částí během animace a transformace.</p>
-</li>
-</ul>
-<p>Příklad nastavení hloubky:</p>
-<ul>
-<li><p>Tělo:</p>
-<p>Depth = 0</p>
-</li>
-<li><p>Pravá ruka:</p>
-<p>Depth = 1</p>
-</li>
-<li><p>Levá ruka:</p>
-<p>Depth = -1</p>
-</li>
-<li><p>Pravá noha:</p>
-<p>Depth = -2</p>
-</li>
-<li><p>Levá noha:</p>
-<p>Depth = -3</p>
-</li>
-</ul>
-<div class="TIP">
-<h5>Tip</h5>
-<p>V editoru Unity lze vizuálně kontrolovat a upravovat hloubku, aby se zajistilo správné vykreslení všech částí sprite.</p>
-</div>
 <h4 id="univerzální-rigging">Univerzální Rigging</h4>
 <ol>
 <li><p>Otevřít <code>Sprite Editor</code></p>
@@ -229,7 +198,7 @@
 <li><p>Přepnout do <code>Skinning Editor</code></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Aktivovat <code>Visibility</code> pokud není aktivní</p>
+<p>Aktivovat <code>Visibility</code>, pokud není aktivní</p>
 </div>
 </li>
 <li><p>Vytvořit kosti (bones)</p>
