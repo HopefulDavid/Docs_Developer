@@ -220,6 +220,37 @@
 <img src="../../images/2D_rigging_paste.png" alt="2D_rigging_paste.png"></p>
 </li>
 </ol>
+<h3 id="řešení-chyb-při-vykreslování-sprite">Řešení chyb při vykreslování sprite</h3>
+<h4 id="černé-čáry">Černé čáry</h4>
+<p>Problém, viz. níže:</p>
+<img src="../../images/2D_sprite_blackLines.png" alt="2D_sprite_blackLines.png">
+<p>Řešení:</p>
+<ul>
+<li><p>Zkontrolujte obrázek, zda je správně umístěn.</p>
+  <img src="../../images/2D_sprite_blackLines_solution.png" alt="2D_sprite_blackLines_solution.png">
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ponecháme mezeru na horním a spodním kraji pro obrázek</p>
+</div>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Takto vypadá špatně umístěný obrázek</p>
+<img src="../../images/2D_sprite_blackLines_solution_failed.png" alt="2D_sprite_blackLines_solution_failed.png">
+</div>
+</li>
+<li><p>Nastavit Border padding v <code>TexturePacker</code></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Pokud nechcete upravovat existující obrázek, lze nastavit odsazení při vytváření <code>Sprite Sheets</code>.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Nevýhodou je, že může vzniknout tímto více <code>Sprite Sheets</code>.</p>
+</div>
+<img src="../../images/2D_sprite_blackLines_solution2.png" alt="2D_sprite_blackLines_solution2.png">
+<p>Nastavte libovoulnou velikost výplně, která bude větší než 0</p>
+</li>
+</ul>
 
 </article>
           </div>

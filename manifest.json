@@ -214,6 +214,46 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/2D_sprite_blackLines.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_sprite_blackLines.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/2D_sprite_blackLines_solution.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_sprite_blackLines_solution.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/2D_sprite_blackLines_solution2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_sprite_blackLines_solution2.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/2D_sprite_blackLines_solution_failed.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_sprite_blackLines_solution_failed.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/dockerKeepDataOnLocal.png",
       "output": {
         "resource": {
