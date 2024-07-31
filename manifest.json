@@ -244,6 +244,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/2D_sprite_blackLines_solutionCamera.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/2D_sprite_blackLines_solutionCamera.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/2D_sprite_blackLines_solution_failed.png",
       "output": {
         "resource": {

@@ -230,27 +230,42 @@
   <img src="../../images/2D_sprite_blackLines_solution.png" alt="2D_sprite_blackLines_solution.png">
 <div class="NOTE">
 <h5>Note</h5>
-<p>Ponecháme mezeru na horním a spodním kraji pro obrázek</p>
+<p>Upravit obrázek hlavy, aby byla umístěna uvnitř rozsahu</p>
 </div>
 <div class="CAUTION">
 <h5>Caution</h5>
-<p>Takto vypadá špatně umístěný obrázek</p>
+<p>Takto vypadá špatně umístěný obrázek v dokumentu</p>
 <img src="../../images/2D_sprite_blackLines_solution_failed.png" alt="2D_sprite_blackLines_solution_failed.png">
 </div>
 </li>
-<li><p>Nastavit Border padding v <code>TexturePacker</code></p>
+<li><p>Nastavit padding v <code>TexturePacker</code></p>
+<img src="../../images/2D_sprite_blackLines_solution2.png" alt="2D_sprite_blackLines_solution2.png">
 <div class="NOTE">
 <h5>Note</h5>
-<p>Pokud nechcete upravovat existující obrázek, lze nastavit odsazení při vytváření <code>Sprite Sheets</code>.</p>
+<p>Pomůže zabránit problémům, jako je &quot;bleeding&quot; efekt. (Přetekání obrázku přes okraje.)</p>
 </div>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Nevýhodou je, že může vzniknout tímto více <code>Sprite Sheets</code>.</p>
+<p>Nastavte libovolnou velikost výplně, která bude větší než 0 pro:</p>
+<ul>
+<li><p><strong>Border padding</strong></p>
+<p>Mezera kolem okrajů celého <code>sheetu</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Pomáhá předejít vizuálním artefaktům (nechtěným chybám jako jsou rozmazání nebo barevné okraje) na okrajích <code>sheetu</code>.</p>
 </div>
-<img src="../../images/2D_sprite_blackLines_solution2.png" alt="2D_sprite_blackLines_solution2.png">
-<p>Nastavte libovoulnou velikost výplně, která bude větší než 0</p>
+</li>
+<li><p><strong>Shape padding</strong></p>
+<p>Mezera mezi jednotlivými <code>sprites</code> na <code>sheetu</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Zabraňuje vzájemnému překrývání a nežádoucím vlivům mezi jednotlivými <code>sprites</code>.</p>
+</div>
 </li>
 </ul>
+</li>
+</ul>
+<h4 id="problikávání">Problikávání</h4>
+<p>Zkontrolujte měřítko v herním okně, že je nastaveno na <strong>1x</strong></p>
+<img src="../../images/2D_sprite_blackLines_solutionCamera.png" alt="2D_sprite_blackLines_solutionCamera.png">
 
 </article>
           </div>
