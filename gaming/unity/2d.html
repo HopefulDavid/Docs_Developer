@@ -96,6 +96,30 @@
 <p>Postavy nebo prvky, které se nemohou přizpůsobit mřížce</p>
 </li>
 </ul>
+<h3 id="tilemap">Tilemap</h3>
+<h4 id="vykreslit-a-nastavit-barvu-na-dlaždici">Vykreslit a nastavit barvu na dlaždici</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Z nějakého důvodu kód funguje pouze pokud je to takto oddělený.</p>
+</div>
+<pre><code class="lang-c#">        public void GenerateTilemap(int width, int height, Color color)
+        {
+            // Delete all tiles
+            this.ClearTiles();
+
+            for (int x = 0; x &lt; width; x++)
+            for (int y = 0; y &lt; height; y++)
+            {
+                this.Tilemap.SetTile(new(x, y, 0), this.TileBase);
+            }
+
+            for (int x = 0; x &lt; width; x++)
+            for (int y = 0; y &lt; height; y++)
+            {
+                this.Tilemap.SetColor(new(x, y, 0), color);
+            }
+        }
+</code></pre>
 <h3 id="velikost-obrázku">Velikost obrázku</h3>
 <h4 id="definice-velikostí">Definice velikostí</h4>
 <div class="NOTE">

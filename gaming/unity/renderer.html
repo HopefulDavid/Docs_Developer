@@ -78,45 +78,41 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
-<h2 id="kamera">Kamera</h2>
-<h3 id="ortografická-kamera">Ortografická Kamera</h3>
+<h2 id="urp">URP</h2>
+<p>= Universal Renderer Pipeline</p>
 <ul>
-<li><p>Zobrazení:</p>
-<p>Objektivní (bez perspektivního zkreslení).</p>
+<li><p><strong>DefaultVolumeProfile</strong></p>
+<p>Sada výchozích nastavení pro Volume efekty.</p>
+<p>Definuje základní vizuální efekty a post-processing efekty, které jsou použity v rámci projektu.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Obsahuje standardní efekty, jako jsou bloom, chromatic aberration, a další, které mohou být použity jako výchozí profil.</p>
+</div>
 </li>
-<li><p>Velikost objektů:</p>
-<p>Všechny objekty vypadají stejně velké bez ohledu na jejich vzdálenost od kamery.</p>
+<li><p><strong>UniversalRenderPipelineGlobalSettings</strong></p>
+<p>Globální nastavení pro Universal Render Pipeline (URP).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Určuje základní chování a vlastnosti URP v projektu, jako jsou například nastavení pro HDRP nebo další globální nastavení pipeline.</p>
+</div>
 </li>
-<li><p>Použití:</p>
-<p>Ideální pro 2D hry, izometrické zobrazení, architektonické vizualizace.</p>
+<li><p><strong>URP Render Pipeline Asset</strong></p>
+<p>Hlavní asset pro konfiguraci Universal Render Pipeline (URP).</p>
+<p>Umožňuje nastavit konkrétní parametry render pipeline, jako jsou kvalita, efekty a optimizace pro rendering.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Obsahuje konfigurace pro renderování a zpracování obrazu, jako jsou nastavení pro antialiasing, renderování stínů a další.</p>
+</div>
 </li>
-<li><p>Nastavení:</p>
-<p>Používá Orthographic Size k určení velikosti záběru kamery.</p>
-</li>
-<li><p>Zobrazení linie:</p>
-<p>Rovnoběžné linie zůstávají rovnoběžné.</p>
+<li><p><strong>URP Renderer Data</strong></p>
+<p>Konfigurace specifická pro jednotlivé renderery v rámci URP.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Definuje specifické nastavení pro různé renderery (např. Forward Renderer), jako jsou nastavení pro stíny, efekty a post-processing na úrovni renderování.</p>
+<p>Může obsahovat specifická nastavení pro různé renderování (např. různé typy renderovaných objektů, různé metody renderování atd.).</p>
+</div>
 </li>
 </ul>
-<h3 id="perspektivní-kamera">Perspektivní Kamera</h3>
-<ul>
-<li><p>Zobrazení:</p>
-<p>Simuluje reálnou perspektivu (s perspektivním zkreslením).</p>
-</li>
-<li><p>Velikost objektů:</p>
-<p>Objekty se jeví menší, jak se vzdálí od kamery.</p>
-</li>
-<li><p>Použití:</p>
-<p>Vhodné pro 3D hry, kde je důležitý realistický pocit hloubky.</p>
-</li>
-<li><p>Nastavení:</p>
-<p>Používá Field of View (FOV) k určení šířky záběru kamery.</p>
-</li>
-<li><p>Zobrazení linie:</p>
-<p>Rovnoběžné linie se sbíhají do jednoho bodu (vanishing point).</p>
-</li>
-</ul>
-<h3 id="novinky">Novinky</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OL0bLrb8DV4?si=cYRtPAg8tjvLExw6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 </article>
           </div>
@@ -126,7 +122,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity/camera.md/#L1" class="contribution-link">Edit this page</a>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/gaming/unity/renderer.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
