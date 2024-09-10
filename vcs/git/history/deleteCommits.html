@@ -78,6 +78,16 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 
+<h3 id="odstranění-souborů-z-verzování">Odstranění souborů z verzování</h3>
+<p>Příkaz aktualizuje změny a všechny dříve sledované soubory, které jsou nyní v <code>.gitignore</code>, přestanou být sledovány.</p>
+<pre><code class="lang-powershell">git rm -r --cached .
+git add .
+git commit -m &quot;Refresh .gitignore rules&quot;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Soubor je odstraněn z verzování, ale je ponechání na disku</p>
+</div>
 <h3 id="nahrazení-vzdálené-branch-z-lokální-branch">Nahrazení Vzdálené Branch z Lokální Branch</h3>
 <ol>
 <li>
