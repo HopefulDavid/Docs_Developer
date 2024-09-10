@@ -1,0 +1,33 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+	    "default",
+		"templates/material",
+		"templates/material-classic"
+    ],
+    "globalMetadata": {
+      "_appName": "Dokumentace pro vývojáře",
+      "_appTitle": "Vývojář",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

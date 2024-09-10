@@ -1,0 +1,12 @@
+- name: Git
+  items:
+  - name: Úložiště
+    href: git/repository.md
+  - name: Historie
+    items:
+    - name: Přesunutí
+      href: git/history/moveCommits.md
+    - name: Oprava
+      href: git/history/fixCommits.md
+    - name: Odstranění
+      href: git/history/deleteCommits.md
