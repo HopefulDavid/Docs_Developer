@@ -13,6 +13,8 @@
     href: net/net_methods.md 
   - name: Testy Nunit
     href: net/net_nunit.md 
+  - name: Entity Framework
+    href: net/net_entityFramework.md
   - name: Soubory
     href: net/net_files.md
     items: 
