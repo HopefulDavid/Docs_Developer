@@ -1,2 +1,4 @@
-- name: Mongo databáze
+- name: MongoDB
   href: mongoDB.md
+- name: PostgreSQL
+  href: PostgreSQL.md
