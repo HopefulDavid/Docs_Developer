@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h3 id="instalace">Instalace</h3>
+<pre><code class="lang-bash">&quot;C:\Program Files\dotnet\dotnet.exe&quot; tool install --ignore-failed-sources --global dotnet-ef
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Balíček bude uložen ve složce: <code>C:\Users\&lt;TvéUživatelskéJméno&gt;\.dotnet\tools</code></p>
+<p>Pro zálohu offline, zkopírujte obsah této složky na jiný počítač, kde nástroj <code>dotnet-ef</code> nebude dostupný online.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Pokud složku umístíte na jinou cestu, ujistěte se, že ji přidáte do proměnných do <code>PATH</code>, aby byl nástroj dostupný z příkazového řádku.</p>
+</div>
+</div>
+<h4 id="1-spusťte-build-pro-zobrazení-chyb">1. Spusťte build pro zobrazení chyb</h4>
+<pre><code class="lang-bash">dotnet build
+</code></pre>
+<h4 id="2-vytvořte-první-migraci">2. Vytvořte první migraci</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ujistěte se, že se nacházíte ve složce, kde se nachází váš <code>.csproj</code> soubor</p>
+</div>
+<pre><code class="lang-bash">dotnet ef migrations add InitialCreate
+</code></pre>
+<h4 id="3-aktualizujte-databázi-pomocí-migrace">3. Aktualizujte databázi pomocí migrace</h4>
+<pre><code class="lang-bash">dotnet ef database update
+</code></pre>
+<h3 id="příkazy">Příkazy</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Příkaz</strong></th>
+<th><strong>Popis</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dotnet ef migrations add &lt;Název&gt;</code></td>
+<td>Vytvoří nový soubor pro migraci s názvem <code>&lt;Název&gt;</code>, který zachytí změny ve tvých modelech (entitách).</td>
+</tr>
+<tr>
+<td><code>dotnet ef migrations remove</code></td>
+<td>Smaže poslední migraci, kterou jsi přidal, ale nezmění databázi (pouze vrátí kód zpět).</td>
+</tr>
+<tr>
+<td><code>dotnet ef migrations list</code></td>
+<td>Zobrazí seznam všech migrací, které jsi vytvořil (ukazuje, jaké změny se postupně prováděly).</td>
+</tr>
+<tr>
+<td><code>dotnet ef database update</code></td>
+<td>Aplikuje všechny migrace (změny) na databázi, aby se databáze aktualizovala podle aktuálních modelů.</td>
+</tr>
+<tr>
+<td><code>dotnet ef database update &lt;Název&gt;</code></td>
+<td>Aplikuje migraci s názvem <code>&lt;Název&gt;</code> (pokud nechceš aplikovat všechny migrace).</td>
+</tr>
+<tr>
+<td><code>dotnet ef database drop</code></td>
+<td>Smaže celou databázi – dávej pozor, tímto příkazem přijdeš o všechna data.</td>
+</tr>
+<tr>
+<td><code>dotnet ef dbcontext list</code></td>
+<td>Ukáže všechny třídy DbContext ve tvém projektu (DbContext je hlavní třída pro práci s databází).</td>
+</tr>
+<tr>
+<td><code>dotnet ef dbcontext info</code></td>
+<td>Zobrazí informace o tvojí DbContext třídě (užitečné pro zjištění detailů o konfiguraci).</td>
+</tr>
+<tr>
+<td><code>dotnet ef dbcontext scaffold</code></td>
+<td>Vytvoří třídy (modely) podle existující databáze – tímto způsobem můžeš začít, pokud už máš databázi.</td>
+</tr>
+<tr>
+<td><code>dotnet ef migrations script</code></td>
+<td>Vygeneruje SQL skript, který obsahuje všechny změny v migracích – vhodné pro manuální nasazení.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/programming/net/net_entityFramework.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

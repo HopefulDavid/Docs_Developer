@@ -1,2 +1,2 @@
 
-{"items":[{"name":"Mongo databáze","href":"mongoDB.html","topicHref":"mongoDB.html"}],"pdf":true}
+{"items":[{"name":"MongoDB","href":"mongoDB.html","topicHref":"mongoDB.html"},{"name":"PostgreSQL","href":"PostgreSQL.html","topicHref":"PostgreSQL.html"}],"pdf":true}

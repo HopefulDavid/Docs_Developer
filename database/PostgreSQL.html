@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h2 id="postgresql">PostgreSQL</h2>
+<p>Podporuje programovací jazyky:</p>
+<ul>
+<li>Python</li>
+<li>Java</li>
+<li>C/C++</li>
+<li>C#</li>
+<li>Node.js</li>
+<li>Go</li>
+<li>Ruby</li>
+<li>Perl</li>
+<li>Tcl</li>
+</ul>
+<p>PostgreSQL podporuje v podstatě všechny funkce, které podporují jiné systémy pro správu databází.</p>
+<h3 id="instalace">Instalace</h3>
+<h4 id="výběr-verze-produktu">Výběr verze produktu</h4>
+<p><a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads"><img src="../images/postgreSQL_Install.png"></a></p>
+<h4 id="spustit-instalaci">Spustit instalaci</h4>
+<p>Po dokončení stahování dvakrát klikněte na stažený soubor a spusťte instalaci:</p>
+<img src="../images/postgreSQL_Install_2.png">
+<h4 id="složka-pro-instalaci">Složka pro instalaci</h4>
+<p>Můžete zadat umístění PostgreSQL,  vybereme prozatím výchozí volbu:</p>
+<img src="../images/postgreSQL_Install_3.png">
+<h4 id="výběr-komponent">Výběr komponent</h4>
+<img src="../images/wqiRRNNKOT.png">
+<div class="NOTE">
+<h5>Note</h5>
+<p>Chcete-li používat PostgreSQL, budete muset nainstalovat PostgreSQL Server.</p>
+<p>Doporučuji <code>pgAdmin 4</code>, který poskytuje uživatelské rozhraní a <code>Comand Line Tools</code> pro příkazový řádek.</p>
+</div>
+<h4 id="složka-pro-uložení-dat-databáze">Složka pro uložení dat databáze</h4>
+<p>Vyberte kam uložit data databáze, použijeme výchozí volbu:</p>
+<img src="../images/postgreSQL_Install_4.png">
+<h4 id="nastavit-heslo">Nastavit heslo</h4>
+<p>Pro přístup do databáze budete muset zvolit heslo.</p>
+<img src="../images/postgreSQL_Install_5.png">
+<h4 id="port-k-naslouchání">Port k naslouchání</h4>
+<p>Můžete nastavit port, na kterém má server naslouchat, použijeme výchozí volbu:</p>
+<img src="../images/postgreSQL_Install_6.png">
+<h4 id="geografické-umístění-serveru">Geografické umístění serveru</h4>
+<p>Vyberte geografické umístění databázového serveru:</p>
+<img src="../images/postgreSQL_Install_7.png">
+<h4 id="kontrola-před-provedením">Kontrola před provedením</h4>
+<img src="../images/postgreSQL_Install_8.png">
+<p>Následně stačí dokončit instalaci</p>
+<h3 id="příkazový-řádek">Příkazový řádek</h3>
+<h4 id="otestovat-zda-postgresql-naslouchá">Otestovat zda PostgreSQL naslouchá</h4>
+<p>Otevřít:</p>
+<img src="../images/zGRvsmYA6A.png">
+<p>Připojení:</p>
+<img src="../images/t0Vjh1fqzy.png">
+<p>Nyní byste měli dostat výsledek podobný níže:</p>
+<img src="../images/oY0QJRKkL1.png">
+<div class="WARNING">
+<h5>Warning</h5>
+<p><strong>Pokud nevidíte konzoli v angličtině</strong>, musíte udělat tyto změny:</p>
+<ul>
+<li><p>Nastavit v <code>C:\Program Files\PostgreSQL\16\data\postgresql.conf</code></p>
+<img src="../images/G0Loa7KgVA.png">
+</li>
+<li><p>Nastavit v proměnném prostředí</p>
+<img src="../images/0qjIRo5xxb.png">
+</li>
+</ul>
+<p>Nyní stačí vypnout a zapnout konzoli a změny by se měli projevit</p>
+</div>
+<p>Pro odzkoušení zda jsme se správně připojili stačí zavolat kód níže:</p>
+<pre><code class="lang-sql">SELECT version();
+</code></pre>
+<h3 id="uživatelské-rozhraní">Uživatelské rozhraní</h3>
+<p>Otevřete aplikaci:</p>
+<img src="../images/t0m7kk76Jm.png">
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/database/PostgreSQL.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
