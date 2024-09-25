@@ -1,6 +1,8 @@
 - name: Unity
   href: unity.md
   items:
+    - name: Animace
+      href: unity/animation.md
     - name: 2D
       href: unity/2d.md
     - name: Uživatelské rozhraní
