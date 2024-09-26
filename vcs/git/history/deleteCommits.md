@@ -1,16 +1,3 @@
-### Odstranění souborů z verzování
-
-Příkaz aktualizuje změny a všechny dříve sledované soubory, které jsou nyní v `.gitignore`, přestanou být sledovány.
-
-```powershell
-git rm -r --cached .
-git add .
-git commit -m "Refresh .gitignore rules"
-```
-
-> [!NOTE]
-> Soubor je odstraněn z verzování, ale je ponechání na disku
-
 ### Nahrazení Vzdálené Branch z Lokální Branch
 
 <ol>

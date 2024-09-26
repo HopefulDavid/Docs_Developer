@@ -4,6 +4,8 @@
     href: git/repository.md
   - name: Historie
     items:
+    - name: .gitignore
+      href: git/history/updateGitignore.md
     - name: Přesunutí
       href: git/history/moveCommits.md
     - name: Oprava
