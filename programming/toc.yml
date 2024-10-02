@@ -1,5 +1,9 @@
 - name: Techniky
   href: techniques.md
+- name: Balíčky
+  items: 
+    - name: Nuget Package
+      href: nugetPackage.md
 - name:  C#
   href: net.md
   items:
