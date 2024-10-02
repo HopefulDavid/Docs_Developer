@@ -19,6 +19,8 @@
     href: net/net_nunit.md 
   - name: Entity Framework
     href: net/net_entityFramework.md
+  - name: WPF
+    href: net/net_wpf.md
   - name: Soubory
     href: net/net_files.md
     items: 
