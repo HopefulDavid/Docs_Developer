@@ -680,6 +680,290 @@ Triggery umožňují dynamicky měnit vzhled prvku na základě určitých udál
     </Style>
   ```
 
+### Data Binding (Vazba Modelu na View)
+
+#### 1. Vytvoření ViewModel
+
+Nejprve vytvoříme ViewModel, který bude obsahovat vlastnost, kterou chceme vázat. 
+
+> [!IMPORTANT]
+> Použijeme `INotifyPropertyChanged`, aby WPF věděl, kdy se vlastnost změnila.
+
+```csharp
+using System.ComponentModel;
+
+public class MyViewModel : INotifyPropertyChanged
+{
+    private string _name;
+
+    public string Name
+    {
+        get { return _name; }
+        set
+        {
+            _name = value;
+            OnPropertyChanged(nameof(Name));
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+}
+```
+
+> [!NOTE]
+>`MyViewModel` má vlastnost `Name`, která implementuje `INotifyPropertyChanged`.
+>
+>To zajišťuje, že pokud se `Name` změní, UI se automaticky aktualizuje.
+
+#### 2. Vytvoření XAML pro UI
+
+Vytvoříme jednoduché uživatelské rozhraní, které umožní uživateli zadat jméno a zobrazit ho. 
+
+Použijeme `TextBox` pro zadání a `TextBlock` pro zobrazení.
+
+```csharp
+<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Binding Example" Height="200" Width="300">
+    <Grid>
+        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="10"/>
+        <TextBlock Text="{Binding Name}" Margin="10,50,10,10"/>
+    </Grid>
+</Window>
+```
+
+> [!NOTE]
+> V XAML používáme `{Binding Name}` pro vázání `TextBox` a `TextBlock` na vlastnost `Name` ve ViewModelu.
+>
+> `UpdateSourceTrigger=PropertyChanged` znamená, že binding se aktualizuje při každé změně textu v `TextBox`.
+>
+> (Vlastnost ViewModelu se aktualizuje okamžitě při každé změně textu.)
+>
+> Příklad:
+> 
+> ```csharp
+> <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="200" Margin="10"/>
+> ```
+>
+> Bez explicitního nastavení `UpdateSourceTrigger` se binding aktualizuje při ztrátě fokusu (`LostFocus`).
+>
+> (Vlastnost ViewModelu se aktualizuje pouze po ztrátě fokusu či při změně výběru v ComboBox.)
+>
+> Příklad:
+>
+> ```csharp
+> <TextBox Text="{Binding Name}" Width="200" Margin="10"/>
+> ```
+
+#### 3. Nastavení DataContext
+
+V `MainWindow.xaml.cs` nastavíme `DataContext` na instanci našeho `ViewModelu`.
+
+```csharp
+using System.Windows;
+
+namespace WpfApp
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            DataContext = new MyViewModel(); // Nastavujeme DataContext
+        }
+    }
+}
+```
+
+> [!NOTE]
+> V konstruktoru `MainWindow` nastavujeme `DataContext` na instanci `MyViewModel`.
+>
+> To umožňuje XAML binding k vlastnostem ViewModelu.
+
+### Validace
+
+#### Implementace 
+
+- **`INotifyPropertyChanged` + `IDataErrorInfo`**
+
+	Obvykle se používá pro vracení celkové chyby objektu. 
+
+    ```csharp
+    public class MyViewModel : INotifyPropertyChanged, IDataErrorInfo
+    {
+        private string _name;
+    
+        // Property s validací
+        [Required(ErrorMessage = "Pole je povinné.")]
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name)); // Oznámení o změně
+            }
+        }
+    
+        // Notifikace o změně
+        public event PropertyChangedEventHandler PropertyChanged;
+    
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    
+        // Implementace IDataErrorInfo
+        public string this[string columnName]
+        {
+            get
+            {
+                var validationResults = new List<ValidationResult>();
+                var context = new ValidationContext(this) { MemberName = columnName };
+                Validator.TryValidateProperty(
+                    this.GetType().GetProperty(columnName).GetValue(this),
+                    context,
+                    validationResults
+                );
+    
+                // Vrátí první chybu, pokud existuje, jinak vrátí null
+                return validationResults.FirstOrDefault()?.ErrorMessage;
+            }
+        }
+    
+        public string Error
+        {
+            get
+            {
+                return null; // Gets a message that describes any validation errors for the object.
+            }
+        }
+    }
+    ```
+    > [!NOTE]
+    > Použití `this[string columnName]`:
+    >
+    > Tato metoda slouží k validaci konkrétní vlastnosti.
+    >
+    > Pokud se objeví chyba, vrací odpovídající chybovou zprávu.
+	
+	**XAML pro validaci pomocí `IDataErrorInfo`**
+
+  ```xml
+    <TextBox Text="{Binding Name, 
+                    UpdateSourceTrigger=PropertyChanged, 
+                    ValidatesOnDataErrors=True}" />
+    
+    <TextBox.Style>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="Red" />
+                    <Setter Property="BorderThickness" Value="2" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </TextBox.Style>
+  ```
+
+- **`INotifyPropertyChanged` + `INotifyDataErrorInfo`**
+
+    Umožňuje validovat více chyb na jedné vlastnosti a spravovat chybové zprávy pro každou vlastnost asynchronně.
+
+	```csharp
+    public class MyViewModel : INotifyPropertyChanged, INotifyDataErrorInfo
+    {
+        private string _name;
+        private readonly Dictionary<string, List<string>> _errors = new Dictionary<string, List<string>>();
+    
+        // Property s validací
+        [Required(ErrorMessage = "Pole je povinné.")]
+        [StringLength(10, ErrorMessage = "Maximálně 10 znaků.")]
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                OnPropertyChanged(nameof(Name)); // Oznámení o změně
+                ValidateProperty(nameof(Name), value); // Spuštění validace
+            }
+        }
+    
+        // Notifikace o změně
+        public event PropertyChangedEventHandler PropertyChanged;
+    
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    
+        // Validace vlastnosti
+        private void ValidateProperty(string propertyName, object value)
+        {
+            var context = new ValidationContext(this) { MemberName = propertyName };
+            var validationResults = new List<ValidationResult>();
+    
+            bool isValid = Validator.TryValidateProperty(value, context, validationResults);
+    
+            if (!isValid)
+            {
+                _errors[propertyName] = validationResults.Select(vr => vr.ErrorMessage).ToList();
+            }
+            else
+            {
+                _errors.Remove(propertyName);
+            }
+    
+            OnErrorsChanged(propertyName);
+        }
+    
+        // Implementace INotifyDataErrorInfo
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+    
+        // Vrací, zda má objekt nějaké chyby
+        public bool HasErrors => _errors.Any();
+    
+        // Získá seznam chyb pro konkrétní vlastnost
+        public IEnumerable GetErrors(string propertyName)
+        {
+            if (_errors.ContainsKey(propertyName))
+                return _errors[propertyName];
+            return null;
+        }
+    
+        protected void OnErrorsChanged(string propertyName)
+        {
+            ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+    }
+	```
+
+    **XAML pro validaci pomocí `INotifyDataErrorInfo`**
+
+	```xml
+    <TextBox Text="{Binding Name, 
+                UpdateSourceTrigger=PropertyChanged, 
+                ValidatesOnNotifyDataErrors=True}" />
+    
+    <TextBox.Style>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="Red" />
+                    <Setter Property="BorderThickness" Value="2" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </TextBox.Style>
+	```
+
 ### Animace
 
 WPF podporuje animace, které umožňují měnit vlastnosti prvků v čase.
