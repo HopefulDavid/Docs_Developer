@@ -28,6 +28,9 @@
       "_appTitle": "Vývojář",
       "_enableSearch": true,
       "pdf": true
+    },
+	 "markdown": {
+      "max_header_level": 7
     }
   }
 }

@@ -1,13 +1,13 @@
 ## Microsof SQL
 
-### Příkazy
+### Kód
 
 #### Získat informace
 
-##### Informace ze Serveru
+- Informace ze Serveru
 
   ```sql
-    	SELECT 
+    SELECT 
         SERVERPROPERTY('MachineName') AS MachineName,
         SERVERPROPERTY('ServerName') AS ServerName,
         SERVERPROPERTY('InstanceName') AS InstanceName,
@@ -19,260 +19,260 @@
         CONNECTIONPROPERTY('client_net_address') AS ClientIPAddress
   ```
 
-##### Informace z Tabulky
+- Informace z Tabulky
 
-```sql
-DECLARE @tableName NVARCHAR(128) = N'place_table_name';
+  ```sql
+     DECLARE @tableName NVARCHAR(128) = N'place_table_name';
+     
+     SELECT 
+         C.TABLE_SCHEMA as 'Namespace',
+         C.TABLE_NAME as 'Název tabulky',
+         C.COLUMN_NAME as 'Název sloupce', 
+         C.DATA_TYPE as 'Typ dat', 
+         C.IS_NULLABLE as 'Může být NULL ?', 
+         T.TABLE_TYPE as 'Typ tabulky'
+     FROM 
+         INFORMATION_SCHEMA.COLUMNS C
+     INNER JOIN
+         INFORMATION_SCHEMA.TABLES T
+     ON
+         C.TABLE_NAME = T.TABLE_NAME AND C.TABLE_SCHEMA = T.TABLE_SCHEMA
+     WHERE 
+         C.TABLE_NAME = @tableName
+     ORDER BY 
+         C.ORDINAL_POSITION;
+  ```
 
-SELECT 
-    C.TABLE_SCHEMA as 'Namespace',
-    C.TABLE_NAME as 'Název tabulky',
-    C.COLUMN_NAME as 'Název sloupce', 
-    C.DATA_TYPE as 'Typ dat', 
-    C.IS_NULLABLE as 'Může být NULL ?', 
-    T.TABLE_TYPE as 'Typ tabulky'
-FROM 
-    INFORMATION_SCHEMA.COLUMNS C
-INNER JOIN
-    INFORMATION_SCHEMA.TABLES T
-ON
-    C.TABLE_NAME = T.TABLE_NAME AND C.TABLE_SCHEMA = T.TABLE_SCHEMA
-WHERE 
-    C.TABLE_NAME = @tableName
-ORDER BY 
-    C.ORDINAL_POSITION;
-```
+- Velikost Tabulek
 
-##### Velikost Tabulek
+  ```sql
+      SELECT 
+        t.NAME AS [Název tabulky],
+        s.Name AS [Název schématu],
+        p.rows AS [Počet řádků],
+        CONVERT(NVARCHAR, CAST(SUM(a.total_pages) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
+            + ' GB (' + CONVERT(NVARCHAR, CAST((SUM(a.total_pages) * 8 / 1024.0) AS INT)) + ' MB)' AS [Celkový prostor],
+        CONVERT(NVARCHAR, CAST(SUM(a.used_pages) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
+            + ' GB (' + CONVERT(NVARCHAR, CAST((SUM(a.used_pages) * 8 / 1024.0) AS INT)) + ' MB)' AS [Využitý prostor],
+        CONVERT(NVARCHAR, CAST((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
+            + ' GB (' + CONVERT(NVARCHAR, CAST(((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.0) AS INT)) + ' MB)' AS [Nevyužitý prostor]
+    FROM 
+        sys.tables t
+    INNER JOIN      
+        sys.indexes i ON t.OBJECT_ID = i.object_id
+    INNER JOIN 
+        sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id
+    INNER JOIN 
+        sys.allocation_units a ON p.partition_id = a.container_id
+    LEFT OUTER JOIN 
+        sys.schemas s ON t.schema_id = s.schema_id
+    WHERE 
+        t.NAME NOT LIKE 'dt%' 
+        AND t.is_ms_shipped = 0
+        AND i.OBJECT_ID > 255 
+    GROUP BY 
+        t.Name, s.Name, p.Rows
+    ORDER BY 
+        SUM(a.total_pages) * 8 / 1024.0 / 1024.0 DESC;
+  ```
 
-```sql
-SELECT 
-    t.NAME AS [Název tabulky],
-    s.Name AS [Název schématu],
-    p.rows AS [Počet řádků],
-    CONVERT(NVARCHAR, CAST(SUM(a.total_pages) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
-        + ' GB (' + CONVERT(NVARCHAR, CAST((SUM(a.total_pages) * 8 / 1024.0) AS INT)) + ' MB)' AS [Celkový prostor],
-    CONVERT(NVARCHAR, CAST(SUM(a.used_pages) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
-        + ' GB (' + CONVERT(NVARCHAR, CAST((SUM(a.used_pages) * 8 / 1024.0) AS INT)) + ' MB)' AS [Využitý prostor],
-    CONVERT(NVARCHAR, CAST((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.0 / 1024.0 AS DECIMAL(10, 2))) 
-        + ' GB (' + CONVERT(NVARCHAR, CAST(((SUM(a.total_pages) - SUM(a.used_pages)) * 8 / 1024.0) AS INT)) + ' MB)' AS [Nevyužitý prostor]
-FROM 
-    sys.tables t
-INNER JOIN      
-    sys.indexes i ON t.OBJECT_ID = i.object_id
-INNER JOIN 
-    sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id
-INNER JOIN 
-    sys.allocation_units a ON p.partition_id = a.container_id
-LEFT OUTER JOIN 
-    sys.schemas s ON t.schema_id = s.schema_id
-WHERE 
-    t.NAME NOT LIKE 'dt%' 
-    AND t.is_ms_shipped = 0
-    AND i.OBJECT_ID > 255 
-GROUP BY 
-    t.Name, s.Name, p.Rows
-ORDER BY 
-    SUM(a.total_pages) * 8 / 1024.0 / 1024.0 DESC;
-```
+    > [!NOTE]
+    > Zaokrouhle na dvě místa
 
-> [!NOTE]
-> Zaokrouhle na dvě místa
+- Informace o indexech na sloupcích
 
-##### Informace o indexech na sloupcích
+	> [!TIP]
+	> Indexy jsou nejefektivnější, když jsou často čteny a málo aktualizovány
 
-> [!TIP]
-> Indexy jsou nejefektivnější, když jsou často čteny a málo aktualizovány
-
-```sql
-SELECT 
-    OBJECT_NAME(s.object_id) AS 'Table',
-    i.name AS 'Index',
-    user_seeks + user_scans + user_lookups AS 'Reads',
-    user_updates AS 'Updates'
-FROM 
-    sys.dm_db_index_usage_stats AS s 
-JOIN 
-    sys.indexes AS i 
-ON 
-    s.object_id = i.object_id 
-AND 
-    i.index_id = s.index_id
-WHERE 
-    OBJECTPROPERTY(s.object_id,'IsUserTable') = 1
-ORDER BY 
-    'Reads' DESC, 'Updates' ASC
-```
+	```sql
+	SELECT 
+		OBJECT_NAME(s.object_id) AS 'Table',
+		i.name AS 'Index',
+		user_seeks + user_scans + user_lookups AS 'Reads',
+		user_updates AS 'Updates'
+	FROM 
+		sys.dm_db_index_usage_stats AS s 
+	JOIN 
+		sys.indexes AS i 
+	ON 
+		s.object_id = i.object_id 
+	AND 
+		i.index_id = s.index_id
+	WHERE 
+		OBJECTPROPERTY(s.object_id,'IsUserTable') = 1
+	ORDER BY 
+		'Reads' DESC, 'Updates' ASC
+	```
 
 #### Hledat
 
-##### Sloupec a zjistit v jaké Tabulce se nachází
+- Sloupec a zjistit v jaké Tabulce se nachází
 
-- Komplexní informace (včetně názvu schématu)
+	- Komplexní informace (včetně názvu schématu)
 
-    ```sql
-    SELECT t.name AS table_name,
-    SCHEMA_NAME(schema_id) AS schema_name,
-    c.name AS column_name
-    FROM sys.tables AS t
-    INNER JOIN sys.columns c ON t.OBJECT_ID = c.OBJECT_ID
-    WHERE c.name LIKE '%ino_doklad%'
-    ORDER BY schema_name, table_name;
-    ```
+		```sql
+		SELECT t.name AS table_name,
+		SCHEMA_NAME(schema_id) AS schema_name,
+		c.name AS column_name
+		FROM sys.tables AS t
+		INNER JOIN sys.columns c ON t.OBJECT_ID = c.OBJECT_ID
+		WHERE c.name LIKE '%ino_doklad%'
+		ORDER BY schema_name, table_name;
+		```
 
-- Základní informace (pouze názvy tabulek a sloupců)
+	- Základní informace (pouze názvy tabulek a sloupců)
 
-    ```sql
-    SELECT TABLE_NAME, COLUMN_NAME 
-    FROM INFORMATION_SCHEMA.COLUMNS
-    WHERE COLUMN_NAME LIKE '%place_column_name%'
-    ```
+		```sql
+		SELECT TABLE_NAME, COLUMN_NAME 
+		FROM INFORMATION_SCHEMA.COLUMNS
+		WHERE COLUMN_NAME LIKE '%place_column_name%'
+		```
 
-##### Datový typ Sloupce z Tabulky
+- Datový typ Sloupce z Tabulky
 
-```sql
-Vyhledat datový typ sloupce:
-SELECT DATA_TYPE 
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE 
-     TABLE_NAME = 'place_table_name' 
-AND  COLUMN_NAME = 'place_column_name'
-```
+	```sql
+	Vyhledat datový typ sloupce:
+	SELECT DATA_TYPE 
+	FROM INFORMATION_SCHEMA.COLUMNS
+	WHERE 
+		 TABLE_NAME = 'place_table_name' 
+	AND  COLUMN_NAME = 'place_column_name'
+	```
 
-##### Hodnoty ve všech textových a číselných sloupcích databáze
+- Hodnoty ve všech textových a číselných sloupcích databáze
 
-Prohledává textové i číselné hodnoty napříč všemi tabulkami a sloupci vybrané databáze. 
+	Prohledává textové i číselné hodnoty napříč všemi tabulkami a sloupci vybrané databáze. 
 
-Pokud zadáte číslo, použije přesné porovnání, a pokud zadáte text, použije vyhledávání pomocí `LIKE`
+	Pokud zadáte číslo, použije přesné porovnání, a pokud zadáte text, použije vyhledávání pomocí `LIKE`
 
-```sql
-DECLARE @SearchStr nvarchar(100) = 'Doplňte hledanou hodnotu zde!'
-CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
+	```sql
+	DECLARE @SearchStr nvarchar(100) = 'Doplňte hledanou hodnotu zde!'
+	CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
 
-SET NOCOUNT ON
+	SET NOCOUNT ON
 
-DECLARE @TableName nvarchar(256), @ColumnName nvarchar(128), @SearchStr2 nvarchar(110)
-SET  @TableName = ''
+	DECLARE @TableName nvarchar(256), @ColumnName nvarchar(128), @SearchStr2 nvarchar(110)
+	SET  @TableName = ''
 
--- Rozhodnutí, zda hledaný řetězec je číslo nebo text (pro dynamické SQL)
-IF ISNUMERIC(@SearchStr) = 1
-    SET @SearchStr2 = @SearchStr
-ELSE
-    SET @SearchStr2 = QUOTENAME('%' + @SearchStr + '%','''')
+	-- Rozhodnutí, zda hledaný řetězec je číslo nebo text (pro dynamické SQL)
+	IF ISNUMERIC(@SearchStr) = 1
+		SET @SearchStr2 = @SearchStr
+	ELSE
+		SET @SearchStr2 = QUOTENAME('%' + @SearchStr + '%','''')
 
--- Získání celkového počtu tabulek
-DECLARE @TotalTables int, @CompletedTables int
-SELECT @TotalTables = COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'
-SET @CompletedTables = 0
+	-- Získání celkového počtu tabulek
+	DECLARE @TotalTables int, @CompletedTables int
+	SELECT @TotalTables = COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'
+	SET @CompletedTables = 0
 
-WHILE @TableName IS NOT NULL
-BEGIN
-    SET @ColumnName = ''
-    SET @TableName = 
-    (
-        SELECT MIN(QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME))
-        FROM    INFORMATION_SCHEMA.TABLES
-        WHERE       TABLE_TYPE = 'BASE TABLE'
-            AND QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME) > @TableName
-            AND OBJECTPROPERTY(
-                    OBJECT_ID(
-                        QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)
-                         ), 'IsMSShipped'
-                           ) = 0
-    )
+	WHILE @TableName IS NOT NULL
+	BEGIN
+		SET @ColumnName = ''
+		SET @TableName = 
+		(
+			SELECT MIN(QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME))
+			FROM    INFORMATION_SCHEMA.TABLES
+			WHERE       TABLE_TYPE = 'BASE TABLE'
+				AND QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME) > @TableName
+				AND OBJECTPROPERTY(
+						OBJECT_ID(
+							QUOTENAME(TABLE_SCHEMA) + '.' + QUOTENAME(TABLE_NAME)
+							 ), 'IsMSShipped'
+							   ) = 0
+		)
 
-    WHILE (@TableName IS NOT NULL) AND (@ColumnName IS NOT NULL)
-    BEGIN
-        SET @ColumnName =
-        (
-            SELECT MIN(QUOTENAME(COLUMN_NAME))
-            FROM    INFORMATION_SCHEMA.COLUMNS
-            WHERE       TABLE_SCHEMA    = PARSENAME(@TableName, 2)
-                AND TABLE_NAME  = PARSENAME(@TableName, 1)
-                -- Rozšíření pro textové i číselné datové typy
-                AND DATA_TYPE IN ('char', 'varchar', 'nchar', 'nvarchar', 'int', 'decimal', 'float', 'numeric', 'bigint', 'smallint')
-                AND QUOTENAME(COLUMN_NAME) > @ColumnName
-        )
+		WHILE (@TableName IS NOT NULL) AND (@ColumnName IS NOT NULL)
+		BEGIN
+			SET @ColumnName =
+			(
+				SELECT MIN(QUOTENAME(COLUMN_NAME))
+				FROM    INFORMATION_SCHEMA.COLUMNS
+				WHERE       TABLE_SCHEMA    = PARSENAME(@TableName, 2)
+					AND TABLE_NAME  = PARSENAME(@TableName, 1)
+					-- Rozšíření pro textové i číselné datové typy
+					AND DATA_TYPE IN ('char', 'varchar', 'nchar', 'nvarchar', 'int', 'decimal', 'float', 'numeric', 'bigint', 'smallint')
+					AND QUOTENAME(COLUMN_NAME) > @ColumnName
+			)
 
-        IF @ColumnName IS NOT NULL
-        BEGIN
-            -- Dynamický SQL pro číselné a textové typy
-            IF ISNUMERIC(@SearchStr) = 1
-            BEGIN
-                INSERT INTO #Results
-                EXEC
-                (
-                    'SELECT ''' + @TableName + '.' + @ColumnName + ''', CAST(' + @ColumnName + ' AS nvarchar(3630)) 
-                    FROM ' + @TableName + ' (NOLOCK) ' +
-                    ' WHERE ' + @ColumnName + ' = ' + @SearchStr2
-                )
-            END
-            ELSE
-            BEGIN
-                INSERT INTO #Results
-                EXEC
-                (
-                    'SELECT ''' + @TableName + '.' + @ColumnName + ''', LEFT(' + @ColumnName + ', 3630) 
-                    FROM ' + @TableName + ' (NOLOCK) ' +
-                    ' WHERE ' + @ColumnName + ' LIKE ' + @SearchStr2
-                )
-            END
-        END
-    END
+			IF @ColumnName IS NOT NULL
+			BEGIN
+				-- Dynamický SQL pro číselné a textové typy
+				IF ISNUMERIC(@SearchStr) = 1
+				BEGIN
+					INSERT INTO #Results
+					EXEC
+					(
+						'SELECT ''' + @TableName + '.' + @ColumnName + ''', CAST(' + @ColumnName + ' AS nvarchar(3630)) 
+						FROM ' + @TableName + ' (NOLOCK) ' +
+						' WHERE ' + @ColumnName + ' = ' + @SearchStr2
+					)
+				END
+				ELSE
+				BEGIN
+					INSERT INTO #Results
+					EXEC
+					(
+						'SELECT ''' + @TableName + '.' + @ColumnName + ''', LEFT(' + @ColumnName + ', 3630) 
+						FROM ' + @TableName + ' (NOLOCK) ' +
+						' WHERE ' + @ColumnName + ' LIKE ' + @SearchStr2
+					)
+				END
+			END
+		END
 
-    -- Aktualizace počtu dokončených tabulek a výpis pokroku
-    SET @CompletedTables = @CompletedTables + 1
-    PRINT 'Dokončeno ' + CAST(@CompletedTables AS nvarchar) + ' z ' + CAST(@TotalTables AS nvarchar) + ' tabulek.'
-END
+		-- Aktualizace počtu dokončených tabulek a výpis pokroku
+		SET @CompletedTables = @CompletedTables + 1
+		PRINT 'Dokončeno ' + CAST(@CompletedTables AS nvarchar) + ' z ' + CAST(@TotalTables AS nvarchar) + ' tabulek.'
+	END
 
-SELECT ColumnName, ColumnValue FROM #Results
-DROP TABLE #Results
-```
+	SELECT ColumnName, ColumnValue FROM #Results
+	DROP TABLE #Results
+	```
 
-##### Nejnovější a Nejstarší záznam
+- Nejnovější a Nejstarší záznam
 
-```sql
-SELECT MIN(date_column) as Oldest, MAX(date_column) as Newest FROM table_name;
-```
+	```sql
+	SELECT MIN(date_column) as Oldest, MAX(date_column) as Newest FROM table_name;
+	```
 
-##### Nejčastěji se vyskytující hodnoty
+- Nejčastěji se vyskytující hodnoty
 
-```sql
-SELECT place_column_name, COUNT(*) 
-FROM place_table_name 
-GROUP BY place_column_name 
-ORDER BY COUNT(*) DESC;
-```
+	```sql
+	SELECT place_column_name, COUNT(*) 
+	FROM place_table_name 
+	GROUP BY place_column_name 
+	ORDER BY COUNT(*) DESC;
+	```
 
-##### Port na kterém je spuštěn Server
+- Port na kterém je spuštěn Server
 
-  ```sql
-  EXEC xp_readerrorlog 0, 1, N'Server is listening on';
-  ```
+	```sql
+	  EXEC xp_readerrorlog 0, 1, N'Server is listening on';
+	```
 
 #### Výkon
 
-##### Efektivita dotazů
+- Efektivita dotazů
 
-- SQL Server Managment Studio
-  
-  1. V menu SSMS vyberte Query > Include Client Statistics.
-  2. Spusťte svůj dotaz.
+	- SQL Server Managment Studio
+	  
+	  1. V menu SSMS vyberte Query > Include Client Statistics.
+	  2. Spusťte svůj dotaz.
 
-- JetBrains
+	- JetBrains
 
-  1. File -> Settings -> Database -> General
-  2. Zaškrtnout: Show query statistics.
+	  1. File -> Settings -> Database -> General
+	  2. Zaškrtnout: Show query statistics.
 
-```sql
-SET STATISTICS TIME ON;
-SELECT * FROM place_table -- custom code to execute
-SET STATISTICS TIME OFF;
-```
+	```sql
+	SET STATISTICS TIME ON;
+	SELECT * FROM place_table -- custom code to execute
+	SET STATISTICS TIME OFF;
+	```
 
 #### Konfigurace
 
-##### Vzdálený přístup
+- Vzdálený přístup
 
   ```sql
   EXEC sp_configure 'remote access';
