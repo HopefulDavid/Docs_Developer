@@ -12,6 +12,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "database/MSSQL.md",
+      "output": {
+        ".html": {
+          "relative_path": "database/MSSQL.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "database/PostgreSQL.md",
       "output": {
         ".html": {
@@ -624,6 +634,16 @@
       "output": {
         ".html": {
           "relative_path": "operatingSystem/windows.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "operatingSystem/windows/cmd.md",
+      "output": {
+        ".html": {
+          "relative_path": "operatingSystem/windows/cmd.html"
         }
       },
       "version": ""
