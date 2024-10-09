@@ -12,6 +12,95 @@ Určuje přistup k danému prvku.
 | Non-derived class (different assembly) | ✔️     | ❌                  | ❌         | ❌        | ❌                 | ❌       | ❌    |
 
 Více podrobností <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers#summary-table">zde</a>.
+
+## Složka 'runtimes' a multiplatformní nasazení
+
+Slouží k ukládání **platformově specifických knihoven a binárních souborů**, které jsou nezbytné pro správné spuštění aplikace na různých operačních systémech a architekturách.
+
+Používá se v aplikacích:
+- WPF aplikace
+- Konzolové aplikace
+- ASP.NET Core aplikace
+- WinForms aplikace
+- .NET knihovny a služby, které se nasazují na různé platformy (Windows, Linux, macOS, atd.)
+
+> [!TIP]
+> V unity se používá složka `'Plugins'` k umístění knihoven (DLL), které jsou platformově specifické
+> 
+> Tato složka může obsahovat nativní kód pro různé platformy (Windows, Android, iOS, macOS, atd.)
+
+Tato složka `'runtime'` se automaticky generuje při publikaci aplikace a hraje zásadní roli zejména při použití dvou typů nasazení.
+
+Každý z těchto typů nasazení určuje, jakým způsobem aplikace zajišťuje dostupnost .NET runtime a dalších závislostí:
+
+### self-contained deployment
+
+Aplikace je distribuována společně s **kompletním .NET runtime**
+
+To znamená, že aplikace si nese vlastní runtime a může běžet nezávisle na tom, zda má uživatel na svém systému nainstalovaný správný .NET runtime.
+
+> [!TIP]
+> Toto nasazení je vhodné, pokud chcete zajistit, že aplikace poběží na jakémkoliv počítači, bez ohledu na její aktuální stav.
+
+Výsledkem je větší velikost aplikace, protože obsahuje kompletní runtime pro cílové platformy, které jsou zahrnuty ve složce `'runtimes'`.
+
+V praxi složka `'runtimes'` obsahuje potřebné knihovny a binární soubory pro různé platformy, jako jsou Windows, Linux, macOS, nebo různé architektury (x64, x86, ARM).
+
+Díky tomu může aplikace běžet **out-of-the-box** bez nutnosti další instalace runtime na cílovém systému.
+
+#### **Použití**
+  
+Nastavit v souboru projektu (.csproj):
+
+  ```xml
+    <PropertyGroup>
+        <SelfContained>true</SelfContained>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier> <!-- Nebo jiný RID podle platformy -->
+    </PropertyGroup>
+  ```
+
+nebo s více Runtime Identifiers (RID)
+
+```xml
+<PropertyGroup>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
+</PropertyGroup>
+```
+
+> [!NOTE]
+> **Runtime Identifiers (RID)**
+> Runtime Identifiers (RID) jsou klíčovou součástí procesu nasazení, protože určují, pro jaké platformy a architektury bude aplikace kompilována.
+>
+> Můžete specifikovat různé RID podle cílové platformy:
+> - win-x64 (Windows 64-bit)
+> - linux-x64 (Linux 64-bit)
+> - osx-x64 (macOS 64-bit)
+> - win-arm (Windows na ARM procesorech)
+
+### framework-dependent deployment (runtime-specific deployment)
+
+Aplikace **závisí na přítomnosti .NET runtime** na cílovém systému.
+
+Aplikace neobsahuje runtime v sobě, což zmenšuje její velikost, ale předpokládá, že uživatel má již správnou verzi .NET runtime nainstalovanou.
+
+> [!IMPORTANT]
+> Pokud runtime není přítomen, aplikace nefunguje, dokud uživatel runtime nedoinstaluje.
+
+V tomto případě složka `"runtimes"` může obsahovat pouze platformově specifické knihovny a závislosti, které nejsou součástí základního .NET runtime, a zajistit kompatibilitu aplikace s různými platformami.
+
+#### **Použití**
+
+> [!NOTE]
+> Nastavte `SelfContained` na `false`, nebo tuto vlastnost úplně vynechte (výchozí nastavení je totiž `framework-dependent`).
+
+Nastavit v souboru projektu (.csproj):
+  
+  ```xml
+    <PropertyGroup>
+        <SelfContained>false</SelfContained>
+    </PropertyGroup>
+  ```
   
 ## Uvolnění zdrojů
 
