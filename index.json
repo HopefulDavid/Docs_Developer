@@ -79,11 +79,6 @@
     "title": "| Vývojář",
     "keywords": "Dešifrování HTTPS (SSL/TLS) Nastavit v proměnném prostředí SSLKEYLOGFILE: Nastavte systémovou proměnnou s názvem SSLKEYLOGFILE na cestu k souboru, kam bude prohlížeč ukládat klíče. Konfigurace Wiresharku pro dešifrování SSL/TLS: Edit > Preferences > Protocols > TLS. Nastavte Pre-Master-Secret log filename na stejnou cestu, kterou jste použili pro SSLKEYLOGFILE. Zachycení a analýza paketů: Spusťte zachycení paketů ve Wiresharku. Po ukončení zachycení paketů byste měli být schopni vidět dešifrovaný provoz."
   },
-  "operatingSystem/video/obs.html": {
-    "href": "operatingSystem/video/obs.html",
-    "title": "| Vývojář",
-    "keywords": "OBS (Open Broadcast Software) Argumenty Argument Popis --help, -h Získat seznam dostupných parametrů. --version, -v Získat verzi OBS.* --startstreaming Automaticky spustí streamování. --startrecording Automaticky spustí nahrávání. --startvirtualcam Automaticky spustí virtuální kameru. --startreplaybuffer Automaticky spustí Replay Buffer. --collection \"name\" Spustí s danou sbírkou scén. --profile \"name\" Spustí s daným profilem. --scene \"name\" Spustí s danou scénou. --studio-mode Spustí s aktivním režimem Studio. --minimize-to-tray Spustí minimalizováno do systémové lišty. --portable, -p Použijte přenosný režim. --multi, -m Nebude varovat při spuštění více instancí. --always-on-top Spustí v režimu \"vždy nahoře\". --verbose Učiní protokol podrobnějším. --unfiltered_log Zakáže filtr logu (nepotlačuje opakující se řádky). --disable-updater Zakáže vestavěný updater (pouze Windows/macOS). --allow-opengl Povolit OpenGL renderer na Windows. --only-bundled-plugins Spustí pouze s vestavěnými moduly. --safe-mode Donutí OBS spustit v nouzovém režimu, zakáže všechny třetí strany pluginy, skripty a websockety. --disable-shutdown-check Zakáže detekci neuklizeného vypnutí, které by vyvolalo spuštění v nouzovém režimu. --disable-missing-files-check Zakáže dialog o chybějících souborech, který se může objevit při spuštění. Tip Příklad automatického nahrávání skrze batch: start /d \"C:\\Program Files\\obs-studio\\bin\\64bit\" obs64.exe --startrecording"
-  },
   "operatingSystem/windows.html": {
     "href": "operatingSystem/windows.html",
     "title": "| Vývojář",
@@ -198,6 +193,11 @@
     "href": "vcs/git/repository.html",
     "title": "| Vývojář",
     "keywords": "Vytvořit na lokálním prostředí git init --bare <cesta> Warning <cesta> = vytvoří úložiště do cesty, musí mít na konci cesty .git Použít do pracovního prostředí git clone <cesta> Warning <cesta> = adresa k úložišti, musí mít na konci cesty .git Note Může být lokální i online."
+  },
+  "video/obs.html": {
+    "href": "video/obs.html",
+    "title": "| Vývojář",
+    "keywords": "OBS (Open Broadcast Software) Argumenty Argument Popis --help, -h Získat seznam dostupných parametrů. --version, -v Získat verzi OBS.* --startstreaming Automaticky spustí streamování. --startrecording Automaticky spustí nahrávání. --startvirtualcam Automaticky spustí virtuální kameru. --startreplaybuffer Automaticky spustí Replay Buffer. --collection \"name\" Spustí s danou sbírkou scén. --profile \"name\" Spustí s daným profilem. --scene \"name\" Spustí s danou scénou. --studio-mode Spustí s aktivním režimem Studio. --minimize-to-tray Spustí minimalizováno do systémové lišty. --portable, -p Použijte přenosný režim. --multi, -m Nebude varovat při spuštění více instancí. --always-on-top Spustí v režimu \"vždy nahoře\". --verbose Učiní protokol podrobnějším. --unfiltered_log Zakáže filtr logu (nepotlačuje opakující se řádky). --disable-updater Zakáže vestavěný updater (pouze Windows/macOS). --allow-opengl Povolit OpenGL renderer na Windows. --only-bundled-plugins Spustí pouze s vestavěnými moduly. --safe-mode Donutí OBS spustit v nouzovém režimu, zakáže všechny třetí strany pluginy, skripty a websockety. --disable-shutdown-check Zakáže detekci neuklizeného vypnutí, které by vyvolalo spuštění v nouzovém režimu. --disable-missing-files-check Zakáže dialog o chybějících souborech, který se může objevit při spuštění. Tip Příklad automatického nahrávání skrze batch: start /d \"C:\\Program Files\\obs-studio\\bin\\64bit\" obs64.exe --startrecording"
   },
   "virtualization/docker.html": {
     "href": "virtualization/docker.html",

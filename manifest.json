@@ -630,16 +630,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "operatingSystem/video/obs.md",
-      "output": {
-        ".html": {
-          "relative_path": "operatingSystem/video/obs.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "operatingSystem/windows.md",
       "output": {
         ".html": {
@@ -916,6 +906,29 @@
         },
         ".html": {
           "relative_path": "vcs/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "video/obs.md",
+      "output": {
+        ".html": {
+          "relative_path": "video/obs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "video/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "video/toc.json"
+        },
+        ".html": {
+          "relative_path": "video/toc.html"
         }
       },
       "version": ""
