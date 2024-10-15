@@ -5,8 +5,3 @@
     href: windows/cmd.md
   - name: PowerShell
     href: windows/powerShell.md
-  - name: Videa
-    href: video.md
-    items:
-    - name: OBS
-      href: video/obs.md
