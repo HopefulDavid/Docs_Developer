@@ -338,6 +338,25 @@ Více info <a href="https://learn.microsoft.com/en-us/powershell/module/microsof
 
 ## Práce se soubory
 
+### Změna metadat
+
+- Změna času posledního zápisu do souboru
+  
+    ```bash
+    (Get-Item "C:\Users\{xxx}\FileA.docx").LastWriteTime = "2024.10.10 17:00:00"
+    ```
+
+> [!TIP]
+> Pokud chcete změnit i celkový čas v dokumentu Word, postup je následovný:
+>
+> Přejmenujte **.docx** soubor na **.zip**.
+>
+> Rozbalte soubor.
+> 
+> V souboru **docProps/app.xml** najděte řádek obsahující `<TotalTime>` a upravte hodnotu v minutách.
+>
+> Zazipujte soubory zpět a změňte příponu zpět na **.docx**.
+
 ### Kopírování
 
 - Ze zdroje na cílové umístění
