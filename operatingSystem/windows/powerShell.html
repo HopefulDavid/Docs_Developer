@@ -356,6 +356,21 @@ oh-my-posh init pwsh --config 'C:\Users\{xxx}\Documents\themes\catppuccin.omp.js
 </ul>
 <p>Více info <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.4#-executionpolicy">zde</a>.</p>
 <h2 id="práce-se-soubory">Práce se soubory</h2>
+<h3 id="změna-metadat">Změna metadat</h3>
+<ul>
+<li><p>Změna času posledního zápisu do souboru</p>
+<pre><code class="lang-bash">(Get-Item &quot;C:\Users\{xxx}\FileA.docx&quot;).LastWriteTime = &quot;2024.10.10 17:00:00&quot;
+</code></pre>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Pokud chcete změnit i celkový čas v dokumentu Word, postup je následovný:</p>
+<p>Přejmenujte <strong>.docx</strong> soubor na <strong>.zip</strong>.</p>
+<p>Rozbalte soubor.</p>
+<p>V souboru <strong>docProps/app.xml</strong> najděte řádek obsahující <code>&lt;TotalTime&gt;</code> a upravte hodnotu v minutách.</p>
+<p>Zazipujte soubory zpět a změňte příponu zpět na <strong>.docx</strong>.</p>
+</div>
 <h3 id="kopírování">Kopírování</h3>
 <ul>
 <li><p>Ze zdroje na cílové umístění</p>

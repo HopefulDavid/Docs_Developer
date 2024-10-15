@@ -630,6 +630,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "operatingSystem/video/obs.md",
+      "output": {
+        ".html": {
+          "relative_path": "operatingSystem/video/obs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "operatingSystem/windows.md",
       "output": {
         ".html": {
@@ -764,6 +774,16 @@
       "output": {
         ".html": {
           "relative_path": "programming/net/net_xml.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "programming/netCLI.md",
+      "output": {
+        ".html": {
+          "relative_path": "programming/netCLI.html"
         }
       },
       "version": ""

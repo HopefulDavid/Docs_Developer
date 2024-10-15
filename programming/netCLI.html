@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title> | V&#253;voj&#225;ř </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content=" | V&#253;voj&#225;ř ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="Dokumentace pro v&#253;voj&#225;ře">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+
+<h2 id="net-cli-command-line-interface">.NET CLI (Command Line Interface)</h2>
+<blockquote>
+<p>[!IMPORTAND]
+Je zapotřebí mít nainstalovaný <code>.NET SDK (Software Development Kit) a .NET Runtime (Framework)</code></p>
+</blockquote>
+<p>Po instalaci se vyskytuje zde:</p>
+<ul>
+<li><p>Windows</p>
+<p><code>C:\Program Files\dotnet\</code></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Použijte tento příkaz:</p>
+<pre><code class="lang-bash">where dotnet
+</code></pre>
+</div>
+</li>
+<li><p>macOS</p>
+<p><code>/usr/local/share/dotnet/</code></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Použijte tento příkaz:</p>
+<pre><code class="lang-bash">which dotnet
+</code></pre>
+</div>
+</li>
+<li><p>Linux</p>
+<p><code>/usr/share/dotnet/</code> nebo <code>/usr/local/share/dotnet/</code></p>
+</li>
+</ul>
+<h3 id="záloha-globálních-nástrojů">Záloha globálních nástrojů</h3>
+<ol>
+<li><p>Zjištění nainstalovaných globálních nástrojů</p>
+<pre><code class="lang-bash">dotnet tool list -g
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Zaznamenejte názvy a verze nainstalovaných nástrojů, což usnadní jejich opětovnou instalaci.</p>
+</div>
+</li>
+<li><p>Umístění nástrojů</p>
+<p>Zálohujte celý adresář <code>tools</code>.</p>
+<ul>
+<li><p>Windows</p>
+<p><code>C:\Users\&lt;uživatelské\_jméno&gt;\.dotnet\tools</code></p>
+</li>
+<li><p>macOS/Linux</p>
+<p><code>~/.dotnet/tools</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="obnova-globálních-nástrojů">Obnova globálních nástrojů</h3>
+<ol>
+<li><p>Obnovení ze zálohy</p>
+<p>Pokud máte zálohovaný adresář <code>tools</code>, jednoduše zkopírujte jeho obsah zpět do původního umístění.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Restartovat příkazový řádek nebo terminál, aby se projevily změny.</p>
+</div>
+</li>
+<li><p>Kontrola instalace</p>
+<p>Po obnovení zkontrolujte, zda jsou nástroje správně nainstalovány:</p>
+<pre><code class="lang-bash">dotnet tool list -g
+</code></pre>
+</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/HopefulDavid/Docs_Developer/blob/main/programming/netCLI.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
