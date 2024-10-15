@@ -4,6 +4,8 @@
   items: 
     - name: Nuget Package
       href: nugetPackage.md
+    - name: .NET CLI
+      href: netCLI.md
 - name:  C#
   href: net.md
   items:
