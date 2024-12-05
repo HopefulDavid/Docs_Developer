@@ -1,0 +1,32 @@
+- name: Techniky
+  href: techniques.md
+- name: Balíčky
+  items:
+    - name: Nuget Package
+      href: nugetPackage.md
+    - name: .NET CLI
+      href: netCLI.md
+- name:  C#
+  href: net.md
+  items:
+  - name: Interface
+    href: net/net_interface.md
+  - name: Datové typy
+    href: net/net_dataTypes.md
+  - name: Atributy
+    href: net/net_attributes.md
+  - name: Metody
+    href: net/net_methods.md
+  - name: Testy Nunit
+    href: net/net_nunit.md
+  - name: WPF
+    href: net/net_wpf.md
+  - name: Soubory
+    href: net/net_files.md
+    items:
+    - name: XML
+      href: net/net_xml.md
+- name: JavaScript
+  href: javascript.md
+- name: Python
+  href: python.md
