@@ -33,6 +33,7 @@ jobs:
       - name: Generate Changelog
         if: github.actor != 'github-actions[bot]'
         run: |
+          rm -f index.md
           npm install -g conventional-changelog-cli
           conventional-changelog -i index.md -s --config ./changelog-config.js
           git add index.md
