@@ -1,3 +1,5 @@
+- name: Výběr při vývoji
+  href: index.md
 - name: Techniky
   href: techniques.md
 - name: Balíčky
