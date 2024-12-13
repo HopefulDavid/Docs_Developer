@@ -1,13 +1,3 @@
-- name: Výběr při vývoji
-  href: index.md
-- name: Techniky
-  href: techniques.md
-- name: Balíčky
-  items:
-    - name: Nuget Package
-      href: nugetPackage.md
-    - name: .NET CLI
-      href: netCLI.md
 - name:  C#
   href: net.md
   items:
@@ -28,11 +18,21 @@
     items:
     - name: XML
       href: net/net_xml.md
+- name: Balíčky
+  items:
+    - name: Nuget Package
+      href: nugetPackage.md
+    - name: .NET CLI
+      href: netCLI.md
 - name: JavaScript
   href: javascript.md
-- name: Python
-  href: python.md
 - name: Mobilní vývoj
   items:
     - name: Flutter
       href: mobile/flutter.md
+- name: Python
+  href: python.md
+- name: Techniky
+  href: techniques.md
+- name: Výběr při vývoji
+  href: index.md
