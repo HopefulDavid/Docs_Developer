@@ -1,38 +1,77 @@
-- name:  C#
-  href: net.md
+- name: Techniky a koncepty
   items:
-  - name: Interface
-    href: net/net_interface.md
-  - name: Datové typy
-    href: net/net_dataTypes.md
-  - name: Atributy
-    href: net/net_attributes.md
-  - name: Metody
-    href: net/net_methods.md
-  - name: Testy Nunit
-    href: net/net_nunit.md
-  - name: WPF
-    href: net/net_wpf.md
-  - name: Soubory
-    href: net/net_files.md
-    items:
-    - name: XML
-      href: net/net_xml.md
-- name: Balíčky
+    - name: Techniky
+      href: techniques.md
+    - name: Výběr pro vývoj
+      href: index.md
+
+- name: Programovací jazyky
   items:
-    - name: Nuget Package
-      href: nugetPackage.md
-    - name: .NET CLI
-      href: netCLI.md
-- name: JavaScript
-  href: javascript.md
+    - name: C#
+      href: net.md
+      items:
+        - name: Základy
+          items:
+            - name: Interface
+              href: net/net_interface.md
+            - name: Datové typy
+              href: net/net_dataTypes.md
+            - name: Atributy
+              href: net/net_attributes.md
+            - name: Metody
+              href: net/net_methods.md
+        - name: Soubory
+          items:
+            - name: XML
+              href: net/net_xml.md
+        - name: Testování
+          items:
+            - name: Testy Nunit
+              href: net/net_nunit.md
+    - name: JavaScript
+      href: javascript.md
+    - name: Python
+      href: python.md
+
+- name: Aplikační vývoj
+  items:
+    - name: WPF
+      href: net/net_wpf.md
+
 - name: Mobilní vývoj
   items:
     - name: Flutter
       href: mobile/flutter.md
-- name: Python
-  href: python.md
-- name: Techniky
-  href: techniques.md
-- name: Výběr při vývoji
-  href: index.md
+
+- name: Herní vývoj
+  items:
+    - name: Unity
+      href: unity.md
+      items:
+        - name: 2D
+          href: unity/2d.md
+        - name: Animace
+          href: unity/animation.md
+        - name: Kamera
+          href: unity/camera.md
+        - name: Navigace (Pohyb)
+          href: unity/navigation.md
+        - name: Skriptovatelné Objekty
+          href: unity/scriptableObject.md
+        - name: Uživatelské rozhraní
+          items:
+            - name: UI
+              href: unity/ui.md
+            - name: UI Toolkit
+              href: unity/uiToolkit.md
+        - name: Vykreslování
+          href: unity/renderer.md
+
+- name: Nástroje a balíčky
+  items:
+    - name: Balíčky
+      items:
+        - name: .NET CLI
+          href: netCLI.md
+        - name: Nuget Package
+          href: nugetPackage.md
