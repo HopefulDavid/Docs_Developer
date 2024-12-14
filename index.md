@@ -1,5 +1,6 @@
 Changelog
 ## 2024-12-14
+  - ✨ Add Android SDK setup instructions in documentation.
   - 🎨 Add collapsible sections for quick iteration and process programming techniques.
   - 🎨 Add collapsible sections in C# for better readability.
   - ✨ Add components documentation for WCF and WF.
@@ -11,7 +12,9 @@ Changelog
   - ✨ Enhance programming languages and reorganize tools structure.
   - 🔧 Remove unused Unity table of contents file.
   - 🎨 Revise MongoDB documentation for clarity and structure.
+  - 🔧 update changelog
   - 📝 Update Docker documentation with detailed explanations.
+  - 🎨 Update JetBrains documentation for shortcuts and XML.
   - 📝 Update Kubernetes orchestration documentation.
 ## 2024-12-13
   - ✨ Add Flutter mobile development documentation.
