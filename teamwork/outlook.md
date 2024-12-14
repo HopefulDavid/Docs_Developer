@@ -5,16 +5,12 @@
 
 View ➡ Overlay
 
-- Vypnuto
+- Pokud je vypnuto, každý kalendář se zobrazí v samostatném okně
 
     <img src="../images/outlook_calendarBeforeOverlay.png" alt="outlook_calendarBefore.png"/>
 
-  > Každý kalendář se zobrazí v samostatném okně
-
-- Zapnuto
+- Pokud je zapnuto, kalendáře se zobrazí v jednom okně
 
     <img src="../images/outlook_calendarAfterOverlay.png" alt="outlook_calendarAfter.png"/>
-
-  > Kalendáře se zobrazí v jednom okně
 
 </details>
