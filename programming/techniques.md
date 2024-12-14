@@ -209,7 +209,8 @@ Proces pro vytvoření funkčního modelu projektu co nejrychleji, aby bylo mož
 > V kontextu Unity to znamená vytvoření základní verze hry nebo aplikace, která zahrnuje pouze klíčové mechaniky a
 > funkce.
 
-### Rychlá iterace
+<details>
+<summary><span style="color:#1E90FF;">Rychlá iterace</span></summary>
 
 - Rychle testovat a provádět nápady.
 - Pokud vytvoříte prototyp, zkuste ho co nejdříve otestovat a získat zpětnou vazbu.
@@ -219,7 +220,10 @@ Proces pro vytvoření funkčního modelu projektu co nejrychleji, aby bylo mož
 > **Cílem je vytvořit funkční model** vašeho projektu, **ne dokonalý produkt**.
 > Nebojte se udělat kompromisy v kvalitě, pokud to znamená, že můžete rychleji testovat a iterovat své nápady.
 
-### Postup
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">Postup</span></summary>
 
 1. **Definice konceptu**
 
@@ -256,6 +260,8 @@ Proces pro vytvoření funkčního modelu projektu co nejrychleji, aby bylo mož
 
    > [!TIP]
    > Rychlé prototypování je iterativní proces.
+
+</details>
 
 ## Pojmenování BEM
 
