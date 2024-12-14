@@ -1,6 +1,7 @@
-## Modifikátory přístupu
+<details>
+<summary><span style="color:#1E90FF;">Modifikátory přístupu</span></summary>
 
-Určuje přistup k danému prvku.
+Určuje přístup k danému prvku.
 
 | Caller's location                      | public | protected internal | protected | internal | private protected | private | file |
 |----------------------------------------|--------|--------------------|-----------|----------|-------------------|---------|------|
@@ -12,8 +13,10 @@ Určuje přistup k danému prvku.
 | Non-derived class (different assembly) | ✔️     | ❌                  | ❌         | ❌        | ❌                 | ❌       | ❌    |
 
 Více podrobností <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers#summary-table">zde</a>.
+</details>
 
-## Složka 'runtimes' a multiplatformní nasazení
+<details>
+<summary><span style="color:#1E90FF;">Složka 'runtimes' a multiplatformní nasazení</span></summary>
 
 Slouží k ukládání **platformově specifických knihoven a binárních souborů**, které jsou nezbytné pro správné spuštění aplikace na různých operačních systémech a architekturách.
 
@@ -95,67 +98,71 @@ V tomto případě složka `"runtimes"` může obsahovat pouze platformově spec
 > Nastavte `SelfContained` na `false`, nebo tuto vlastnost úplně vynechte (výchozí nastavení je totiž `framework-dependent`).
 
 Nastavit v souboru projektu (.csproj):
-  
+
   ```xml
     <PropertyGroup>
         <SelfContained>false</SelfContained>
     </PropertyGroup>
   ```
-  
-## Uvolnění zdrojů
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">Uvolnění zdrojů</span></summary>
 
 - **Řízené zdroje**
 
-    = Objekty, které jsou spravovány garbage collectorem.
-    
-    Zahrnuje všechny objekty vytvořené pomocí klíčového slova `new`.
-    
-    Garbage collector automaticky sleduje tyto objekty a uvolňuje jejich paměť, když již nejsou potřebné.
-    
-    > [!TIP]
-    > Programátoři nemusí explicitně uvolňovat paměť pro tyto objekty.
- 
+  = Objekty, které jsou spravovány garbage collectorem.
+
+  Zahrnuje všechny objekty vytvořené pomocí klíčového slova `new`.
+
+  Garbage collector automaticky sleduje tyto objekty a uvolňuje jejich paměť, když již nejsou potřebné.
+
+  > [!TIP]
+  > Programátoři nemusí explicitně uvolňovat paměť pro tyto objekty.
+
 - **Neřízené zdroje**
 
-    = Objekty, které nejsou spravovány garbage collectorem.
-    
-    Zahrnuje soubory, databázové připojení, síťové zdroje, atd...
+  = Objekty, které nejsou spravovány garbage collectorem.
 
-    > [!NOTE]
-    > Programátoři musí explicitně uvolnit tyto zdroje, aby zabránili úniku paměti.
-    > 
-    > Uvolnění zdrojů je důležité pro správné fungování aplikace.
+  Zahrnuje soubory, databázové připojení, síťové zdroje, atd...
+
+  > [!NOTE]
+  > Programátoři musí explicitně uvolnit tyto zdroje, aby zabránili úniku paměti.
+  >
+  > Uvolnění zdrojů je důležité pro správné fungování aplikace.
 
 ### Destruktor
-	
-- Automaticky volán, když je objekt zničen garbage collectorem. 
 
-- Definuje se pomocí syntaxe **`~ClassName()`**. 
- 
+- Automaticky volán, když je objekt zničen garbage collectorem.
+
+- Definuje se pomocí syntaxe **`~ClassName()`**.
+
 - Uvolňuje neřízené zdroje, které třída drží.
 
 - Destruktory nejsou deterministické.
 
-    > [!TIP]
-    > Znamená, že nevíme přesně, kdy budou volány. 
+  > [!TIP]
+  > Znamená, že nevíme přesně, kdy budou volány.
 
-- **Jsou volány, když garbage collector rozhodne**, že je objekt vhodný ke zničení. 
+- **Jsou volány, když garbage collector rozhodne**, že je objekt vhodný ke zničení.
 
-    > [!NOTE]
-    > Může to být kdykoliv po tom, co objekt přestane být používán.
+  > [!NOTE]
+  > Může to být kdykoliv po tom, co objekt přestane být používán.
 
 ### Dispose
 
-- Součástí rozhraní `IDisposable` a je určen pro explicitní uvolnění zdrojů. 
+- Součástí rozhraní `IDisposable` a je určen pro explicitní uvolnění zdrojů.
 
-- Metoda **`Dispose` je volána programátorem**, když je známo, že objekt již nebude potřebný. 
+- Metoda **`Dispose` je volána programátorem**, když je známo, že objekt již nebude potřebný.
 
   > [!NOTE]
-  > To umožňuje okamžité uvolnění zdrojů a zajišťuje, že nebudou drženy déle, než je nutné. 
+  > To umožňuje okamžité uvolnění zdrojů a zajišťuje, že nebudou drženy déle, než je nutné.
 
 - Metoda `Dispose` je určena pro uvolnění jak řízených, tak neřízených zdrojů.
-	
-## Volání funkcí z externích DLL
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">Volání funkcí z externích DLL</span></summary>
 
 > [!NOTE]
 > **Platform Invocation Services (PInvoke)** se používá pro volání knihoven z nativního kódu.
@@ -171,10 +178,10 @@ Postup:
 
 **Importování funkce z DLL**
 
-Atribut **`DllImport`** z `System.Runtime.InteropServices` k importování funkce z DLL. 
+Atribut **`DllImport`** z `System.Runtime.InteropServices` k importování funkce z DLL.
 
 Například:
-```c#
+```csharp
 using System.Runtime.InteropServices;
 
 public class MyProgram
@@ -186,7 +193,7 @@ public class MyProgram
 
 >[!NOTE]
 > `MessageBox` je funkce definovaná v knihovně: `User32.dll`.
-> 
+>
 > Tato funkce je nyní dostupná v rámci tohoto .NET kódu.
 
 ### Příklad knihovny v c++
@@ -204,46 +211,46 @@ extern "C" __declspec(dllexport) int MessageBox(HWND h, LPCSTR m, LPCSTR c, int 
 
 ### Metody a argumenty v c++
 
- - **`extern "C"`** 
-	
-	>[!WARNING]
-    > Zajistí, že funkce jsou kompatibilní s C jazykem. (To je důležité pro interoperabilitu mezi C++ a jinými jazyky, jako je C#.)
+- **`extern "C"`**
 
-	>[!TIP]
-    > Když kompilátor narazí na funkci, změní její název na něco, co jednoznačně identifikuje nejen název funkce, ale také typy jejích parametrů.
-    >
-    > To znamená, že název funkce, jak je viděn v DLL, nebude stejný jako název funkce v původním kódu.
-    >
-    > Když použijete `extern "C"`, říkáte kompilátoru, aby tuto funkci nezměnil a zachoval její název tak, jak je. To umožňuje jiným jazykům, jako je C#, najít a volat tuto funkci správným názvem.
+  >[!WARNING]
+  > Zajistí, že funkce jsou kompatibilní s C jazykem. (To je důležité pro interoperabilitu mezi C++ a jinými jazyky, jako je C#.)
+
+  >[!TIP]
+  > Když kompilátor narazí na funkci, změní její název na něco, co jednoznačně identifikuje nejen název funkce, ale také typy jejích parametrů.
+  >
+  > To znamená, že název funkce, jak je viděn v DLL, nebude stejný jako název funkce v původním kódu.
+  >
+  > Když použijete `extern "C"`, říkáte kompilátoru, aby tuto funkci nezměnil a zachoval její název tak, jak je. To umožňuje jiným jazykům, jako je C#, najít a volat tuto funkci správným názvem.
 
 -   **`__declspec(dllexport)`**
 
     Říka kompilátoru C++, že tato funkce nebo proměnná bude exportována z DLL, takže ji může volat jiný kód, který tuto DLL používá.
- 
-	>[!WARNING]
+
+    >[!WARNING]
     > Důležité k viditelnosti a dostupnosti pro `PInvoke`
 
 - **`HWND`**
 
-	"handle to a window" (rukojeť okna)
- 
- - **`LPCTSTR`**
+  "handle to a window" (rukojeť okna)
 
-	"Long Pointer Constant String"
+- **`LPCTSTR`**
 
-     > | Item           | 8-bitů (Ansi) | 16-bitů (Wide) | Různé   |
-     > |----------------|---------------|----------------|---------|
-     > | character      | CHAR          | WCHAR          | TCHAR   |
-     > | string         | LPSTR         | LPWSTR         | LPTSTR  |
-     > | string (const) | LPCSTR        | LPCWSTR        | LPCTSTR |
-     >
-     > Odkaz <a href="https://stackoverflow.com/questions/321413/lpcstr-lpctstr-and-lptstr"> zde</a>
+  "Long Pointer Constant String"
+
+  > | Item           | 8-bitů (Ansi) | 16-bitů (Wide) | Různé   |
+       > |----------------|---------------|----------------|---------|
+  > | character      | CHAR          | WCHAR          | TCHAR   |
+  > | string         | LPSTR         | LPWSTR         | LPTSTR  |
+  > | string (const) | LPCSTR        | LPCWSTR        | LPCTSTR |
+  >
+  > Odkaz <a href="https://stackoverflow.com/questions/321413/lpcstr-lpctstr-and-lptstr"> zde</a>
 </li>
 <li>
 
 **Volání importované funkce**
 
-```c#
+```csharp
 public class MyProgram
 {
     public static void Main()
@@ -269,8 +276,8 @@ Pokud se používá **`__Internal` jako název DLL v atributu `DllImport`**, zna
 > Hledá tedy v samotné aplikaci, pokud je to nativní kód, nebo v jedné z knihoven, na které aplikace odkazuje.
 >
 >   - Příklad použití v C#:
-> 
->       ```c++
+      >
+      >       ```csharp
 >       public class MyProgram
 >       {
 >           [DllImport("__Internal")]
@@ -284,31 +291,31 @@ Pokud se používá **`__Internal` jako název DLL v atributu `DllImport`**, zna
 >       ```
 >
 >   - Příklad definice v C++
->
->       ```c++
+      >
+      >       ```c++
 >       extern "C" __declspec(dllexport) int MyFunction()
 >       {
 >           // Implementace vaší funkce
 >           return 0;
 >       }
 >       ```
-> 
->       V tomto příkladu `MyFunction` je funkce definovaná v nativním kódu.
-> 
->       Je tedy součástí aplikace nebo jedné z jejích závislostí.
+      >
+      >       V tomto příkladu `MyFunction` je funkce definovaná v nativním kódu.
+      >
+      >       Je tedy součástí aplikace nebo jedné z jejích závislostí.
 
 ### Tipy
 
 - `PInvoke`
 
-    = **Platform Invocation Services**, což je technika v `.NET`, která umožňuje volání funkcí, které jsou implementovány v neřízeném kódu.
+  = **Platform Invocation Services**, což je technika v `.NET`, která umožňuje volání funkcí, které jsou implementovány v neřízeném kódu.
 
-    > [!TIP]
-    > To je obvykle používáno pro volání C API funkcí, které jsou definovány v DLL.
-    >
-    > Příklad:
-    > 
-    >```c#
+  > [!TIP]
+  > To je obvykle používáno pro volání C API funkcí, které jsou definovány v DLL.
+  >
+  > Příklad:
+  >
+  >```csharp
     >       private static class PInvoke
     >       {
     >       #if UNITY_IOS || UNITY_TVOS
@@ -356,5 +363,6 @@ Pokud se používá **`__Internal` jako název DLL v atributu `DllImport`**, zna
     >           public static extern void AppleAuth_LogMessage(string messageCStr);
     >       }
     >```
-    
-    Více info <a href="https://github.com/lupidan/apple-signin-unity/blob/master/AppleAuth/AppleAuthManager.cs">zde</a>.
+
+  Více info <a href="https://github.com/lupidan/apple-signin-unity/blob/master/AppleAuth/AppleAuthManager.cs">zde</a>.
+</details>
