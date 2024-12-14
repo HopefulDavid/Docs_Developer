@@ -1,4 +1,3 @@
-## Klávesové zkratky
 #### Propojení s mobilním zařízením
 
 <details>
@@ -71,30 +70,10 @@
    Vybrat zařízení v JetBrains IDE, na kterém chcete aplikaci spustit a aplikaci spustit
 </details>
 
-<details>
-<summary><span style="color:#1E90FF;">Parametry metody</span></summary>
-
-- Informace o parametrech metody
-
-  `Ctrl` + `Shift` + `Space`
-
-</details>
+#### XML komentáře
 
 <details>
-<summary><span style="color:#1E90FF;">Procházení seznamu</span></summary>
-
-- Vpřed
-
-  `Ctrl` + `Shift` + `Space`
-
-- Zpět
-
-  `Ctrl` + `Shift` + `P`
-
-</details>
-
-<details>
-<summary><span style="color:#1E90FF;">XML komentáře - zalomení řádku</span></summary>
+<summary><span style="color:#1E90FF;">Zalomení řádku</span></summary>
 
 - Použijte:
 
@@ -117,5 +96,29 @@
 
   Pro více
   informací: [XML zalomení komentáře](https://stackoverflow.com/questions/7279108/how-to-add-a-line-break-in-c-sharp-net-documentation)
+
+</details>
+
+#### Klávesové zkratky
+
+<details>
+<summary><span style="color:#1E90FF;">Parametry metody</span></summary>
+
+- Informace o parametrech metody
+
+  `Ctrl` + `Shift` + `Space`
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">Procházení seznamu</span></summary>
+
+- Vpřed
+
+  `Ctrl` + `Shift` + `Space`
+
+- Zpět
+
+  `Ctrl` + `Shift` + `P`
 
 </details>
