@@ -1,21 +1,22 @@
-## Náhrada znaků
+<details>
+<summary><span style="color:#1E90FF;">Náhrada znaků</span></summary>
 
 Základní znaky:
 
-- `<` (levá ostrá závorka
-    
+- `<` (levá ostrá závorka)
+
     `&lt;`
 - `>` (pravá ostrá závorka)
-    
+
     `&gt;`
 - `&` (ampersand)
-    
+
     `&amp;`
 - `'` (apostrof)
-    
+
     `&apos;`
 - `"` (uvozovky)
-    
+
     `&quot;`
 
 Znaky s diakritikou:
@@ -38,16 +39,18 @@ Znaky s diakritikou:
 
 > [!NOTE]
 > Stejným způsobem lze následně nahradit i další znaky s diakritikou.
-> 
+>
 > s prefixem `caron` (uvozovky) nebo `acute` (čárka nad písmenem).
+</details>
 
-## Serializace a Deserializace objektu
+<details>
+<summary><span style="color:#1E90FF;">Serializace a Deserializace objektu</span></summary>
 
-### Serializace 
+### Serializace
 
 Proces, kdy se objekt převede na XML soubor.
 
-```c#
+```csharp
 public string SerializeObject(MyObject myObject)
 {
     var serializer = new XmlSerializer(typeof(MyObject));
@@ -59,11 +62,11 @@ public string SerializeObject(MyObject myObject)
 }
 ```
 
-### Deserializace 
+### Deserializace
 
 Proces, kdy se XML soubor převede zpět na objekt.
 
-```c#
+```csharp
 public MyObject DeserializeObject(string xml)
 {
     var serializer = new XmlSerializer(typeof(MyObject));
@@ -73,8 +76,10 @@ public MyObject DeserializeObject(string xml)
     }
 }
 ```
+</details>
 
-## Namespace
+<details>
+<summary><span style="color:#1E90FF;">Namespace</span></summary>
 
 Způsob jak zabránit konfliktu jmen v XML souborech.
 
@@ -85,11 +90,11 @@ Způsob jak zabránit konfliktu jmen v XML souborech.
 > Pokud je namespace použit, musí se uvést i při zpracování souboru.
 
 > [!NOTE]
->URL namespace v XML dokumentu nemusí být skutečná existující URL adresa.
+> URL namespace v XML dokumentu nemusí být skutečná existující URL adresa.
 >
->Je to pouze jedinečný identifikátor, který se používá k rozlišení názvů elementů a atributů v XML dokumentu.
+> Je to pouze jedinečný identifikátor, který se používá k rozlišení názvů elementů a atributů v XML dokumentu.
 >
->Tento identifikátor je často ve formě URL pro snadnou identifikaci a jedinečnost, ale nemusí to být nutně platná URL adresa, kterou byste mohli otevřít v prohlížeči.
+> Tento identifikátor je často ve formě URL pro snadnou identifikaci a jedinečnost, ale nemusí to být nutně platná URL adresa, kterou byste mohli otevřít v prohlížeči.
 >
 > Například:
 > ```xml
@@ -101,7 +106,7 @@ Způsob jak zabránit konfliktu jmen v XML souborech.
 > </p:Person>
 > ```
 >
-> ```c#
+> ```csharp
 > XmlSerializer s = new XmlSerializer(person.GetType());
 > StringBuilder sb = new StringBuilder();
 > using (StringWriter writer = new StringWriter(sb))
@@ -124,7 +129,7 @@ Způsob jak zabránit konfliktu jmen v XML souborech.
 > [!WARNING]
 > Vlastnosti na objektu **nesmí mít atribut `XmlElement` s namespace**.
 
-```c#
+```csharp
 XmlSerializer s = new XmlSerializer(person.GetType());
 XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
 ns.Add("", "");
@@ -138,18 +143,17 @@ using (StringWriter writer = new StringWriter(sb))
 > [!NOTE]
 > Řešením jak odebrat namespace úplně všude a nebere v potaz atributy `XmlElement` s namespace.
 >
-> ```c#
+> ```csharp
 > XDocument document = XDocument.Parse(dataOutput);
->if (document.Root == null) return;
->foreach (var element in document.Root.DescendantsAndSelf())
->{
+> if (document.Root == null) return;
+> foreach (var element in document.Root.DescendantsAndSelf())
+> {
 >     element.Name = element.Name.LocalName;
 >     element.ReplaceAttributes(element.Attributes()
 >            .Where(x => !x.IsNamespaceDeclaration)
 >            .Select(x => new XAttribute(x.Name.LocalName, x.Value)));
->
->}
->dataOutput = document.ToString();
+> }
+> dataOutput = document.ToString();
 > ```
 >
 > Pro více info <a href="https://stackoverflow.com/questions/10438284/how-to-strip-namespaces-from-xml-document">zde</a>.
@@ -167,7 +171,7 @@ Příklad 1:
 </Person>
 ```
 
-```c#
+```csharp
 XmlSerializer s = new XmlSerializer(person.GetType());
 StringBuilder sb = new StringBuilder();
 using (StringWriter writer = new StringWriter(sb))
@@ -186,7 +190,7 @@ Příklad 2:
 </p:Person>
 ```
 
-```c#
+```csharp
 XmlSerializer s = new XmlSerializer(person.GetType());
 StringBuilder sb = new StringBuilder();
 using (StringWriter writer = new StringWriter(sb))
@@ -198,8 +202,10 @@ using (StringWriter writer = new StringWriter(sb))
 ```
 > [!NOTE]
 > V tomto kódu "p" je prefix pro namespace a "http://www.example.com" je URL namespace.
+</details>
 
-## Konvence serializace XML
+<details>
+<summary><span style="color:#1E90FF;">Konvence serializace XML</span></summary>
 
 Umožňuje přizpůsobit jak se třídy a vlastnosti serializují do XML.
 
@@ -209,7 +215,7 @@ Označí třídu, která se má serializovat jako kořenový element
 
 Pojmenuje kořenový element.
 
-```c#
+```csharp
 [XmlRoot("MyClass")]
 public class MyClass
 {
@@ -221,7 +227,7 @@ public class MyClass
 
 Označuje vlastnosti, která se nemají serializovat.
 
-```c#
+```csharp
 [XmlIgnore]
 public string MyProperty { get; set; }
 ```
@@ -230,7 +236,7 @@ public string MyProperty { get; set; }
 
 Označuje, že se mají jmenné prostory serializovat jako atributy.
 
-```c#
+```csharp
 [XmlNamespaceDeclarations]
 public class MyClass
 {
@@ -252,7 +258,7 @@ Tato metoda se používá k rozhodnutí, zda se daná vlastnost má serializovat
 
   vlastnost `{PropertyName}` se neserializuje
 
-```c#
+```csharp
 public bool ShouldSerializeMyProperty()
 {
     // logika rozhodnutí zda serializovat MyProperty
@@ -273,7 +279,7 @@ Toto je alternativa k `ShouldSerialize{PropertyName}`.
 
   vlastnost `{PropertyName}` se neserializuje
 
-```c#
+```csharp
 public bool MyPropertySpecified { get; set; }
 ```
 
@@ -281,7 +287,7 @@ public bool MyPropertySpecified { get; set; }
 
 Používá se k pojmenování kolekce a položek v kolekci.
 
-```c#
+```csharp
 [XmlArray("MyCollection"), XmlArrayItem("Item")]
 public List<string> MyProperty { get; set; }
 ```
@@ -290,7 +296,7 @@ public List<string> MyProperty { get; set; }
 
 Vlastnost, ktera se serializují jako "XML atribut" místo jako "XML element".
 
-```c#
+```csharp
 [XmlAttribute]
 public string MyProperty { get; set; }
 ```
@@ -301,7 +307,7 @@ Označuje vlastnosti, která má serializovat jako obsah XML elementu.
 
 > To znamená, že vlastnost se serializuje jako textový obsah XML elementu, nikoli jako samostatný element.
 
-```c#
+```csharp
 [XmlText]
 public string MyProperty { get; set; }
 ```
@@ -310,7 +316,7 @@ public string MyProperty { get; set; }
 
 Označuje výčtový typ, který se má serializovat jako XML element.
 
-```c#
+```csharp
 public enum MyEnum
 {
     [XmlEnum("Value1")]
@@ -324,7 +330,7 @@ public enum MyEnum
 
 Označí třídu, která se má serializovat jako XML element.
 
-```c#
+```csharp
 [XmlType("MyClass")]
 public class MyClass
 {
@@ -338,7 +344,7 @@ Označuje třídy, které se mají serializovat jako potomky rodičovské tříd
 
 > To znamená, že pokud máte třídu `MyBaseClass` a od ní odvozenou třídu `MyDerivedClass`, musíte označit `MyBaseClass` pomocí `XmlIncludeAttribute`.
 
-```c#
+```csharp
 [XmlInclude(typeof(MyDerivedClass))]
 public class MyBaseClass
 {
@@ -358,7 +364,7 @@ Označuje vlastnost, která může obsahovat libovolný XML element.
 > [!WARNING]
 > Musí být typu `XmlElement[]`, nebo `XmlElement`
 
-```c#
+```csharp
 [XmlAnyElement]
 public XmlElement[] MyProperty { get; set; }
 ```
@@ -370,7 +376,8 @@ Označuje vlastnost, která může obsahovat libovolný XML atribut.
 > [!WARNING]
 > Musí být typu `XmlAttribute[]`, nebo `XmlAttribute`
 
-```c#
+```csharp
 [XmlAnyAttribute]
 public XmlAttribute[] MyProperty { get; set; }
 ```
+</details>
