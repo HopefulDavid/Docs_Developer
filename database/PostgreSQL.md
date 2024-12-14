@@ -1,18 +1,15 @@
 ## PostgreSQL
 
-Podporuje programovací jazyky:
+- Podporuje programovací jazyky: `C`, `C++`, `Java`, `Perl`, `Python`, `Ruby`, `Tcl`, `Scheme`, `PHP`, `Swift`, `Go`, `JavaScript`, `TypeScript`, `R`, `Rust`, `Kotlin`, `Lua`, `Erlang`, `Elixir`, `Haskell`, `Scala`, `D`, `Julia`, `PL/pgSQL`, `SQL`, `PL/Python`, `PL/Perl`, `PL/Tcl`, `PL/Java`, `PL/R`, `PL/V8`
 
-- Python
-- Java
-- C/C++
-- C#
-- Node.js
-- Go
-- Ruby
-- Perl
-- Tcl
+    > [!NOTE]
+    > `PL` znamená "Procedural Language" (procedurální jazyk)
+    >
+    > Tyto jazyky se používají k psaní funkcí a spouštěcích procedur v rámci databáze PostgreSQL.
+    >
+    > Procedurální jazyky umožňují provádět složitější logiku a operace přímo v databázi.
 
-PostgreSQL podporuje v podstatě všechny funkce, které podporují jiné systémy pro správu databází.
+- PostgreSQL podporuje v podstatě všechny funkce, které podporují jiné systémy pro správu databází.
 
 <details>
 <summary><span style="color:#1E90FF;"> Uživatelské rozhraní</span></summary>
