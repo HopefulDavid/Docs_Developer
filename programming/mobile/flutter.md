@@ -4,6 +4,8 @@ Používá se pro vývoj mobilních aplikací pro Android a iOS.
 
 Využívá **Dart** jako programovací jazyk.
 
+#### Instalace a vytvoření nového projektu
+
 <details>
 <summary><span style="color:#1E90FF;">Instalace</span></summary>
 
@@ -87,6 +89,8 @@ flutter run
 ```
 
 </details>
+
+#### Balíčky
 
 <details>
 <summary><span style="color:#1E90FF;">Lokalizace (interní knihovna)</span></summary>
