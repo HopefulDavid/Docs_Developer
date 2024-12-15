@@ -87,3 +87,154 @@ flutter run
 ```
 
 </details>
+
+<details>
+<summary><span style="color:#1E90FF;">Lokalizace (interní knihovna)</span></summary>
+
+1. Přidání závislosti do souboru `pubspec.yaml`:
+
+   Přidejte `flutter_localizations` viz. níže:
+
+   ```yaml
+   dependencies:
+   #  Internal dependencies
+   flutter:
+        sdk: flutter
+   flutter_localizations:
+        sdk: flutter
+   # External dependencies
+   cupertino_icons: ^1.0.8
+   flutter_svg: ^2.0.16
+   ```
+
+2. Vytvořte lokalizační soubory
+
+    - `lib/l10n/intl_en.arb`, příklad souboru pro anglické texty
+
+         ```json
+             {
+               "@@locale": "en",
+               "hello": "Hello",
+               "welcome": "Welcome"
+             }
+         ```
+       
+    - `lib/l10n/intl_cs.arb`, příklad souboru pro české texty
+
+         ```json
+        {
+            "@@locale": "cs",
+            "hello": "Ahoj",
+            "welcome": "Vítejte"
+        }
+        ```
+   > [!NOTE]
+   > `@@locale`, definuje jazykovou verzi překladu obsaženou v souboru `.arb`.
+           
+   > [!TIP]
+   > Pokud chcete nastavit výchozí lokalizační soubor bez nutnosti mít `intl_messages.arb`, musíte nastavit výchozí jazyk ve vašem Flutter kódu.
+   >
+   > ```c++
+   > // Material design for applications
+   > import 'package:flutter/material.dart';
+   > // Localization
+   > import 'package:flutter_localizations/flutter_localizations.dart';
+   > import 'generated/l10n.dart';
+   >	
+   > void main() {
+   >    runApp(MyApp());
+   > }
+   >	
+   >   class MyApp extends StatelessWidget {
+   >   @override
+   >   Widget build(BuildContext context) {
+   >   		return MaterialApp(
+   >   			localizationsDelegates: [
+   >   				S.delegate,
+   >   				GlobalMaterialLocalizations.delegate,
+   >   				GlobalWidgetsLocalizations.delegate,
+   >   				GlobalCupertinoLocalizations.delegate,
+   >   		],
+   >   		supportedLocales: S.delegate.supportedLocales,
+   >   		locale: Locale('cs'), // Nastavení výchozího jazyka na češtinu
+   >   		home: MainPage(),
+   >   	);
+   >    }
+   > }
+   >```
+
+3. Vygenerovat potřebné lokalizační soubory
+
+    Přidejte `intl_utils` do konfiguračního souboru (`pubspec.yaml`):
+
+    ```yaml
+	dependencies:
+	  #  Internal dependencies
+	  flutter:
+		sdk: flutter
+	  flutter_localizations:
+		sdk: flutter
+	  # External dependencies
+	  intl_utils: ^2.5.0
+	  cupertino_icons: ^1.0.8
+	  flutter_svg: ^2.0.16
+	```
+   
+    Spusťte následující příkaz:
+
+    ```bash
+    # Install the dependencies listed in pubspec.yaml
+    dart pub get
+   # Generate the necessary localization files based on the ARB files
+    dart run intl_utils:generate
+    ```
+4. Zobrazení textu z lokalizace
+
+    ```dart
+	import 'package:flutter/material.dart'; // Import package for material design
+	import 'package:flutter_localizations/flutter_localizations.dart'; // Import package for localization
+	import 'generated/l10n.dart'; // Import generated localization file
+
+	void main() {
+		// Spuštění aplikace
+		runApp(MyApp());
+	}
+
+	class MyApp extends StatelessWidget {
+		@override
+		Widget build(BuildContext context) {
+			return MaterialApp(
+				// Definování delegátů pro lokalizaci
+				localizationsDelegates: [
+					S.delegate, // Vlastní generovaný delegát pro lokalizaci
+					GlobalMaterialLocalizations.delegate, // Material design lokalizace
+					GlobalWidgetsLocalizations.delegate, // Widgety lokalizace
+					GlobalCupertinoLocalizations.delegate, // Cupertino (iOS) lokalizace
+				],
+				// Podporované jazyky
+				supportedLocales: S.delegate.supportedLocales,
+				// Hlavní stránka aplikace
+				home: MainPage(),
+			);
+		}
+	}
+
+	class MainPage extends StatelessWidget {
+		@override
+		Widget build(BuildContext context) {
+			return Scaffold(
+				appBar: AppBar(
+					// Zobrazení lokalizovaného textu v AppBar
+					title: Text(S.of(context).hello),
+				),
+				body: Center(
+					// Zobrazení lokalizovaného textu v těle stránky
+					child: Text(S.of(context).welcome),
+				),
+			);
+		}
+	}
+    ```
+   
+
+</details>
