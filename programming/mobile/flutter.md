@@ -238,3 +238,16 @@ flutter run
    
 
 </details>
+
+#### Řešení problémů
+
+<details>
+<summary><span style="color:#1E90FF;">Building with plugins requires symlink support.</span></summary>
+
+Pokud se vyskytne chyba `Building with plugins requires symlink support.` při spuštění aplikace, je potřeba povolit `Developer Mode` v systému Windows.
+
+1. Stiskněte klávesovou zkratku `Win + R`
+2. Zadejte `ms-settings:developers` a stiskněte `Enter`
+3. Povolte `Developer Mode`
+
+</details>
