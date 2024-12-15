@@ -1,4 +1,6 @@
 Changelog
+## 2024-12-15
+  - ✨ Add localization setup for Flutter project.
 ## 2024-12-14
   - ✨ Add Android SDK setup instructions in documentation.
   - 🎨 Add collapsible sections for quick iteration and process programming techniques.
@@ -12,6 +14,7 @@ Changelog
   - ✨ Enhance programming languages and reorganize tools structure.
   - 🔧 Remove unused Unity table of contents file.
   - 🎨 Revise MongoDB documentation for clarity and structure.
+  - 🔧 update changelog
   - 🔧 update changelog
   - 📝 Update Docker documentation with detailed explanations.
   - 🎨 Update JetBrains documentation for shortcuts and XML.
