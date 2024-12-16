@@ -90,6 +90,88 @@ flutter run
 
 </details>
 
+#### Základní znalosti
+
+<details>
+<summary><span style="color:#1E90FF;">Widget</span></summary>
+
+Widget je základní stavební prvek Flutter aplikace a je zodpovědný za vykreslení uživatelského rozhraní. 
+
+Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
+
+- `StatelessWidget` - neměnný widget, který se nemění během životního cyklu aplikace
+
+  ```dart
+    class MyStatelessWidget extends StatelessWidget {
+     @override
+     Widget build(BuildContext context) {
+       return Scaffold(
+         appBar: AppBar(
+           title: Text('Stateless Widget Example'),
+         ),
+         body: Center(
+           child: Text('This is a stateless widget'),
+         ),
+       );
+     }
+   }
+  ```
+  
+- `StatefulWidget` - měnný widget, který se může měnit během životního cyklu aplikace
+
+  ```dart
+   // A StatefulWidget is a widget that has mutable state.
+   class MyStatefulWidget extends StatefulWidget {
+     @override
+     _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+   }
+   
+   // This is the state class for MyStatefulWidget.
+   // It holds the state of the widget and contains the logic to update the state.
+   class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+     int _counter = 0;
+   
+     // This method increments the counter and calls setState to update the UI.
+     void _incrementCounter() {
+       setState(() {
+         _counter++;
+       });
+     }
+   
+     @override
+     Widget build(BuildContext context) {
+       return Scaffold(
+         appBar: AppBar(
+           title: Text('Simple Stateful Widget Example'),
+         ),
+         body: Center(
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: <Widget>[
+               Text('You have pushed the button this many times:'),
+               Text('$_counter'),
+             ],
+           ),
+         ),
+         floatingActionButton: FloatingActionButton(
+           onPressed: _incrementCounter,
+           tooltip: 'Increment',
+           child: Icon(Icons.add),
+         ),
+       );
+     }
+   }
+   
+   void main() {
+     runApp(MaterialApp(
+       home: MyStatefulWidget(),
+     ));
+   }
+  ```
+    
+
+</details>
+
 #### Balíčky
 
 <details>
