@@ -1,8 +1,11 @@
 Changelog
+## 2024-12-16
+  - 📝 Add basic knowledge section on Flutter widgets.
 ## 2024-12-15
   - ✨ Add localization setup for Flutter project.
   - 📝 Add troubleshooting sections to Flutter with "Building with plugins requires symlink support".
   - 🎨 Installation and package sections to documentation.
+  - 🔧 update changelog
   - 🔧 update changelog
 ## 2024-12-14
   - ✨ Add Android SDK setup instructions in documentation.
