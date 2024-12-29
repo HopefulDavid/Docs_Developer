@@ -176,32 +176,32 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 <details>
 <summary><span style="color:#1E90FF;">Tabulka s příkazy</span></summary>
 
-| Příkaz                                   | Popis                                                                                             |
-|------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `flutter --version`                      | Zobrazí aktuální verzi Flutter SDK, Dart SDK a aktivní kanál.                                     |
-| `flutter doctor`                         | Zkontroluje nastavení Flutteru a zobrazí seznam chybějících nebo nesprávně nastavených komponent. |
-| `flutter doctor -v`                      | Detailní výstup diagnostiky Flutteru.                                                             |
-| `flutter upgrade`                        | Aktualizuje Flutter SDK na nejnovější verzi v aktuálním kanálu.                                   |
-| `flutter downgrade`                      | Vrátí Flutter SDK na předchozí verzi.                                                             |
-| `flutter channel`                        | Zobrazí aktuální kanál a seznam dostupných kanálů (stable, beta, dev, master).                    |
-| `flutter channel stable`                 | Přepne na stabilní kanál.                                                                         |
-| `flutter channel beta`                   | Přepne na beta kanál.                                                                             |
-| `flutter pub get`                        | Stáhne závislosti uvedené v souboru `pubspec.yaml`.                                               |
-| `flutter pub upgrade`                    | Aktualizuje všechny závislosti na nejnovější kompatibilní verze.                                  |
-| `flutter create project_name`            | Vytvoří nový Flutter projekt ve složce `project_name`.                                            |
-| `flutter run`                            | Spustí aplikaci na připojeném zařízení nebo emulátoru.                                            |
-| `flutter build apk`                      | Vytvoří produkční APK soubor aplikace.                                                            |
-| `flutter build ios`                      | Vytvoří produkční build pro iOS (vyžaduje macOS a Xcode).                                         |
-| `flutter clean`                          | Odstraní dočasné soubory a vyčistí build cache.                                                   |
-| `flutter pub cache repair`               | Opraví a znovu stáhne závislosti uložené v cache.                                                 |
-| `flutter test`                           | Spustí všechny testy definované v projektu.                                                       |
-| `flutter logs`                           | Zobrazí logy aplikace z běžící instance Flutteru.                                                 |
-| `flutter devices`                        | Zobrazí seznam připojených zařízení a dostupných emulátorů.                                       |
-| `flutter emulators`                      | Zobrazí seznam dostupných emulátorů.                                                              |
-| `flutter emulators --launch emulator_id` | Spustí specifický emulátor podle jeho ID.                                                         |
-| `flutter install`                        | Nainstaluje aplikaci na připojené zařízení.                                                       |
-| `dart analyze`                           | Spustí analýzu kódu na projektu a zobrazí potenciální chyby nebo varování.                        |
-| `dart fix --apply`                       | Aplikuje doporučené opravy kódu podle výsledků analýzy.                                           |
+| Kategorie                | Příkaz                                   | Popis                                                                                             |
+|--------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Verze a kanály**       | `flutter --version`                      | Zobrazí aktuální verzi Flutter SDK, Dart SDK a aktivní kanál.                                     |
+|                          | `flutter upgrade`                        | Aktualizuje Flutter SDK na nejnovější verzi v aktuálním kanálu.                                   |
+|                          | `flutter downgrade`                      | Vrátí Flutter SDK na předchozí verzi.                                                             |
+|                          | `flutter channel`                        | Zobrazí aktuální kanál a seznam dostupných kanálů (stable, beta, dev, master).                    |
+|                          | `flutter channel stable`                 | Přepne na stabilní kanál.                                                                         |
+|                          | `flutter channel beta`                   | Přepne na beta kanál.                                                                             |
+| **Diagnostika**          | `flutter doctor`                         | Zkontroluje nastavení Flutteru a zobrazí seznam chybějících nebo nesprávně nastavených komponent. |
+|                          | `flutter doctor -v`                      | Detailní výstup diagnostiky Flutteru.                                                             |
+| **Závislosti**           | `flutter pub get`                        | Stáhne závislosti uvedené v souboru `pubspec.yaml`.                                               |
+|                          | `flutter pub upgrade`                    | Aktualizuje všechny závislosti na nejnovější kompatibilní verze.                                  |
+|                          | `flutter pub cache repair`               | Opraví a znovu stáhne závislosti uložené v cache.                                                 |
+| **Projektové příkazy**   | `flutter create project_name`            | Vytvoří nový Flutter projekt ve složce `project_name`.                                            |
+|                          | `flutter run`                            | Spustí aplikaci na připojeném zařízení nebo emulátoru.                                            |
+|                          | `flutter build apk`                      | Vytvoří produkční APK soubor aplikace.                                                            |
+|                          | `flutter build ios`                      | Vytvoří produkční build pro iOS (vyžaduje macOS a Xcode).                                         |
+|                          | `flutter clean`                          | Odstraní dočasné soubory a vyčistí build cache.                                                   |
+|                          | `flutter test`                           | Spustí všechny testy definované v projektu.                                                       |
+| **Zařízení a emulátory** | `flutter devices`                        | Zobrazí seznam připojených zařízení a dostupných emulátorů.                                       |
+|                          | `flutter emulators`                      | Zobrazí seznam dostupných emulátorů.                                                              |
+|                          | `flutter emulators --launch emulator_id` | Spustí specifický emulátor podle jeho ID.                                                         |
+|                          | `flutter install`                        | Nainstaluje aplikaci na připojené zařízení.                                                       |
+| **Analýza a opravy**     | `dart analyze`                           | Spustí analýzu kódu na projektu a zobrazí potenciální chyby nebo varování.                        |
+|                          | `dart fix --apply`                       | Aplikuje doporučené opravy kódu podle výsledků analýzy.                                           |
+| **Logy**                 | `flutter logs`                           | Zobrazí logy aplikace z běžící instance Flutteru.                                                 |
 
 </details>
 
