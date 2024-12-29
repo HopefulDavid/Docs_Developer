@@ -90,6 +90,43 @@ flutter run
 
 </details>
 
+#### Záloha a obnova
+
+<details>
+<summary><span style="color:#1E90FF;">Záloha závislostí</span></summary>
+
+Pro zálohování všech balíčků projektu při použití `flutter pub get`, můžete zálohovat složku `.pub-cache`, která obsahuje všechny stažené závislosti.
+
+- **Windows**: `C:\Users\<uživatelské_jméno>\AppData\Local\Pub\Cache`
+- **macOS** a **Linux**: `/Users/<uživatelské_jméno>/.pub-cache`
+
+> [!TIP]
+> Složka `hosted` obsahuje všechny balíčky stažené z veřejných (například: [pub.dev](https://pub.dev/)) nebo  soukromých repozitářů. (Hlavní úložiště pro závislosti projektu.)
+> 
+> Složka `hosted-hashes` obsahuje hash soubory, které slouží k ověření integrity balíčků uložených ve složce `hosted`. (Zajišťuje, že balíčky nebyly změněny.)
+> 
+> Složka `temp` obsahuje dočasné soubory, které jsou vytvořeny během stahování balíčků a jsou odstraněny po dokončení stahování.
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">Obnova závislostí</span></summary>
+
+Pro obnovení všech balíčků projektu zálohovaných v `.pub-cache`, stačí obnovit obsah složky `.pub-cache` do původního umístění.
+
+- **Windows**: `C:\Users\<uživatelské_jméno>\AppData\Local\Pub\Cache`
+- **macOS** a **Linux**: `/Users/<uživatelské_jméno>/.pub-cache`
+
+
+> [!TIP]
+> Složka `hosted` obsahuje všechny balíčky stažené z veřejných (například: [pub.dev](https://pub.dev/)) nebo  soukromých repozitářů. (Hlavní úložiště pro závislosti projektu.)
+>
+> Složka `hosted-hashes` obsahuje hash soubory, které slouží k ověření integrity balíčků uložených ve složce `hosted`. (Zajišťuje, že balíčky nebyly změněny.)
+>
+> Složka `temp` obsahuje dočasné soubory, které jsou vytvořeny během stahování balíčků a jsou odstraněny po dokončení stahování.
+
+</details>
+
 #### Základní znalosti
 
 <details>
