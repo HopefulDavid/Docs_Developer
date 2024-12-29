@@ -95,7 +95,7 @@ flutter run
 <details>
 <summary><span style="color:#1E90FF;">Widget</span></summary>
 
-Widget je základní stavební prvek Flutter aplikace a je zodpovědný za vykreslení uživatelského rozhraní. 
+Widget je základní stavební prvek Flutter aplikace a je zodpovědný za vykreslení uživatelského rozhraní.
 
 Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 
@@ -116,7 +116,7 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
      }
    }
   ```
-  
+
 - `StatefulWidget` - měnný widget, který se může měnit během životního cyklu aplikace
 
   ```dart
@@ -168,7 +168,40 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
      ));
    }
   ```
-    
+
+</details>
+
+#### Příkazy
+
+<details>
+<summary><span style="color:#1E90FF;">Tabulka s příkazy</span></summary>
+
+| Příkaz                                   | Popis                                                                                             |
+|------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `flutter --version`                      | Zobrazí aktuální verzi Flutter SDK, Dart SDK a aktivní kanál.                                     |
+| `flutter doctor`                         | Zkontroluje nastavení Flutteru a zobrazí seznam chybějících nebo nesprávně nastavených komponent. |
+| `flutter doctor -v`                      | Detailní výstup diagnostiky Flutteru.                                                             |
+| `flutter upgrade`                        | Aktualizuje Flutter SDK na nejnovější verzi v aktuálním kanálu.                                   |
+| `flutter downgrade`                      | Vrátí Flutter SDK na předchozí verzi.                                                             |
+| `flutter channel`                        | Zobrazí aktuální kanál a seznam dostupných kanálů (stable, beta, dev, master).                    |
+| `flutter channel stable`                 | Přepne na stabilní kanál.                                                                         |
+| `flutter channel beta`                   | Přepne na beta kanál.                                                                             |
+| `flutter pub get`                        | Stáhne závislosti uvedené v souboru `pubspec.yaml`.                                               |
+| `flutter pub upgrade`                    | Aktualizuje všechny závislosti na nejnovější kompatibilní verze.                                  |
+| `flutter create project_name`            | Vytvoří nový Flutter projekt ve složce `project_name`.                                            |
+| `flutter run`                            | Spustí aplikaci na připojeném zařízení nebo emulátoru.                                            |
+| `flutter build apk`                      | Vytvoří produkční APK soubor aplikace.                                                            |
+| `flutter build ios`                      | Vytvoří produkční build pro iOS (vyžaduje macOS a Xcode).                                         |
+| `flutter clean`                          | Odstraní dočasné soubory a vyčistí build cache.                                                   |
+| `flutter pub cache repair`               | Opraví a znovu stáhne závislosti uložené v cache.                                                 |
+| `flutter test`                           | Spustí všechny testy definované v projektu.                                                       |
+| `flutter logs`                           | Zobrazí logy aplikace z běžící instance Flutteru.                                                 |
+| `flutter devices`                        | Zobrazí seznam připojených zařízení a dostupných emulátorů.                                       |
+| `flutter emulators`                      | Zobrazí seznam dostupných emulátorů.                                                              |
+| `flutter emulators --launch emulator_id` | Spustí specifický emulátor podle jeho ID.                                                         |
+| `flutter install`                        | Nainstaluje aplikaci na připojené zařízení.                                                       |
+| `dart analyze`                           | Spustí analýzu kódu na projektu a zobrazí potenciální chyby nebo varování.                        |
+| `dart fix --apply`                       | Aplikuje doporučené opravy kódu podle výsledků analýzy.                                           |
 
 </details>
 
@@ -204,7 +237,7 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
                "welcome": "Welcome"
              }
          ```
-       
+
     - `lib/l10n/intl_cs.arb`, příklad souboru pro české texty
 
          ```json
@@ -216,9 +249,10 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
         ```
    > [!NOTE]
    > `@@locale`, definuje jazykovou verzi překladu obsaženou v souboru `.arb`.
-           
+
    > [!TIP]
-   > Pokud chcete nastavit výchozí lokalizační soubor bez nutnosti mít `intl_messages.arb`, musíte nastavit výchozí jazyk ve vašem Flutter kódu.
+   > Pokud chcete nastavit výchozí lokalizační soubor bez nutnosti mít `intl_messages.arb`, musíte nastavit výchozí
+   jazyk ve vašem Flutter kódu.
    >
    > ```c++
    > // Material design for applications
@@ -251,7 +285,7 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 
 3. Vygenerovat potřebné lokalizační soubory
 
-    Přidejte `intl_utils` do konfiguračního souboru (`pubspec.yaml`):
+   Přidejte `intl_utils` do konfiguračního souboru (`pubspec.yaml`):
 
     ```yaml
 	dependencies:
@@ -265,8 +299,8 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 	  cupertino_icons: ^1.0.8
 	  flutter_svg: ^2.0.16
 	```
-   
-    Spusťte následující příkaz:
+
+   Spusťte následující příkaz:
 
     ```bash
     # Install the dependencies listed in pubspec.yaml
@@ -321,7 +355,6 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 		}
 	}
     ```
-   
 
 </details>
 
@@ -330,7 +363,8 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 <details>
 <summary><span style="color:#1E90FF;">Building with plugins requires symlink support.</span></summary>
 
-Pokud se vyskytne chyba `Building with plugins requires symlink support.` při spuštění aplikace, je potřeba povolit `Developer Mode` v systému Windows.
+Pokud se vyskytne chyba `Building with plugins requires symlink support.` při spuštění aplikace, je potřeba povolit
+`Developer Mode` v systému Windows.
 
 1. Stiskněte klávesovou zkratku `Win + R`
 2. Zadejte `ms-settings:developers` a stiskněte `Enter`
