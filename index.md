@@ -1,4 +1,9 @@
 Changelog
+## 2024-12-29
+  - 📝 Add command table and improve Flutter documentation.
+  - 🔧 Update .NET version to 8.x in workflow config.
+## 2024-12-28
+  - 🔧 update changelog
 ## 2024-12-16
   - 📝 Add basic knowledge section on Flutter widgets.
 ## 2024-12-15
