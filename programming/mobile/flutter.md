@@ -63,9 +63,9 @@ flutter config --no-web-browser
 
 1. Použijte
 
-```bash
-flutter run -d web-server
-```
+    ```bash
+    flutter run -d web-server
+    ```
 
 2. Otevřete ve vlastním prohlížeči a zadejte adresu `http://localhost:PORT/`
 
