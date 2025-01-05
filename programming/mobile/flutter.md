@@ -444,8 +444,12 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 <details>
 <summary><span style="color:#1E90FF;">S nahlédnutím do zdrojového kódu</span></summary>
 
-1. Stáhněte si soubor [`genhtml`](https://github.com/linux-test-project/lcov/blob/master/bin/genhtml)
-2. Dejte soubor do kořenové složky projektu
+1. Stáhněte si soubor [`genhtml`](https://github.com/linux-test-project/lcov/releases)
+
+   > [!WARNING]
+   > Nové verze `genhtml` obsahují další závislosti, které mohou být potřeba pro správné fungování.
+
+2. Dejte soubor `genhtml` do kořenové složky projektu
 3. Ujistěte se, že máte nainstalovaný `Git Bash`
 
    > [!NOTE]
