@@ -448,6 +448,8 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 
    > [!WARNING]
    > Nové verze `genhtml` obsahují další závislosti, které mohou být potřeba pro správné fungování.
+   >
+   > Jedná se o verze `2.0` a vyšší. 
 
 2. Dejte soubor `genhtml` do kořenové složky projektu
 3. Ujistěte se, že máte nainstalovaný `Git Bash`
