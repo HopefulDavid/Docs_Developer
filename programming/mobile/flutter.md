@@ -395,6 +395,75 @@ Každý widget je buď `StatelessWidget` nebo `StatefulWidget`.
 
 </details>
 
+#### Pokrytí kódů (Code Coverage)
+
+<details>
+<summary><span style="color:#1E90FF;">Bez nahlédnutí do zdrojového kódu</span></summary>
+
+1. Nainstalujte balíček skrze npm:
+
+    ```bash
+    npm install -g @lcov-viewer/cli
+    ```
+   
+2. Vytvořte nový soubor `package.json` s výchozími hodnoty:
+
+    ```bash
+   npm init -y
+    ```
+   
+3. Vaše konfigurace bude vypadat podobně takto:
+
+    ```json 
+   {
+   "name": "xxx_app",
+   "version": "1.0.0",
+   "description": "A new Flutter project.",
+   "main": "index.js",
+   "directories": {
+   "lib": "lib",
+   "test": "test"
+   },
+   "scripts": {
+   "test-report": " flutter test --coverage && lcov-viewer lcov -o ./coverage/report ./coverage/lcov.info"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC"
+   }
+    ```
+   
+4. Spusťte příkaz:
+
+    ```bash
+    npm run test-report
+    ```
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">S nahlédnutím do zdrojového kódu</span></summary>
+
+1. Stáhněte si soubor [`genhtml`](https://github.com/linux-test-project/lcov/blob/master/bin/genhtml)
+2. Dejte soubor do kořenové složky projektu
+3. Ujistěte se, že máte nainstalovaný `Git Bash`
+
+   > [!NOTE]
+   > S tím se nainstaluje i perl, který je potřeba pro správné fungování `genhtml`.
+   > 
+   > Spusťte příkaz v Git Bash:
+   > 
+   > ```bash
+   > where perl
+   > ``` 
+
+4. Spusťte následující příkaz v Git Bash v kořenové složce projektu:
+
+    ```bash
+    perl genhtml coverage/lcov.info -o coverage/html
+    ```
+</details>
+
 #### Řešení problémů
 
 <details>
