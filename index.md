@@ -1,9 +1,13 @@
 Changelog
+## 2025-01-05
+  - 🎨 Improve code block formatting in Flutter guide. (documentation)
+  - 📝 Add code coverage instructions (flutter)
 ## 2024-12-29
   - 📝 Add backup and restore instructions for dependencies in Flutter.
   - 📝 Add command table and improve Flutter documentation.
   - 🔨 Organize Flutter commands documentation into categories.
   - 🔧 Update .NET version to 8.x in workflow config.
+  - 🔧 update changelog
   - 🔧 update changelog
 ## 2024-12-28
   - 🔧 update changelog
