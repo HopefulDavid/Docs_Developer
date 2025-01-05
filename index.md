@@ -2,6 +2,8 @@ Changelog
 ## 2025-01-05
   - 🎨 Improve code block formatting in Flutter guide. (documentation)
   - 📝 Add code coverage instructions (flutter)
+  - 📝 Update instructions for downloading genhtml. (flutter)
+  - 🔧 update changelog
 ## 2024-12-29
   - 📝 Add backup and restore instructions for dependencies in Flutter.
   - 📝 Add command table and improve Flutter documentation.
