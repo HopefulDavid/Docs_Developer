@@ -20,6 +20,8 @@
               href: net/net_attributes.md
             - name: Metody
               href: net/net_methods.md
+            - name: Implicitní a Explicitní operátory
+              href: net/net_conversion.md
         - name: Soubory
           items:
             - name: XML
