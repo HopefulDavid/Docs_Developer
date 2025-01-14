@@ -1,8 +1,12 @@
 Changelog
+## 2025-01-14
+  - 📝 přidání dokumentace k implicitním a explicitním operátorům (c#)
 ## 2025-01-05
   - 🎨 Improve code block formatting in Flutter guide. (documentation)
   - 📝 Add code coverage instructions (flutter)
+  - 📝 Add note about `genhtml` version requirements. (flutter)
   - 📝 Update instructions for downloading genhtml. (flutter)
+  - 🔧 update changelog
   - 🔧 update changelog
 ## 2024-12-29
   - 📝 Add backup and restore instructions for dependencies in Flutter.
