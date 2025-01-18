@@ -77,3 +77,7 @@
           href: netCLI.md
         - name: Nuget Package
           href: nugetPackage.md
+    - name: Aktualizace aplikací
+      items:
+        - name: Appcast Feed XML
+          href: appcast.md
