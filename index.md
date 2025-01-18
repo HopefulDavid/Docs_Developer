@@ -1,6 +1,10 @@
 Changelog
+## 2025-01-18
+  - 📝 přidání dokumentace pro Appcast Feed XML
+  - 🎨 upravení formátování názvu sekce v TOC
 ## 2025-01-14
   - 📝 přidání dokumentace k implicitním a explicitním operátorům (c#)
+  - 🔧 update changelog
 ## 2025-01-05
   - 🎨 Improve code block formatting in Flutter guide. (documentation)
   - 📝 Add code coverage instructions (flutter)
