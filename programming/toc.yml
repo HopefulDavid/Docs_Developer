@@ -50,7 +50,7 @@
     - name: Unity
       href: unity.md
       items:
-        - name: 2D
+        - name: "2D"
           href: unity/2d.md
         - name: Animace
           href: unity/animation.md
