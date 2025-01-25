@@ -4,8 +4,11 @@ Changelog
   - 📝 přidání dokumentace pro enum (c#)
   - ✨ přidání dokumentace pro vytvoření API (C#)
   - 📝 přidání sekce o CDATA do dokumentace (c#)
+  - 📝 přidání SQL joinů (database)
   - 📝 úprava formátování SQL dotazů (database)
   - 📝 přidání sekce o regulárních výrazech (JetBrains)
+  - 🔧 update changelog
+  - ✨ přidání dokumentace pro VPN (vpn)
 ## 2025-01-18
   - 📝 přidání dokumentace pro Appcast Feed XML
   - 🔧 update changelog
