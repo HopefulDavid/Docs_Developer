@@ -1,6 +1,14 @@
 Changelog
+## 2025-01-25
+  - 🔧 aktualizace GitHub Actions na verzi 4
+  - 📝 přidání dokumentace pro enum (c#)
+  - ✨ přidání dokumentace pro vytvoření API (C#)
+  - 📝 přidání sekce o CDATA do dokumentace (c#)
+  - 📝 úprava formátování SQL dotazů (database)
+  - 📝 přidání sekce o regulárních výrazech (JetBrains)
 ## 2025-01-18
   - 📝 přidání dokumentace pro Appcast Feed XML
+  - 🔧 update changelog
   - 🎨 upravení formátování názvu sekce v TOC
 ## 2025-01-14
   - 📝 přidání dokumentace k implicitním a explicitním operátorům (c#)
