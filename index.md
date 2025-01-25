@@ -7,6 +7,8 @@ Changelog
   - 📝 přidání SQL joinů (database)
   - 📝 úprava formátování SQL dotazů (database)
   - 📝 přidání sekce o regulárních výrazech (JetBrains)
+  - 🐛 přidání dokumentace pro VPN (network)
+  - 🔧 update changelog
   - 🔧 update changelog
   - ✨ přidání dokumentace pro VPN (vpn)
 ## 2025-01-18
