@@ -44,6 +44,25 @@ Znaky s diakritikou:
 </details>
 
 <details>
+<summary><span style="color:#1E90FF;">CDATA</span></summary>
+
+CDATA (Character Data) je způsob, jak vložit data do XML souboru, která by jinak byla interpretována jako XML.
+
+```xml
+<exampleOfACDATA>
+  <![CDATA[
+    Protože se jedná o sekci CDATA
+    mohu použít všechny druhy vyhrazených znaků jako:
+    > < „ &
+    nebo psát věci jako:
+    <foo></bar>
+    a dokument je stále dobře zformátovaný!
+]]>
+</exampleOfACDATA>
+```
+</details>
+
+<details>
 <summary><span style="color:#1E90FF;">Serializace a Deserializace objektu</span></summary>
 
 ### Serializace
