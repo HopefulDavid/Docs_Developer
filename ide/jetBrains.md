@@ -122,3 +122,57 @@
   `Ctrl` + `Shift` + `P`
 
 </details>
+
+#### Regulární výrazy
+
+<details>
+<summary><span style="color:#1E90FF;">Použití proměnné</span></summary>
+
+Zkusíme naleznout proměnnou v textu, uložit ji do proměnné a následně použít k nahrazení.
+
+<details>
+<summary><span style="color:#E95A84;">Čiselná proměnná</span></summary>
+
+Vyhledávání proměnné v textu:
+
+```regex
+<h2>(.*?)</h2>
+```
+
+Tento výraz vyhledá všechny nadpisy druhé úrovně a uloží je do proměnné.
+
+Uložení do proměnné je možné pomocí závorek `()` a následně se na proměnnou odkazuje pomocí `$1`, `$2`, `$3` atd.
+
+
+Nahrazení proměnné v textu:
+
+```regex
+<h2>Test $1</h2>
+```
+
+Tento výraz nahradí nalezené nadpisy druhé úrovně za nadpis `Test` a proměnnou, která byla uložena v prvním výrazu.
+</details>
+
+<details>
+<summary><span style="color:#E95A84;">Pojmenovanná proměnná</span></summary>
+
+Vyhledávání proměnné v textu:
+
+```regex
+<h2>(?<customName>.*?)</h2>
+```
+
+Tento výraz vyhledá všechny nadpisy druhé úrovně a uloží je do proměnné s názvem `customName`.
+
+Uložení do proměnné je možné pomocí závorek `(?<customName>)` a následně se na proměnnou odkazuje pomocí `(?<customName>)`.
+
+Nahrazení proměnné v textu:
+
+```regex
+<h2>Test ${customName}</h2>
+```
+
+Tento výraz nahradí nalezené nadpisy druhé úrovně za nadpis `Test` a proměnnou, která byla uložena v prvním výrazu.
+</details>
+
+</details>
