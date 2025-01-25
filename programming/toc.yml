@@ -18,6 +18,8 @@
               href: net/net_dataTypes.md
             - name: Atributy
               href: net/net_attributes.md
+            - name: Enum
+              href: net/net_enum.md
             - name: Metody
               href: net/net_methods.md
             - name: Implicitní a Explicitní operátory
