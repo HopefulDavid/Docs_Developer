@@ -24,6 +24,10 @@
               href: net/net_methods.md
             - name: Implicitní a Explicitní operátory
               href: net/net_conversion.md
+        - name: API
+          items:
+            - name: Vytvoření API
+              href: net/net_createAPI.md
         - name: Soubory
           items:
             - name: XML
