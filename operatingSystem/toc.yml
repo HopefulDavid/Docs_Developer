@@ -5,5 +5,3 @@
     href: windows/cmd.md
   - name: PowerShell
     href: windows/powerShell.md
-  - name: VPN (Virtual Private Network)
-    href: windows/vpn.md
