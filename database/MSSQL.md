@@ -324,3 +324,120 @@ Pokud zadáte číslo, použije přesné porovnání, a pokud zadáte text, pou�
   > ```
 
 </details>
+
+#### Spojování tabulek
+
+<details>
+<summary><span style="color:#1E90FF;">left join</span></summary>
+
+`left join` 
+
+Vrátí všechny řádky z první tabulky.
+
+> [!NOTE]
+> Pokud existuje odpovídající řádek v druhé tabulce, budou vráceny hodnoty z obou tabulek.
+> 
+> Pokud neexistuje odpovídající řádek v druhé tabulce, budou hodnoty z druhé tabulky `NULL`.
+
+```sql
+SELECT
+  employees.name AS EmployeeName,
+  departments.name AS DepartmentName
+FROM employees LEFT JOIN departments ON employees.department_id = departments.id;
+```
+
+Tento dotaz vrátí všechny zaměstnance a odpovídající oddělení (pokud existuje a pokud ne, bude hodnota `DepartmentName` `NULL`).
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">right join</span></summary>
+
+`right join`
+
+Vrátí všechny řádky z druhé tabulky
+
+> [!NOTE]
+> Pokud existuje odpovídající řádek v první tabulce, budou vráceny hodnoty z obou tabulek.
+> 
+> Pokud neexistuje odpovídající řádek v první tabulce, budou hodnoty z první tabulky `NULL`.
+
+```sql
+SELECT
+  employees.name AS EmployeeName,
+  departments.name AS DepartmentName
+FROM
+  employees
+    RIGHT JOIN
+  departments ON employees.department_id = departments.id;
+```
+
+Tento dotaz vrátí všechny oddělení a odpovídající zaměstnance (pokud existuje a pokud ne, bude hodnota `EmployeeName` `NULL`).
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">full outter join</span></summary>
+
+`full outter join`
+
+Vrátí všechny řádky z obou tabulek.
+
+> [!NOTE]
+> Pokud dojde k shodě, budou vráceny hodnoty z obou tabulek.
+> 
+> Pokud nedojde k shodě, řádek nebude vrácen.
+
+```sql
+SELECT
+  employees.name AS EmployeeName,
+  departments.name AS DepartmentName
+FROM employees 
+FULL OUTER JOIN departments ON employees.department_id = departments.id;
+```
+
+Příkaz vrátí všechny zaměstnance a oddělení (pokud existují a pokud ne, budou hodnoty `NULL`).
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">inner join</span></summary>
+
+`inner join`
+
+Vrátí pouze řádky, které mají odpovídající hodnoty v obou tabulkách.
+
+>[!NOTE]
+> Pokud dojde k shodě, budou vráceny hodnoty z obou tabulek.
+>
+> Pokud nedojde k shodě, řádek nebude vrácen.
+
+```sql
+SELECT
+  employees.name [Employee Name],
+  departments.name [Department Name]
+FROM employees 
+INNER JOIN departments ON employees.department_id = departments.id;
+```
+
+Tento dotaz vrátí pouze zaměstnance, kteří mají odpovídající oddělení.
+
+</details>
+
+<details>
+<summary><span style="color:#1E90FF;">cross apply</span></summary>
+
+`cross apply` je užitečný, když potřebujete provést poddotaz pro každý řádek z první tabulky, což nelze snadno dosáhnout pomocí INNER JOIN.
+
+```sql
+SELECT t1.column1, t2.column2
+FROM table1 t1
+  CROSS APPLY (
+    SELECT column2
+    FROM table2
+    WHERE t1.column1 = table2.column2
+) t2;
+```
+
+Tento dotaz vrátí všechny řádky z `table1` a pro každý řádek provede poddotaz, který vrátí odpovídající hodnotu z `table2`.
+</details>
