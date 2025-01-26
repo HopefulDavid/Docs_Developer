@@ -1,4 +1,6 @@
 Changelog
+## 2025-01-26
+  - ✨ přidání dokumentace k návrhovým vzorům (docs)
 ## 2025-01-25
   - 🔧 aktualizace GitHub Actions na verzi 4
   - 📝 přidání dokumentace pro enum (c#)
@@ -8,6 +10,7 @@ Changelog
   - 📝 úprava formátování SQL dotazů (database)
   - 📝 přidání sekce o regulárních výrazech (JetBrains)
   - 🐛 přidání dokumentace pro VPN (network)
+  - 🔧 update changelog
   - 🔧 update changelog
   - 🔧 update changelog
   - ✨ přidání dokumentace pro VPN (vpn)
