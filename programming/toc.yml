@@ -2,6 +2,8 @@
   items:
     - name: Techniky
       href: techniques.md
+    - name: Návrhové vzory
+      href: designPatterns.md
     - name: Výběr pro vývoj
       href: index.md
 
