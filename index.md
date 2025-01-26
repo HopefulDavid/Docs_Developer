@@ -1,6 +1,8 @@
 Changelog
 ## 2025-01-26
+  - 📝 aktualizace dokumentace design patterns
   - ✨ přidání dokumentace k návrhovým vzorům (docs)
+  - 🔧 update changelog
 ## 2025-01-25
   - 🔧 aktualizace GitHub Actions na verzi 4
   - 📝 přidání dokumentace pro enum (c#)
